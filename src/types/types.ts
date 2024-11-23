@@ -1,4 +1,4 @@
-type Location = 'Paris'
+type LocationCity = 'Paris'
   | 'Cologne'
   | 'Brussels'
   | 'Amsterdam'
@@ -10,4 +10,28 @@ type SortType = 'Popular'
   | 'Price: high to low'
   | 'Top rated first';
 
-export type { SortType, Location };
+type Location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+}
+
+type City = {
+  name: string;
+  location: Location;
+}
+
+type OfferCardProps = {
+  id: string;
+  title: string;
+  type: string;
+  price: number;
+  city: City;
+  location: Location;
+  isFavorite: boolean;
+  isPremium: boolean;
+  rating: number;
+  previewImage: string;
+}
+
+export type { SortType, LocationCity, OfferCardProps };

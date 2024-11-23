@@ -1,7 +1,7 @@
 import HeaderNavLink from './header-nav-link';
 import HeaderUserInfo from './header-user-info';
 
-const FAVORITE_COUNT = 3;
+import { FAVORITE_COUNT } from '../../const';
 
 type HeaderNavProps = {
   isLogged: boolean;

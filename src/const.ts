@@ -1,0 +1,4 @@
+const FAVORITE_COUNT = 3;
+const OFFERS_COUNT = 5;
+
+export { FAVORITE_COUNT, OFFERS_COUNT };

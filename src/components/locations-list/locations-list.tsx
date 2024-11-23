@@ -1,7 +1,7 @@
-import type { Location } from '../../types/types';
+import type { LocationCity } from '../../types/types';
 import LocationItem from './location-item';
 
-const locations: Location[] = [
+const locations: LocationCity[] = [
   'Paris',
   'Cologne',
   'Brussels',

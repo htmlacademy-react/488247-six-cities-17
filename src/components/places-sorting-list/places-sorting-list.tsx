@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import type { SortType } from '../../types/types';
 import SortingType from './sorting-type';
+import clsx from 'clsx';
 
 
 const sortingTypeList: SortType[] = [
@@ -10,16 +12,24 @@ const sortingTypeList: SortType[] = [
 ];
 
 export default function PlacesSortingForm() {
+  const [open, setOpen] = useState(false);
+
   return (
     <form className="places__sorting" action="#" method="get">
-      <span className="places__sorting-caption">Sort by</span>
-      <span className="places__sorting-type" tabIndex={0}>
+      <span className="places__sorting-caption">Sort by&nbsp;</span>
+      <span
+        onClick={() => setOpen((prev) => !prev)}
+        className="places__sorting-type"
+        tabIndex={0}
+      >
         Popular
         <svg className="places__sorting-arrow" width={7} height={4}>
           <use xlinkHref="#icon-arrow-select" />
         </svg>
       </span>
-      <ul className="places__options places__options--custom places__options--opened">
+      <ul className={clsx(
+        'places__options places__options--custom', open && 'places__options--opened')}
+      >
         {sortingTypeList.map((sortType, index) => (
           <SortingType
             key={sortType}
