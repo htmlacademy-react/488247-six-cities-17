@@ -1,4 +1,4 @@
-export const mochData = [
+export const mockData = [
   {
     'id': 'e03445b9-c26a-4711-a92c-bd3d99f0f214',
     'title': 'Loft Studio in the Central Area',

@@ -1,6 +1,7 @@
 import type { OfferCardProps } from '../../types/types';
 import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
+import Rating from '../rating/rating';
 
 export default function OfferCard({
   previewImage,
@@ -38,12 +39,7 @@ export default function OfferCard({
             isFavorite={isFavorite}
           />
         </div>
-        <div className="place-card__rating rating">
-          <div className="place-card__stars rating__stars">
-            <span style={{ width: `${rating * 20}%` }} />
-            <span className="visually-hidden">Rating</span>
-          </div>
-        </div>
+        <Rating element='place-card' rating={rating} />
         <h2 className="place-card__name">
           <a href="#">{title}</a>
         </h2>
