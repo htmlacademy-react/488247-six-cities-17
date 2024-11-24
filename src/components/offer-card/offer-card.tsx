@@ -1,6 +1,6 @@
-import clsx from 'clsx';
 import type { OfferCardProps } from '../../types/types';
 import PremiumMark from '../premium-mark/premium-mark';
+import BookmarkButton from '../bookmark-button/bookmark-button';
 
 export default function OfferCard({
   previewImage,
@@ -33,22 +33,10 @@ export default function OfferCard({
             <b className="place-card__price-value">€{price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          <button
-            className={clsx(
-              'place-card__bookmark-button',
-              isFavorite && 'place-card__bookmark-button--active',
-              'button')}
-            type="button"
-          >
-            <svg
-              className="place-card__bookmark-icon"
-              width={18}
-              height={19}
-            >
-              <use xlinkHref="#icon-bookmark" />
-            </svg>
-            <span className="visually-hidden">To bookmarks</span>
-          </button>
+          <BookmarkButton
+            element='place-card'
+            isFavorite={isFavorite}
+          />
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
