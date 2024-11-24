@@ -1,7 +1,7 @@
 import Header from '../../components/header/header';
 import LocationsList from '../../components/locations-list/locations-list';
-import OfferCard from '../../components/offer-card/offer-card';
 import PlacesSortingList from '../../components/places-sorting-list/places-sorting-list';
+import OfferCard from '../../components/offer-card/offer-card';
 import { OFFERS_COUNT } from '../../const';
 import { mochData } from '../../moch-data/moch-data';
 

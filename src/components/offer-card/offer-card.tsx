@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type { OfferCardProps } from '../../types/types';
+import PremiumMark from '../premium-mark/premium-mark';
 
 export default function OfferCard({
   previewImage,
@@ -14,10 +15,7 @@ export default function OfferCard({
     <article
       className="cities__card place-card"
     >
-      {isPremium &&
-        <div className="place-card__mark">
-          <span>Premium</span>
-        </div>}
+      {isPremium && <PremiumMark element='place-card' />}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img

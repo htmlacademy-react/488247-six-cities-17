@@ -1,4 +1,5 @@
 const FAVORITE_COUNT = 3;
 const OFFERS_COUNT = 5;
+const IS_LOGGED = true;
 
-export { FAVORITE_COUNT, OFFERS_COUNT };
+export { FAVORITE_COUNT, OFFERS_COUNT, IS_LOGGED };

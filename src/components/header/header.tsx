@@ -1,5 +1,6 @@
 import Logo from '../logo/logo';
 import HeaderNav from './header-nav';
+import { IS_LOGGED } from '../../const';
 
 export default function Header() {
   return (
@@ -10,7 +11,7 @@ export default function Header() {
             <Logo headerLogo />
           </div>
           {location.pathname !== '/login' &&
-            <HeaderNav isLogged />}
+            <HeaderNav isLogged={IS_LOGGED} />}
         </div>
       </div>
     </header>
