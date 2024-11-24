@@ -11,13 +11,14 @@ export default function OfferCard({
   rating,
   isPremium,
   isFavorite,
+  element,
 }: OfferCardProps) {
   return (
     <article
-      className="cities__card place-card"
+      className={`${element}__card place-card`}
     >
       {isPremium && <PremiumMark element='place-card' />}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${element}__image-wrapper place-card__image-wrapper`}>
         <a href="#">
           <img
             className="place-card__image"

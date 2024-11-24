@@ -32,6 +32,7 @@ type OfferCardProps = {
   isPremium: boolean;
   rating: number;
   previewImage: string;
+  element: string;
 }
 
 export type { SortType, LocationCity, OfferCardProps };

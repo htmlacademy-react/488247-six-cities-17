@@ -20,7 +20,7 @@ export default function MainPage() {
               <PlacesSortingList />
               <div className="cities__places-list places__list tabs__content">
                 {mockData.slice(0, OFFERS_COUNT).map((offer) => (
-                  <OfferCard key={offer.id} {...offer} />
+                  <OfferCard key={offer.id} element='cities' {...offer} />
                 ))}
               </div>
             </section>
