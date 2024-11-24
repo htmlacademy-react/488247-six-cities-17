@@ -1,4 +1,4 @@
-import type { LocationCity } from '../../types/types';
+import type { LocationCity } from '../../types';
 import LocationItem from './location-item';
 
 const locations: LocationCity[] = [

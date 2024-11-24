@@ -1,4 +1,4 @@
-import type { OfferCardProps } from '../../types/types';
+import type { OfferCardProps } from '../../types';
 import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 import Rating from '../rating/rating';

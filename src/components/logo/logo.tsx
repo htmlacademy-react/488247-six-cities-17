@@ -1,16 +1,22 @@
+import clsx from 'clsx';
+
 type LogoProps = {
-  headerLogo?: boolean;
+  element: string;
 }
 
-export default function Logo({ headerLogo }: LogoProps) {
+export default function Logo({ element }: LogoProps) {
   return (
-    <a className="header__logo-link header__logo-link--active">
+    <a className={clsx(
+      `${element}-link`,
+      location.pathname !== '/' && `${element}-link--active`)}
+    href='/'
+    >
       <img
         className="header__logo"
         src="img/logo.svg"
         alt="6 cities logo"
-        width={headerLogo ? 81 : 64}
-        height={headerLogo ? 41 : 33}
+        width={element === 'headerLogo' ? 81 : 64}
+        height={element === 'headerLogo' ? 41 : 33}
       />
     </a>
   );

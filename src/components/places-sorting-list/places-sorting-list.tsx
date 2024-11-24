@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { SortType } from '../../types/types';
+import type { SortType } from '../../types';
 import SortingType from './sorting-type';
 import clsx from 'clsx';
 

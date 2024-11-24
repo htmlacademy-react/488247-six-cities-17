@@ -22,7 +22,7 @@ export default function BookmarkButton({
       type="button"
     >
       <svg
-        className="place-card__bookmark-icon"
+        className={`${element}__bookmark-icon`}
         width={width}
         height={height}
       >
