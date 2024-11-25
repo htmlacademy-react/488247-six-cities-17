@@ -35,4 +35,26 @@ type OfferCardProps = {
   element: string;
 }
 
-export type { SortType, LocationCity, OfferCardProps };
+type Host = {
+  isPro: boolean;
+  name: string;
+  avatarUrl: string;
+}
+
+type SingleOfferProps = Pick<OfferCardProps,
+ 'title'
+ | 'type'
+ | 'price'
+ | 'isFavorite'
+ | 'isPremium'
+ | 'rating'
+ > & {
+  description: string;
+  images: string[];
+  goods: string[];
+  host: Host;
+  bedrooms: number;
+  maxAdults: number;
+}
+
+export type { SortType, LocationCity, OfferCardProps, SingleOfferProps };
