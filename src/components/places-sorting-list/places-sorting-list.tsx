@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { SortType } from '../../types';
-import SortingType from './sorting-type';
+import SortingType from './components/sorting-type';
 import clsx from 'clsx';
 
 
@@ -11,7 +11,7 @@ const sortingTypeList: SortType[] = [
   'Top rated first',
 ];
 
-export default function PlacesSortingForm() {
+export default function PlacesSortingList() {
   const [open, setOpen] = useState(false);
 
   return (

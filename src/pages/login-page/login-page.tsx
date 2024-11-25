@@ -1,4 +1,6 @@
 import Header from '../../components/header/header';
+import LocationItem from '../../components/location-item/location-item';
+import { CURRENT_CITY } from '../../const';
 
 export default function LoginPage() {
   return (
@@ -35,11 +37,7 @@ export default function LoginPage() {
             </form>
           </section>
           <section className="locations locations--login locations--current">
-            <div className="locations__item">
-              <a className="locations__item-link" href="#">
-                <span>Amsterdam</span>
-              </a>
-            </div>
+            <LocationItem city={CURRENT_CITY} />
           </section>
         </div>
       </main>

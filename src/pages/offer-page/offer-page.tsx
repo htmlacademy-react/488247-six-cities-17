@@ -2,6 +2,8 @@ import BookmarkButton from '../../components/bookmark-button/bookmark-button';
 import Header from '../../components/header/header';
 import PremiumMark from '../../components/premium-mark/premium-mark';
 import Rating from '../../components/rating/rating';
+import { IS_LOGGED } from '../../const';
+import OfferMapSection from './components/offer-map-section';
 
 const rating = 4.5; // temporary value
 
@@ -167,6 +169,7 @@ export default function OfferPage() {
                     </div>
                   </li>
                 </ul>
+                {IS_LOGGED &&
                 <form className="reviews__form form" action="#" method="post">
                   <label className="reviews__label form__label" htmlFor="review">
                 Your review
@@ -275,11 +278,11 @@ export default function OfferPage() {
                   Submit
                     </button>
                   </div>
-                </form>
+                </form>}
               </section>
             </div>
           </div>
-          <section className="offer__map map" />
+          <OfferMapSection />
         </section>
         <div className="container">
           <section className="near-places places">

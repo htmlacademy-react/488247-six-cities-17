@@ -1,15 +1,11 @@
-import clsx from 'clsx';
-
 type LogoProps = {
   element: string;
 }
 
 export default function Logo({ element }: LogoProps) {
   return (
-    <a className={clsx(
-      `${element}-link`,
-      location.pathname !== '/' && `${element}-link--active`)}
-    href='/'
+    <a className={`${element}-link`}
+      href='/'
     >
       <img
         className="header__logo"

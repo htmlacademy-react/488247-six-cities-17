@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 type LocationItemProps = {
   city: string;
-  index: number;
+  index?: number;
 }
 
 export default function LocationItem({city, index}: LocationItemProps) {
