@@ -1,6 +1,6 @@
-import { RATING_STARS_COUNT } from '../../../const';
 import RatingStar from './rating-star';
 import { nanoid } from '@reduxjs/toolkit';
+import { RATING_STARS_COUNT } from '../../../const';
 
 export default function OfferReviewsForm() {
   return (

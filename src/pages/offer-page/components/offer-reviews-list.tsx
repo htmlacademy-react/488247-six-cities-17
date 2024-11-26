@@ -1,5 +1,5 @@
-import { IS_LOGGED } from '../../../const';
 import OfferReviewsForm from './offer-reviews-form';
+import { IS_LOGGED } from '../../../const';
 
 export default function OfferReviewsList() {
   return (

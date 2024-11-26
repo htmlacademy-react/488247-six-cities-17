@@ -1,9 +1,9 @@
 import Header from '../../components/header/header';
-import Logo from '../../components/logo/logo';
+import FavoritesList from './components/favorites-list';
 import FavoritesListEmpty from './components/favorites-list-empty';
+import Footer from '../../components/footer/footer';
 import clsx from 'clsx';
 import { FAVORITE_OFFERS_COUNT } from '../../const';
-import FavoritesList from './components/favorites-list';
 
 export default function FavoritesPage() {
   return (
@@ -18,9 +18,7 @@ export default function FavoritesPage() {
           {FAVORITE_OFFERS_COUNT ? <FavoritesList /> : <FavoritesListEmpty />}
         </div>
       </main>
-      <footer className="footer container">
-        <Logo element='footer__logo' />
-      </footer>
+      <Footer />
     </div>
   );
 }

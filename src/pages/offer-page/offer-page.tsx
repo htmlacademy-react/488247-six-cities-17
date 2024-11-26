@@ -9,7 +9,7 @@ import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
 import OfferMapSection from './components/offer-map-section';
 import NearPlaces from './components/near-places';
-import { mockSingleOffer } from '../../mock-data/mock-data';
+import { mockSingleOffer } from '../../mock-data/mock-single-offer';
 import { SingleOfferProps } from '../../types';
 
 export default function OfferPage() {
@@ -60,7 +60,9 @@ export default function OfferPage() {
                 <b className="offer__price-value">€{price}</b>
                 <span className="offer__price-text">&nbsp;night</span>
               </div>
-              <OfferInside goods={goods} />
+              <OfferInside
+                goods={goods}
+              />
               <OfferHost
                 host={host}
                 description={description}

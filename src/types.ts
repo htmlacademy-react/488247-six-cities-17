@@ -1,4 +1,4 @@
-type LocationCity = 'Paris'
+type LocationCities = 'Paris'
   | 'Cologne'
   | 'Brussels'
   | 'Amsterdam'
@@ -32,7 +32,7 @@ type OfferCardProps = {
   isPremium: boolean;
   rating: number;
   previewImage: string;
-  element: string;
+  element?: string;
 }
 
 type Host = {
@@ -57,4 +57,4 @@ type SingleOfferProps = Pick<OfferCardProps,
   maxAdults: number;
 }
 
-export type { SortType, LocationCity, OfferCardProps, SingleOfferProps };
+export type { SortType, LocationCities, OfferCardProps, SingleOfferProps };

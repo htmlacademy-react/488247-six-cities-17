@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import type { SortType } from '../../types';
 import SortingType from './components/sorting-type';
+import type { SortType } from '../../types';
+import { useState } from 'react';
 import clsx from 'clsx';
 
 

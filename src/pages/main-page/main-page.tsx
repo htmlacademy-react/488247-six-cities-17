@@ -2,9 +2,9 @@ import Header from '../../components/header/header';
 import LocationsList from '../../components/locations-list/locations-list';
 import CitiesPlaces from './components/cities-placies';
 import CitiesNoPlaces from './components/cities-no-places';
+import CitiesMapSection from './components/cities-map-section';
 import clsx from 'clsx';
 import { OFFERS_COUNT } from '../../const';
-import CitiesMapSection from './components/cities-map-section';
 
 export default function MainPage() {
   return (

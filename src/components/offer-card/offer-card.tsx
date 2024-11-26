@@ -1,7 +1,7 @@
-import type { OfferCardProps } from '../../types';
 import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 import Rating from '../rating/rating';
+import type { OfferCardProps } from '../../types';
 
 export default function OfferCard({
   previewImage,

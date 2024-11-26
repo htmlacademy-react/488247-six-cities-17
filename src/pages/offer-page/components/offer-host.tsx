@@ -25,9 +25,7 @@ export default function OfferHost({host: {avatarUrl, name, isPro}, description}:
         {isPro && <span className="offer__user-status">Pro</span>}
       </div>
       <div className="offer__description">
-        <p className="offer__text">
-          {description}
-        </p>
+        <p className="offer__text">{description}</p>
       </div>
     </div>
   );
