@@ -3,6 +3,7 @@ import type { OfferCardProps } from '../../../types';
 import { nanoid } from '@reduxjs/toolkit';
 import { mockOffersData } from '../../../mock-data/mock-data';
 import { LOCATIONS } from '../../../const';
+import LocationItem from '../../../components/location-item/location-item';
 
 type FavoritesPlaces = {
   item: OfferCardProps[];
@@ -31,11 +32,7 @@ export default function FavoritesList() {
             className="favorites__locations-items"
           >
             <div className="favorites__locations locations locations--current">
-              <div className="locations__item">
-                <a className="locations__item-link" href="#">
-                  <span>{item[0].city.name}</span>
-                </a>
-              </div>
+              <LocationItem city={item[0].city.name} />
             </div>
             <div className="favorites__places">
               <FavoritesPlaces item={item} />
