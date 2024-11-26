@@ -1,4 +1,4 @@
-export const mockSingleOffer = {
+export const mockDetailOffer = {
   'id': 'a0a5c15f-50be-4a09-bb62-0f8af62f5625',
   'title': 'Tile House',
   'description': 'Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.',

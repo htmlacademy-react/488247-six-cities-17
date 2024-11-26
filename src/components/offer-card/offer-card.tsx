@@ -1,7 +1,11 @@
 import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 import Rating from '../rating/rating';
-import type { OfferCardProps } from '../../types';
+import type { Offer } from '../../types';
+
+type OfferCardProps = Offer & {
+  element: string;
+}
 
 export default function OfferCard({
   previewImage,

@@ -9,11 +9,11 @@ import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
 import OfferMapSection from './components/offer-map-section';
 import NearPlacesList from './components/near-places-list';
-import { mockSingleOffer } from '../../mock-data/mock-single-offer';
-import { SingleOfferProps } from '../../types';
+import { mockDetailOffer } from '../../mock-data/mock-detail-offer';
+import { DetailOfferProps } from '../../types';
 
 export default function OfferPage() {
-  const offer: SingleOfferProps = mockSingleOffer;
+  const offer: DetailOfferProps = mockDetailOffer;
   const {
     images,
     isPremium,

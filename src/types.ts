@@ -21,7 +21,7 @@ type City = {
   location: Location;
 }
 
-type OfferCardProps = {
+type Offer = {
   id: string;
   title: string;
   type: string;
@@ -32,7 +32,6 @@ type OfferCardProps = {
   isPremium: boolean;
   rating: number;
   previewImage: string;
-  element: string;
 }
 
 type Host = {
@@ -41,12 +40,11 @@ type Host = {
   avatarUrl: string;
 }
 
-type SingleOfferProps = Omit<OfferCardProps,
+type DetailOfferProps = Omit<Offer,
 'id'
 | 'city'
 | 'location'
 | 'previewImage'
-| 'element'
  > & {
   description: string;
   images: string[];
@@ -56,4 +54,4 @@ type SingleOfferProps = Omit<OfferCardProps,
   maxAdults: number;
 }
 
-export type { SortType, LocationCities, OfferCardProps, SingleOfferProps };
+export type { SortType, LocationCities, Offer, DetailOfferProps };
