@@ -5,15 +5,15 @@ import { mockOffersData } from '../../../mock-data/mock-data';
 import { LOCATIONS } from '../../../const';
 import LocationItem from '../../../components/location-item/location-item';
 
-type FavoritesPlaces = {
-  item: OfferCardProps[];
+type FavoritePlacesListProps = {
+  item: Omit<OfferCardProps, 'element'>[];
 }
 
 const favoritesList = LOCATIONS.map((city) => [...mockOffersData]
   .filter(({ city: { name }, isFavorite }) => city === name && isFavorite))
   .filter((item) => item.length);
 
-function FavoritesPlaces({ item }: FavoritesPlaces) {
+function FavoritePlacesList({ item }: FavoritePlacesListProps) {
   return (
     item.map(
       (place) => <OfferCard key={place.id} {...place} element='favorites' />
@@ -35,7 +35,7 @@ export default function FavoritesList() {
               <LocationItem city={item[0].city.name} />
             </div>
             <div className="favorites__places">
-              <FavoritesPlaces item={item} />
+              <FavoritePlacesList item={item} />
             </div>
           </li>
         ))}

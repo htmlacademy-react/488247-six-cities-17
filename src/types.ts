@@ -32,7 +32,7 @@ type OfferCardProps = {
   isPremium: boolean;
   rating: number;
   previewImage: string;
-  element?: string;
+  element: string;
 }
 
 type Host = {
@@ -41,13 +41,12 @@ type Host = {
   avatarUrl: string;
 }
 
-type SingleOfferProps = Pick<OfferCardProps,
- 'title'
- | 'type'
- | 'price'
- | 'isFavorite'
- | 'isPremium'
- | 'rating'
+type SingleOfferProps = Omit<OfferCardProps,
+'id'
+| 'city'
+| 'location'
+| 'previewImage'
+| 'element'
  > & {
   description: string;
   images: string[];

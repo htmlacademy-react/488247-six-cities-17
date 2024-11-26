@@ -8,7 +8,7 @@ import OfferInside from './components/offer-inside';
 import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
 import OfferMapSection from './components/offer-map-section';
-import NearPlaces from './components/near-places';
+import NearPlacesList from './components/near-places-list';
 import { mockSingleOffer } from '../../mock-data/mock-single-offer';
 import { SingleOfferProps } from '../../types';
 
@@ -73,7 +73,7 @@ export default function OfferPage() {
           <OfferMapSection />
         </section>
         <div className="container">
-          <NearPlaces />
+          <NearPlacesList />
         </div>
       </main>
     </div>

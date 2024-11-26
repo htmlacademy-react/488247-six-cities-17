@@ -11,8 +11,7 @@ export default function OfferReviewsForm() {
       <div className="reviews__rating-form form__rating">
         {Array.from({ length: RATING_STARS_COUNT }).map(
           (_, index) => <RatingStar key={nanoid()} count={index + 1}/>
-        )
-          .toReversed()}
+        ).toReversed()}
       </div>
       <textarea
         className="reviews__textarea form__textarea"
