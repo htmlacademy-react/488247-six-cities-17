@@ -11,11 +11,12 @@ type Offer = {
   previewImage: string;
 }
 
-type OfferByCities = {
-  [city: string]: Offer;
-}
-
-type LocationCities = keyof OfferByCities;
+type LocationCities = 'Paris'
+| 'Cologne'
+| 'Brussels'
+| 'Amsterdam'
+| 'Hamburg'
+| 'Dusseldorf';
 
 type SortType = 'Popular'
   | 'Price: low to high'
@@ -53,4 +54,4 @@ type DetailOfferProps = Omit<Offer,
   maxAdults: number;
 }
 
-export type { SortType, LocationCities, Offer, DetailOfferProps, OfferByCities };
+export type { SortType, LocationCities, Offer, DetailOfferProps };

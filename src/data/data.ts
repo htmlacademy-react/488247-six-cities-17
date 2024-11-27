@@ -14,7 +14,15 @@ function getOffersByCities() {
 
 const offersByCities = getOffersByCities();
 
-const favoritesList = getCities().map((city) => offersByCities[city]
-  .filter((place) => place.isFavorite)).filter((item) => item.length);
+function getFavorites() {
+  return Object.fromEntries(getCities()
+    .map((city) => offersByCities[city]
+      .filter((place) => place.isFavorite))
+    .filter((item) => item.length)
+    .map((item) => [item[0].city.name, item])
+  );
+}
 
-export { offersByCities, favoritesList };
+const favorites = getFavorites();
+
+export { offersByCities, favorites };

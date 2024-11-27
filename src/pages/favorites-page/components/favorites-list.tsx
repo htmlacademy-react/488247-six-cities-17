@@ -1,5 +1,5 @@
 import OfferCard from '../../../components/offer-card/offer-card';
-import { favoritesList } from '../../../data/data';
+import { favorites } from '../../../data/data';
 import type { Offer } from '../../../types';
 import { nanoid } from '@reduxjs/toolkit';
 import LocationItem from '../../../components/location-item/location-item';
@@ -21,16 +21,16 @@ export default function FavoritesList() {
     <section className="favorites">
       <h1 className="favorites__title">Saved listing</h1>
       <ul className="favorites__list">
-        {favoritesList.map((item) => (
+        {Object.keys(favorites).map((city) => (
           <li
             key={nanoid()}
             className="favorites__locations-items"
           >
             <div className="favorites__locations locations locations--current">
-              <LocationItem city={item[0].city.name} />
+              <LocationItem city={city} />
             </div>
             <div className="favorites__places">
-              <FavoritePlacesList item={item} />
+              <FavoritePlacesList item={favorites[city]} />
             </div>
           </li>
         ))}
