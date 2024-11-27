@@ -11,13 +11,6 @@ type Offer = {
   previewImage: string;
 }
 
-type LocationCities = 'Paris'
-| 'Cologne'
-| 'Brussels'
-| 'Amsterdam'
-| 'Hamburg'
-| 'Dusseldorf';
-
 type SortType = 'Popular'
   | 'Price: low to high'
   | 'Price: high to low'
@@ -54,4 +47,4 @@ type DetailOfferProps = Omit<Offer,
   maxAdults: number;
 }
 
-export type { SortType, LocationCities, Offer, DetailOfferProps };
+export type { SortType, Offer, DetailOfferProps };
