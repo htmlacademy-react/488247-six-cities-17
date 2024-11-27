@@ -1,17 +1,12 @@
 import OfferCard from '../../../components/offer-card/offer-card';
+import { favoritesList } from '../../../data/data';
 import type { Offer } from '../../../types';
 import { nanoid } from '@reduxjs/toolkit';
-import { mockOffersData } from '../../../mock-data/mock-data';
-import { LOCATIONS } from '../../../const';
 import LocationItem from '../../../components/location-item/location-item';
 
 type FavoritePlacesListProps = {
   item: Offer[];
 }
-
-const favoritesList = LOCATIONS.map((city) => [...mockOffersData]
-  .filter(({ city: { name }, isFavorite }) => city === name && isFavorite))
-  .filter((item) => item.length);
 
 function FavoritePlacesList({ item }: FavoritePlacesListProps) {
   return (

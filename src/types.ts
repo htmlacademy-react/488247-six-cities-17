@@ -1,9 +1,21 @@
-type LocationCities = 'Paris'
-  | 'Cologne'
-  | 'Brussels'
-  | 'Amsterdam'
-  | 'Hamburg'
-  | 'Dusseldorf';
+type Offer = {
+  id: string;
+  title: string;
+  type: string;
+  price: number;
+  city: City;
+  location: Location;
+  isFavorite: boolean;
+  isPremium: boolean;
+  rating: number;
+  previewImage: string;
+}
+
+type OfferByCities = {
+  [city: string]: Offer;
+}
+
+type LocationCities = keyof OfferByCities;
 
 type SortType = 'Popular'
   | 'Price: low to high'
@@ -19,19 +31,6 @@ type Location = {
 type City = {
   name: string;
   location: Location;
-}
-
-type Offer = {
-  id: string;
-  title: string;
-  type: string;
-  price: number;
-  city: City;
-  location: Location;
-  isFavorite: boolean;
-  isPremium: boolean;
-  rating: number;
-  previewImage: string;
 }
 
 type Host = {
@@ -54,4 +53,4 @@ type DetailOfferProps = Omit<Offer,
   maxAdults: number;
 }
 
-export type { SortType, LocationCities, Offer, DetailOfferProps };
+export type { SortType, LocationCities, Offer, DetailOfferProps, OfferByCities };
