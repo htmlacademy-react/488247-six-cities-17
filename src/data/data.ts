@@ -15,11 +15,12 @@ function getOffersByCities() {
 const offersByCities = getOffersByCities();
 
 function getFavorites() {
-  return Object.fromEntries(getCities()
+  return Object.fromEntries(Object.keys(offersByCities)
     .map((city) => offersByCities[city]
       .filter((place) => place.isFavorite))
-    .filter((item) => item.length)
-    .map((item) => [item[0].city.name, item])
+    .filter((place) => place.length)
+    .map((place) => [place[0].city.name, place]
+    )
   );
 }
 
