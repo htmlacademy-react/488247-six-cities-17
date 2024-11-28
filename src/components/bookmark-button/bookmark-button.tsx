@@ -28,7 +28,7 @@ export default function BookmarkButton({
       >
         <use xlinkHref="#icon-bookmark" />
       </svg>
-      <span className="visually-hidden">To bookmarks</span>
+      <span className="visually-hidden">{`${isFavorite ? 'From' : 'To'} bookmarks`}</span>
     </button>
   );
 }
