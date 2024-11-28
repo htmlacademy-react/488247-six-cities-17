@@ -33,7 +33,7 @@ type Host = {
   avatarUrl: string;
 }
 
-type DetailOfferProps = Omit<Offer,
+type FullOffer = Omit<Offer,
 'id'
 | 'city'
 | 'location'
@@ -47,4 +47,4 @@ type DetailOfferProps = Omit<Offer,
   maxAdults: number;
 }
 
-export type { SortType, Offer, DetailOfferProps };
+export type { SortType, Offer, FullOffer };

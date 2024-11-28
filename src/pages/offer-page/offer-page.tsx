@@ -9,25 +9,24 @@ import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
 import OfferMapSection from './components/offer-map-section';
 import NearPlacesList from './components/near-places-list';
-import { mockDetailOffer } from '../../mock-data/mock-detail-offer';
-import { DetailOfferProps } from '../../types';
+import { mockFullOffer } from '../../mock-data/mock-full-offer';
+
+const {
+  images,
+  isPremium,
+  title,
+  isFavorite,
+  rating,
+  type,
+  bedrooms,
+  maxAdults,
+  price,
+  goods,
+  host,
+  description,
+} = mockFullOffer;
 
 export default function OfferPage() {
-  const offer: DetailOfferProps = mockDetailOffer;
-  const {
-    images,
-    isPremium,
-    title,
-    isFavorite,
-    rating,
-    type,
-    bedrooms,
-    maxAdults,
-    price,
-    goods,
-    host,
-    description,
-  } = offer;
 
   return (
     <div className="page">
