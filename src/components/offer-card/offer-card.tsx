@@ -4,7 +4,7 @@ import Rating from '../rating/rating';
 import type { Offer } from '../../types';
 
 type OfferCardProps = Offer & {
-  element: string;
+  prefix: string;
 }
 
 export default function OfferCard({
@@ -15,14 +15,14 @@ export default function OfferCard({
   rating,
   isPremium,
   isFavorite,
-  element,
+  prefix,
 }: OfferCardProps) {
   return (
     <article
-      className={`${element}__card place-card`}
+      className={`${prefix}__card place-card`}
     >
-      {isPremium && <PremiumMark element='place-card' />}
-      <div className={`${element}__image-wrapper place-card__image-wrapper`}>
+      {isPremium && <PremiumMark prefix='place-card' />}
+      <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>
         <a href="#">
           <img
             className="place-card__image"
@@ -40,11 +40,11 @@ export default function OfferCard({
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <BookmarkButton
-            element='place-card'
+            prefix='place-card'
             isFavorite={isFavorite}
           />
         </div>
-        <Rating element='place-card' rating={rating} />
+        <Rating prefix='place-card' rating={rating} />
         <h2 className="place-card__name">
           <a href="#">{title}</a>
         </h2>

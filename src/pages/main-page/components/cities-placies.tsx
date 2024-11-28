@@ -11,7 +11,7 @@ export default function CitiesPlaces() {
       <PlacesSortingList />
       <div className="cities__places-list places__list tabs__content">
         {offersByCities[CURRENT_CITY].slice(0, OFFERS_COUNT).map((offer) => (
-          <OfferCard key={offer.id} {...offer} element='cities' />
+          <OfferCard key={offer.id} {...offer} prefix='cities' />
         ))}
       </div>
     </section>

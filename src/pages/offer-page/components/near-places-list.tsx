@@ -11,7 +11,7 @@ export default function NearPlacesList() {
       <div className="near-places__list places__list">
         {mockNearPlacesList.slice(0, NEIGHBOURHOOD_PLACES)
           .map((offer) => (
-            <OfferCard key={offer.id} {...offer} element='near-places' />
+            <OfferCard key={offer.id} {...offer} prefix='near-places' />
           ))}
       </div>
     </section>

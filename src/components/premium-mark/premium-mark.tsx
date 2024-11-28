@@ -1,10 +1,10 @@
 type PremiumMarkProps = {
-  element: string;
+  prefix: string;
 }
 
-export default function PremiumMark({element}: PremiumMarkProps) {
+export default function PremiumMark({prefix}: PremiumMarkProps) {
   return (
-    <div className={`${element}__mark`}>
+    <div className={`${prefix}__mark`}>
       <span>Premium</span>
     </div>
   );

@@ -15,13 +15,14 @@ function getOffersByCities() {
 const offersByCities = getOffersByCities();
 
 function getFavorites() {
-  return Object.fromEntries(Object.keys(offersByCities)
-    .map((city) => offersByCities[city]
-      .filter((place) => place.isFavorite))
-    .filter((place) => place.length)
-    .map((place) => [place[0].city.name, place]
-    )
-  );
+  const cities = {...offersByCities};
+  for (const city in cities) {
+    cities[city] = cities[city].filter((offer) => offer.isFavorite);
+    if (!cities[city].length) {
+      delete cities[city];
+    }
+  }
+  return cities;
 }
 
 const favorites = getFavorites();

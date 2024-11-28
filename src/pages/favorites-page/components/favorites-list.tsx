@@ -11,7 +11,7 @@ type FavoritePlacesListProps = {
 function FavoritePlacesList({ item }: FavoritePlacesListProps) {
   return (
     item.map(
-      (place) => <OfferCard key={place.id} {...place} element='favorites' />
+      (place) => <OfferCard key={place.id} {...place} prefix='favorites' />
     )
   );
 }

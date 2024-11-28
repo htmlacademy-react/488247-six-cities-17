@@ -36,18 +36,18 @@ export default function OfferPage() {
           <OfferGallery images={images} />
           <div className="offer__container container">
             <div className="offer__wrapper">
-              {isPremium && <PremiumMark element='offer' />}
+              {isPremium && <PremiumMark prefix='offer' />}
               <div className="offer__name-wrapper">
                 <h1 className="offer__name">{title}</h1>
                 <BookmarkButton
                   isFavorite={isFavorite}
-                  element='offer'
+                  prefix='offer'
                   width={31}
                   height={33}
                 />
               </div>
               <div className="offer__rating rating">
-                <Rating element='offer' rating={rating} />
+                <Rating prefix='offer' rating={rating} />
                 <span className="offer__rating-value rating__value">{rating}</span>
               </div>
               <OfferFeachersList

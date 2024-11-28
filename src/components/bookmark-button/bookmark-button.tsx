@@ -2,27 +2,27 @@ import clsx from 'clsx';
 
 type BookmarkButtonProps = {
   isFavorite: boolean;
-  element: string;
+  prefix: string;
   width?: number;
   height?: number;
 }
 
 export default function BookmarkButton({
   isFavorite,
-  element,
+  prefix,
   width = 18,
   height = 19,
 }: BookmarkButtonProps) {
   return (
     <button
       className={clsx(
-        `${element}__bookmark-button`,
-        isFavorite && `${element}__bookmark-button--active`,
+        `${prefix}__bookmark-button`,
+        isFavorite && `${prefix}__bookmark-button--active`,
         'button')}
       type="button"
     >
       <svg
-        className={`${element}__bookmark-icon`}
+        className={`${prefix}__bookmark-icon`}
         width={width}
         height={height}
       >

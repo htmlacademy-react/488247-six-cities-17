@@ -11,7 +11,7 @@ export default function Header({ withoutNav = false }: HeaderProps) {
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <Logo element='headerLogo' />
+            <Logo prefix='headerLogo' />
           </div>
           {!withoutNav && <HeaderNav />}
         </div>
