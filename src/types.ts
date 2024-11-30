@@ -27,8 +27,8 @@ type City = {
   location: Location;
 }
 
-type Host = {
-  isPro: boolean;
+type User = {
+  isPro?: boolean;
   name: string;
   avatarUrl: string;
 }
@@ -42,9 +42,17 @@ type FullOffer = Omit<Offer,
   description: string;
   images: string[];
   goods: string[];
-  host: Host;
+  host: User;
   bedrooms: number;
   maxAdults: number;
 }
 
-export type { SortType, Offer, FullOffer };
+type Response = {
+  id: string;
+  date: string;
+  user: User;
+  comment: string;
+  rating: number;
+}
+
+export type { SortType, Offer, FullOffer, Response };
