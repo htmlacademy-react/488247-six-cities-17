@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 
 type LocationItemProps = {
   city: string;
@@ -10,23 +11,23 @@ export default function LocationItem({ city, index, tabItem }: LocationItemProps
   return (
     tabItem ?
       <li className="locations__item">
-        < a
+        <Link
           className={
             clsx(
               'locations__item-link',
               'tabs__item',
               index === 0 && 'tabs__item--active')
           }
-          href="#"
+          to="#"
         >
           <span>{city}</span>
-        </a >
+        </ Link>
       </li >
       :
       <div className="locations__item">
-        <a className="locations__item-link" href="#">
+        <Link className="locations__item-link" to="#">
           <span>{city}</span>
-        </a>
+        </Link>
       </div>
   );
 }

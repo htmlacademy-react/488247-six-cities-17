@@ -21,7 +21,7 @@ export default function App() {
         />
         <Route
           path={AppRoute.Favorites} element={
-            <PrivateRoute authStatus={AuthStatus.Auth} >
+            <PrivateRoute authStatus={AuthStatus.NoAuth} >
               <FavoritesPage />
             </PrivateRoute>
           }

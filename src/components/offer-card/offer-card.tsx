@@ -2,12 +2,15 @@ import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 import Rating from '../rating/rating';
 import type { Offer } from '../../types';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../const';
 
 type OfferCardProps = Offer & {
   prefix: string;
 }
 
 export default function OfferCard({
+  id,
   previewImage,
   title,
   type,
@@ -23,7 +26,7 @@ export default function OfferCard({
     >
       {isPremium && <PremiumMark prefix='place-card' />}
       <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>
-        <a href="#">
+        <Link to={AppRoute.Offer.replace(':id', id)}>
           <img
             className="place-card__image"
             src={previewImage}
@@ -31,7 +34,7 @@ export default function OfferCard({
             height={200}
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -46,7 +49,7 @@ export default function OfferCard({
         </div>
         <Rating prefix='place-card' rating={rating} />
         <h2 className="place-card__name">
-          <a href="#">{title}</a>
+          <Link to={AppRoute.Offer.replace(':id', id)}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
