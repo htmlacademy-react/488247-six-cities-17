@@ -1,10 +1,3 @@
-type OfferCity = 'Paris'
-| 'Cologne'
-| 'Brussels'
-| 'Amsterdam'
-| 'Hamburg'
-| 'Dusseldorf';
-
 type SortType = 'Popular'
 | 'Price: low to high'
 | 'Price: high to low'
@@ -62,4 +55,4 @@ type Response = {
   rating: number;
 }
 
-export type { OfferCity, SortType, Offer, FullOffer, Response };
+export type { SortType, Offer, FullOffer, Response };
