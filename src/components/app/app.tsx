@@ -5,7 +5,8 @@ import OfferPage from '../../pages/offer-page/offer-page';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import ScrollToTop from '../scroll-to-top/scroll-to-top';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AppRoute } from '../../const';
+import { AppRoute, AuthStatus } from '../../const';
+import PrivateRoute from '../private-route/private-route';
 
 export default function App() {
   return (
@@ -19,7 +20,11 @@ export default function App() {
           path={AppRoute.Login} element={<LoginPage />}
         />
         <Route
-          path={AppRoute.Favorites} element={<FavoritesPage />}
+          path={AppRoute.Favorites} element={
+            <PrivateRoute authStatus={AuthStatus.Auth} >
+              <FavoritesPage />
+            </PrivateRoute>
+          }
         />
         <Route
           path={AppRoute.Offer} element={<OfferPage />}
