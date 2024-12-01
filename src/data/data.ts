@@ -1,30 +1,24 @@
-import { mockOffersData } from '../mock-data/mock-data';
+import { mockOffersList } from '../mock-data/mock-offers-list';
+import { CITIES } from '../const';
+import { Offer } from '../types';
 
-function getCities(): string[] {
-  return [
-    ...new Set([...mockOffersData].map((item) => item.city.name))
-  ];
+const offersByCities = CITIES.map((city) => [...mockOffersList]
+  .filter(({ city: { name } }) => city === name));
+
+const favoretesOffers = offersByCities
+  .map((city) => city.filter(({isFavorite}) => isFavorite))
+  .filter((city) => city.length);
+
+function arrayToObject(array: Offer[][]): {[city: string]: Offer[]} {
+  return Object.fromEntries(
+    array.map((city) => [city[0].city.name, city])
+  );
 }
 
-function getOffersByCities() {
-  return Object.fromEntries(getCities().map((city) => [...mockOffersData]
-    .filter(({ city: { name } }) => city === name))
-    .map((item) => [item[0].city.name, item]));
+export function getOffersByCities() {
+  return arrayToObject(offersByCities);
 }
 
-const offersByCities = getOffersByCities();
-
-function getFavorites() {
-  const cities = {...offersByCities};
-  for (const city in cities) {
-    cities[city] = cities[city].filter((offer) => offer.isFavorite);
-    if (!cities[city].length) {
-      delete cities[city];
-    }
-  }
-  return cities;
+export function getFavorites() {
+  return arrayToObject(favoretesOffers);
 }
-
-const favorites = getFavorites();
-
-export { offersByCities, favorites };

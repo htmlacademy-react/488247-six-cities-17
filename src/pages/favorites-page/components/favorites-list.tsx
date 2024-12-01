@@ -1,22 +1,24 @@
 import OfferCard from '../../../components/offer-card/offer-card';
-import { favorites } from '../../../data/data';
+import { getFavorites } from '../../../data/data';
 import type { Offer } from '../../../types';
 import { nanoid } from '@reduxjs/toolkit';
 import LocationItem from '../../../components/location-item/location-item';
 
 type FavoritePlacesListProps = {
-  item: Offer[];
+  offers: Offer[];
 }
 
-function FavoritePlacesList({ item }: FavoritePlacesListProps) {
+function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
   return (
-    item.map(
-      (place) => <OfferCard key={place.id} {...place} prefix='favorites' />
+    offers.map(
+      (offer) => <OfferCard key={offer.id} {...offer} prefix='favorites' />
     )
   );
 }
 
 export default function FavoritesList() {
+  const favorites = getFavorites();
+
   return (
     <section className="favorites">
       <h1 className="favorites__title">Saved listing</h1>
@@ -30,7 +32,7 @@ export default function FavoritesList() {
               <LocationItem city={city} />
             </div>
             <div className="favorites__places">
-              <FavoritePlacesList item={favorites[city]} />
+              <FavoritePlacesList offers={favorites[city]} />
             </div>
           </li>
         ))}

@@ -1,3 +1,15 @@
+type OfferCity = 'Paris'
+| 'Cologne'
+| 'Brussels'
+| 'Amsterdam'
+| 'Hamburg'
+| 'Dusseldorf';
+
+type SortType = 'Popular'
+| 'Price: low to high'
+| 'Price: high to low'
+| 'Top rated first';
+
 type Offer = {
   id: string;
   title: string;
@@ -10,11 +22,6 @@ type Offer = {
   rating: number;
   previewImage: string;
 }
-
-type SortType = 'Popular'
-  | 'Price: low to high'
-  | 'Price: high to low'
-  | 'Top rated first';
 
 type Location = {
   latitude: number;
@@ -55,4 +62,4 @@ type Response = {
   rating: number;
 }
 
-export type { SortType, Offer, FullOffer, Response };
+export type { OfferCity, SortType, Offer, FullOffer, Response };

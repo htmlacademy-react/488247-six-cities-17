@@ -1,4 +1,4 @@
-export const mockOffersData = [
+export const mockOffersList = [
   {
     'id': 'a0a5c15f-50be-4a09-bb62-0f8af62f5625',
     'title': 'Tile House',

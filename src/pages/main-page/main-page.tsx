@@ -1,7 +1,7 @@
 import Header from '../../components/header/header';
 import LocationsList from '../../components/locations-list/locations-list';
-import CitiesPlaces from './components/cities-placies';
-import CitiesNoPlaces from './components/cities-no-places';
+import CitiesOffers from './components/cities-offers';
+import CitiesNoOffers from './components/cities-no-offers';
 import CitiesMapSection from './components/cities-map-section';
 import clsx from 'clsx';
 import { OFFERS_COUNT } from '../../const';
@@ -23,7 +23,7 @@ export default function MainPage() {
             !OFFERS_COUNT && 'cities__places-container--empty',
             'container')}
           >
-            {OFFERS_COUNT ? <CitiesPlaces /> : <CitiesNoPlaces />}
+            {OFFERS_COUNT ? <CitiesOffers /> : <CitiesNoOffers />}
             <CitiesMapSection />
           </div>
         </div>
