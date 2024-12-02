@@ -1,4 +1,5 @@
 import LocationItem from '../location-item/location-item';
+
 import { CITIES, ACTIVE_CITY_INDEX } from '../../const';
 
 export default function LocationsList() {

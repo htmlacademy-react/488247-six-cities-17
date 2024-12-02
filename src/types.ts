@@ -1,3 +1,5 @@
+import { AuthStatus } from './const';
+
 type SortType = 'Popular'
 | 'Price: low to high'
 | 'Price: high to low'
@@ -15,6 +17,8 @@ type Offer = {
   rating: number;
   previewImage: string;
 }
+
+type Offers = Offer[];
 
 type Location = {
   latitude: number;
@@ -56,8 +60,8 @@ type Response = {
 }
 
 type ModifiedRoutePpops = {
-  authStatus: 'AUTH' | 'NO_AUTH' | 'UNKNOWN';
+  authStatus: typeof AuthStatus[keyof typeof AuthStatus];
   children: JSX.Element;
 }
 
-export type { SortType, Offer, FullOffer, Response, ModifiedRoutePpops };
+export type { SortType, Offer, Offers, User, FullOffer, Response, ModifiedRoutePpops };

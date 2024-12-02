@@ -9,7 +9,7 @@ import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
 import OfferMapSection from './components/offer-map-section';
 import NearPlacesList from './components/near-places-list';
-import { mockFullOffer } from '../../mock-data/mock-full-offer';
+import { mockFullOffer } from '../../mock-data';
 
 const {
   images,

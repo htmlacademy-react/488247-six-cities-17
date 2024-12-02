@@ -1,5 +1,7 @@
-import Rating from '../../../components/rating/rating';
 import dayjs from 'dayjs';
+
+import Rating from '../../../components/rating/rating';
+
 import { Response } from '../../../types';
 
 export default function OfferReviewsItem({

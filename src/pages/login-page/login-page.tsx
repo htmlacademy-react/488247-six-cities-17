@@ -1,5 +1,6 @@
 import Header from '../../components/header/header';
 import LocationItem from '../../components/location-item/location-item';
+
 import { ACTIVE_CITY_INDEX, CITIES } from '../../const';
 
 export default function LoginPage() {

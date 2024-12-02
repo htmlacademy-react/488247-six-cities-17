@@ -1,4 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit';
+
 import { GALLERY_IMAGE_COUNT } from '../../../const';
 
 type OfferiImageProps = {

@@ -1,6 +1,6 @@
-import { mockOffersList } from '../mock-data/mock-offers-list';
+import { mockOffersList } from '../mock-data';
 import { CITIES } from '../const';
-import { Offer } from '../types';
+import { Offers } from '../types';
 
 const offersByCities = CITIES.map((city) => [...mockOffersList]
   .filter(({ city: { name } }) => city === name));
@@ -9,7 +9,7 @@ const favoretesOffers = offersByCities
   .map((city) => city.filter(({isFavorite}) => isFavorite))
   .filter((city) => city.length);
 
-function arrayToObject(array: Offer[][]): {[city: string]: Offer[]} {
+function arrayToObject(array: Offers[]): {[city: string]: Offers} {
   return Object.fromEntries(
     array.map((city) => [city[0].city.name, city])
   );

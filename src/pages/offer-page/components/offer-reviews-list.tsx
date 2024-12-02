@@ -1,7 +1,8 @@
 import OfferReviewsForm from './offer-reviews-form';
-import { mockReviewsList } from '../../../mock-data/mock-reviews-list';
-import { IS_LOGGED } from '../../../const';
 import OfferReviewsItem from './offer-reviews-item';
+
+import { mockReviewsList } from '../../../mock-data';
+import { IS_LOGGED } from '../../../const';
 
 export default function OfferReviewsList() {
   return (

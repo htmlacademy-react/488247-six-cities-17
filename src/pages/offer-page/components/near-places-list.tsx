@@ -1,5 +1,6 @@
 import OfferCard from '../../../components/offer-card/offer-card';
-import { mockNearPlacesList } from '../../../mock-data/mock-near-places-list';
+
+import { mockNearPlacesList } from '../../../mock-data';
 import { NEIGHBOURHOOD_PLACES } from '../../../const';
 
 export default function NearPlacesList() {

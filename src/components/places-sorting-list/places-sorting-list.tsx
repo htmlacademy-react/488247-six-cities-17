@@ -1,7 +1,9 @@
-import SortingType from './components/sorting-type';
-import type { SortType } from '../../types';
-import { useState } from 'react';
 import clsx from 'clsx';
+import { useState } from 'react';
+
+import SortingType from './components/sorting-type';
+
+import type { SortType } from '../../types';
 
 
 const sortingTypeList: SortType[] = [
@@ -16,7 +18,7 @@ export default function PlacesSortingList() {
 
   return (
     <form className="places__sorting" action='/' method="get">
-      <span className="places__sorting-caption">Sort by</span>{' '}
+      <span className="places__sorting-caption">Sort by</span>&nbsp;
       <span
         onClick={() => setOpen((prev) => !prev)}
         className="places__sorting-type"

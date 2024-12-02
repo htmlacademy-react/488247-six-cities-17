@@ -1,18 +1,25 @@
-import OfferCard from '../../../components/offer-card/offer-card';
-import { getFavorites } from '../../../data/data';
-import type { Offer } from '../../../types';
 import { nanoid } from '@reduxjs/toolkit';
+
+import OfferCard from '../../../components/offer-card/offer-card';
 import LocationItem from '../../../components/location-item/location-item';
 
+import { getFavorites } from '../../../data/data';
+import type { Offers } from '../../../types';
+
 type FavoritePlacesListProps = {
-  offers: Offer[];
+  offers: Offers;
 }
 
 function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
-  return (
-    offers.map(
-      (offer) => <OfferCard key={offer.id} {...offer} prefix='favorites' />
-    )
+  return offers.map(
+    (offer) => (
+      <OfferCard
+        key={offer.id}
+        {...offer}
+        prefix='favorites'
+        width={150}
+        height={110}
+      />)
   );
 }
 
