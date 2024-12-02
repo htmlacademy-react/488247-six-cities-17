@@ -1,13 +1,8 @@
 import { Navigate } from 'react-router-dom';
 import { AppRoute, AuthStatus } from '../../const';
+import { ModifiedRoutePpops } from '../../types';
 
-type PrivateRoutePpops = {
-  authStatus: 'AUTH' | 'NO_AUTH' | 'UNKNOWN';
-  children: JSX.Element;
-
-}
-
-export default function PrivateRoute({authStatus, children}: PrivateRoutePpops) {
+export default function PrivateRoute({authStatus, children}: ModifiedRoutePpops) {
   return (
     authStatus === AuthStatus.Auth
       ? children

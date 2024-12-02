@@ -55,4 +55,9 @@ type Response = {
   rating: number;
 }
 
-export type { SortType, Offer, FullOffer, Response };
+type ModifiedRoutePpops = {
+  authStatus: 'AUTH' | 'NO_AUTH' | 'UNKNOWN';
+  children: JSX.Element;
+}
+
+export type { SortType, Offer, FullOffer, Response, ModifiedRoutePpops };

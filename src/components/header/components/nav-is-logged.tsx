@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { AppRoute, FAVORITE_COUNT } from '../../../const';
+import { AppRoute } from '../../../const';
+import { getFavoritesOfferCount } from '../../../data/data';
 
 export default function NavIsLogged() {
   return (
@@ -8,7 +9,7 @@ export default function NavIsLogged() {
         <Link className="header__nav-link header__nav-link--profile" to={AppRoute.Favorites}>
           <div className="header__avatar-wrapper user__avatar-wrapper" />
           <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-          <span className="header__favorite-count">{FAVORITE_COUNT}</span>
+          <span className="header__favorite-count">{getFavoritesOfferCount()}</span>
         </Link>
       </li>
       <li className="header__nav-item">

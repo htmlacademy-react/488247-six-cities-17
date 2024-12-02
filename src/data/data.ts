@@ -15,6 +15,10 @@ function arrayToObject(array: Offer[][]): {[city: string]: Offer[]} {
   );
 }
 
+export function getFavoritesOfferCount() {
+  return favoretesOffers.reduce((sum, offers) => sum + offers.length, 0);
+}
+
 export function getOffersByCities() {
   return arrayToObject(offersByCities);
 }

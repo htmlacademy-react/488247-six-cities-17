@@ -29,7 +29,6 @@ const AuthStatus = {
   Unknown: 'UNKNOWN',
 } as const;
 
-const FAVORITE_COUNT = 4;
 const OFFERS_COUNT = 5;
 const IS_LOGGED = true;
 const RATING_RATIO = 20;
@@ -42,7 +41,6 @@ export {
   RATING_VALUES,
   AppRoute,
   AuthStatus,
-  FAVORITE_COUNT,
   OFFERS_COUNT,
   IS_LOGGED,
   RATING_RATIO,
