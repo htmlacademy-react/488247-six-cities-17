@@ -15,8 +15,8 @@ export default function PlacesSortingList() {
   const [open, setOpen] = useState(false);
 
   return (
-    <form className="places__sorting" action="#" method="get">
-      <span className="places__sorting-caption">Sort by&nbsp;</span>
+    <form className="places__sorting" action='/' method="get">
+      <span className="places__sorting-caption">Sort by</span>{' '}
       <span
         onClick={() => setOpen((prev) => !prev)}
         className="places__sorting-type"
@@ -28,7 +28,9 @@ export default function PlacesSortingList() {
         </svg>
       </span>
       <ul className={clsx(
-        'places__options places__options--custom', open && 'places__options--opened')}
+        'places__options',
+        'places__options--custom',
+        open && 'places__options--opened')}
       >
         {sortingTypeList.map((sortType, index) => (
           <SortingType

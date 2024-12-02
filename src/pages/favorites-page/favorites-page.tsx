@@ -3,19 +3,21 @@ import FavoritesList from './components/favorites-list';
 import FavoritesListEmpty from './components/favorites-list-empty';
 import Footer from '../../components/footer/footer';
 import clsx from 'clsx';
-import { FAVORITE_OFFERS_COUNT } from '../../const';
+import { getFavoritesOfferCount } from '../../data/data';
+
+const favoritesOffer = getFavoritesOfferCount();
 
 export default function FavoritesPage() {
   return (
-    <div className={`page${!FAVORITE_OFFERS_COUNT && ' page--favorites-empty'}`}>
+    <div className={`page${!favoritesOffer && ' page--favorites-empty'}`}>
       <Header />
       <main className={clsx(
         'page__main',
         'page__main--favorites',
-        !FAVORITE_OFFERS_COUNT && 'page__main--favorites-empty')}
+        !favoritesOffer && 'page__main--favorites-empty')}
       >
         <div className="page__favorites-container container">
-          {FAVORITE_OFFERS_COUNT ? <FavoritesList /> : <FavoritesListEmpty />}
+          {favoritesOffer ? <FavoritesList /> : <FavoritesListEmpty />}
         </div>
       </main>
       <Footer />

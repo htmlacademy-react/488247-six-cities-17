@@ -1,8 +1,9 @@
 type RatingStarProps = {
   count: number;
+  title: string;
 }
 
-export default function RatingStar({ count }: RatingStarProps) {
+export default function RatingStar({ count, title }: RatingStarProps) {
   return (
     <>
       <input
@@ -15,7 +16,7 @@ export default function RatingStar({ count }: RatingStarProps) {
       <label
         htmlFor={`${count}-stars`}
         className="reviews__rating-label form__rating-label"
-        title="good"
+        title={title}
       >
         <svg className="form__star-image" width={37} height={33}>
           <use xlinkHref="#icon-star" />

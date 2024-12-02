@@ -1,16 +1,16 @@
 import Header from '../../components/header/header';
 import LocationItem from '../../components/location-item/location-item';
-import { CURRENT_CITY } from '../../const';
+import { ACTIVE_CITY_INDEX, CITIES } from '../../const';
 
 export default function LoginPage() {
   return (
     <div className="page page--gray page--login">
-      <Header withoutNav />
+      <Header />
       <main className="page__main page__main--login">
         <div className="page__login-container container">
           <section className="login">
             <h1 className="login__title">Sign in</h1>
-            <form className="login__form form" action="#" method="post">
+            <form className="login__form form" action='/' method="post">
               <div className="login__input-wrapper form__input-wrapper">
                 <label className="visually-hidden">E-mail</label>
                 <input
@@ -37,7 +37,7 @@ export default function LoginPage() {
             </form>
           </section>
           <section className="locations locations--login locations--current">
-            <LocationItem city={CURRENT_CITY} />
+            <LocationItem city={CITIES[ACTIVE_CITY_INDEX]} />
           </section>
         </div>
       </main>

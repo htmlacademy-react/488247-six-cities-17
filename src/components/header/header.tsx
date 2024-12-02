@@ -1,19 +1,19 @@
 import Logo from '../logo/logo';
 import HeaderNav from './components/header-nav';
+import { useLocation } from 'react-router-dom';
+import { AppRoute } from '../../const';
 
-type HeaderProps = {
-  withoutNav?: boolean;
-}
+export default function Header() {
+  const {pathname} = useLocation();
 
-export default function Header({ withoutNav = false }: HeaderProps) {
   return (
     <header className="header">
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <Logo prefix='headerLogo' />
+            <Logo prefix='header__logo' />
           </div>
-          {!withoutNav && <HeaderNav />}
+          {pathname !== AppRoute.Login && <HeaderNav />}
         </div>
       </div>
     </header>
