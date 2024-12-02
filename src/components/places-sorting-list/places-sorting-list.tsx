@@ -15,7 +15,7 @@ export default function PlacesSortingList() {
   const [open, setOpen] = useState(false);
 
   return (
-    <form className="places__sorting" action="#" method="get">
+    <form className="places__sorting" action='/' method="get">
       <span className="places__sorting-caption">Sort by</span>{' '}
       <span
         onClick={() => setOpen((prev) => !prev)}

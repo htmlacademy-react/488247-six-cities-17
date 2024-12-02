@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import { AppRoute } from '../../const';
 
 type LocationItemProps = {
   city: string;
-  index?: number;
+  active?: boolean;
   tabItem?: boolean;
 }
 
-export default function LocationItem({ city, index, tabItem }: LocationItemProps) {
+export default function LocationItem({ city, active, tabItem }: LocationItemProps) {
   return (
     tabItem ?
       <li className="locations__item">
@@ -16,16 +17,16 @@ export default function LocationItem({ city, index, tabItem }: LocationItemProps
             clsx(
               'locations__item-link',
               'tabs__item',
-              index === 0 && 'tabs__item--active')
+              active && 'tabs__item--active')
           }
-          to="#"
+          to={AppRoute.Main}
         >
           <span>{city}</span>
         </ Link>
       </li >
       :
       <div className="locations__item">
-        <Link className="locations__item-link" to="#">
+        <Link className="locations__item-link" to={AppRoute.Main}>
           <span>{city}</span>
         </Link>
       </div>

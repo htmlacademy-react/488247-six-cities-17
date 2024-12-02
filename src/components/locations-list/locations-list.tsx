@@ -1,5 +1,5 @@
 import LocationItem from '../location-item/location-item';
-import { CITIES } from '../../const';
+import { CITIES, ACTIVE_CITY_INDEX } from '../../const';
 
 export default function LocationsList() {
   return (
@@ -10,7 +10,7 @@ export default function LocationsList() {
             <LocationItem
               key={city}
               city={city}
-              index={index}
+              active={index === ACTIVE_CITY_INDEX}
               tabItem
             />))}
         </ul>

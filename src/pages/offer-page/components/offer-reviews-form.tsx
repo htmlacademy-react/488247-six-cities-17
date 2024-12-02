@@ -1,16 +1,16 @@
 import RatingStar from './rating-star';
 import { nanoid } from '@reduxjs/toolkit';
-import { RATING_STARS_COUNT } from '../../../const';
+import { RATING_VALUES } from '../../../const';
 
 export default function OfferReviewsForm() {
   return (
-    <form className="reviews__form form" action="#" method="post">
+    <form className="reviews__form form" action='/' method="post">
       <label className="reviews__label form__label" htmlFor="review">
         Your review
       </label>
       <div className="reviews__rating-form form__rating">
-        {Array.from({ length: RATING_STARS_COUNT }).map(
-          (_, index) => <RatingStar key={nanoid()} count={index + 1}/>
+        {RATING_VALUES.map(
+          (value, index) => <RatingStar key={nanoid()} count={index + 1} title={value} />
         ).toReversed()}
       </div>
       <textarea
