@@ -8,7 +8,16 @@ import CitiesMapSection from './components/cities-map-section';
 
 import { OFFERS_COUNT } from '../../const';
 
-export default function MainPage() {
+type MainPageProps = {
+  activeCityIndex: number;
+  handleClick: (i: number) => void;
+}
+
+export default function MainPage({
+  activeCityIndex,
+  handleClick,
+}: MainPageProps) {
+
   return (
     <div className="page page--gray page--main">
       <Header />
@@ -18,14 +27,20 @@ export default function MainPage() {
         !OFFERS_COUNT && 'page__main--index-empty')}
       >
         <h1 className="visually-hidden">Cities</h1>
-        <LocationsList />
+        <LocationsList
+          activeCityIndex={activeCityIndex}
+          handleClick={handleClick}
+        />
         <div className="cities">
           <div className={clsx(
             'cities__places-container',
             !OFFERS_COUNT && 'cities__places-container--empty',
             'container')}
           >
-            {OFFERS_COUNT ? <CitiesOffers /> : <CitiesNoOffers />}
+            {OFFERS_COUNT ?
+              <CitiesOffers activeCityIndex={activeCityIndex} />
+              :
+              <CitiesNoOffers />}
             <CitiesMapSection />
           </div>
         </div>

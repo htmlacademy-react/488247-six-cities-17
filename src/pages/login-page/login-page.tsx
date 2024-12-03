@@ -1,9 +1,17 @@
 import Header from '../../components/header/header';
 import LocationItem from '../../components/location-item/location-item';
+import { Cities } from '../../data/data';
 
-import { ACTIVE_CITY_INDEX, CITIES } from '../../const';
 
-export default function LoginPage() {
+type LoginPageProps = {
+  activeCityIndex: number;
+  handleClick: (i: number) => void;
+}
+
+export default function LoginPage({
+  activeCityIndex,
+  handleClick,
+}: LoginPageProps) {
   return (
     <div className="page page--gray page--login">
       <Header />
@@ -38,7 +46,11 @@ export default function LoginPage() {
             </form>
           </section>
           <section className="locations locations--login locations--current">
-            <LocationItem city={CITIES[ACTIVE_CITY_INDEX]} />
+            <LocationItem
+              city={Cities[activeCityIndex]}
+              handleClick={handleClick}
+              index={activeCityIndex}
+            />
           </section>
         </div>
       </main>

@@ -9,7 +9,11 @@ import { getFavoritesOfferCount } from '../../data/data';
 
 const offersCount = getFavoritesOfferCount();
 
-export default function FavoritesPage() {
+type FavoritesPageProps = {
+  handleClick: (i: number) => void;
+}
+
+export default function FavoritesPage({handleClick}: FavoritesPageProps) {
   return (
     <div className={`page${!offersCount && ' page--favorites-empty'}`}>
       <Header />
@@ -19,7 +23,10 @@ export default function FavoritesPage() {
         !offersCount && 'page__main--favorites-empty')}
       >
         <div className="page__favorites-container container">
-          {offersCount ? <FavoritesList /> : <FavoritesListEmpty />}
+          {offersCount ?
+            <FavoritesList
+              handleClick={handleClick}
+            /> : <FavoritesListEmpty />}
         </div>
       </main>
       <Footer />

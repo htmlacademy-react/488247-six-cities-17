@@ -64,4 +64,12 @@ type ModifiedRoutePpops = {
   children: JSX.Element;
 }
 
-export type { SortType, Offer, Offers, User, FullOffer, Response, ModifiedRoutePpops };
+export type {
+  SortType,
+  Offer,
+  Offers,
+  User,
+  FullOffer,
+  Response,
+  ModifiedRoutePpops,
+};

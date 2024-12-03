@@ -5,20 +5,24 @@ import { AppRoute } from '../../const';
 
 type LocationItemProps = {
   city: string;
-  active?: boolean;
+  index: number;
+  handleClick: (i: number) => void;
+  activeIndex?: number;
   tabItem?: boolean;
 }
 
-export default function LocationItem({ city, active, tabItem }: LocationItemProps) {
+export default function LocationItem({ city, index, activeIndex, tabItem, handleClick }: LocationItemProps) {
   return (
     tabItem ?
-      <li className="locations__item">
+      <li className="locations__item"
+        onClick={() => handleClick(index)}
+      >
         <Link
           className={
             clsx(
               'locations__item-link',
               'tabs__item',
-              active && 'tabs__item--active')
+              activeIndex === index && 'tabs__item--active')
           }
           to={AppRoute.Main}
         >
@@ -26,7 +30,10 @@ export default function LocationItem({ city, active, tabItem }: LocationItemProp
         </ Link>
       </li >
       :
-      <div className="locations__item">
+      <div
+        className="locations__item"
+        onClick={() => handleClick(index)}
+      >
         <Link className="locations__item-link" to={AppRoute.Main}>
           <span>{city}</span>
         </Link>
