@@ -9,7 +9,8 @@ import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
 import OfferMapSection from './components/offer-map-section';
 import NearPlacesList from './components/near-places-list';
-import { mockFullOffer } from '../../mock-data';
+
+import { fullOffer } from '../../mocks';
 
 const {
   images,
@@ -24,7 +25,7 @@ const {
   goods,
   host,
   description,
-} = mockFullOffer;
+} = fullOffer;
 
 export default function OfferPage() {
 

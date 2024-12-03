@@ -1,4 +1,4 @@
-export const mockNearPlacesList = [
+export const nearPlaces = [
   {
     'id': 'df4bdd1d-9030-4a67-a646-adf37237a36a',
     'title': 'Amazing and Extremely Central Flat',
