@@ -14,7 +14,13 @@ const sortingTypeList: SortType[] = [
 ];
 
 export default function PlacesSortingList() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [activeSort, setActiveSort] = useState<number>(0);
+
+  function chooseSortType(index: number): void {
+    setActiveSort(index);
+    setOpen(((prev: boolean) => !prev));
+  }
 
   return (
     <form className="places__sorting" action='/' method="get">
@@ -24,7 +30,7 @@ export default function PlacesSortingList() {
         className="places__sorting-type"
         tabIndex={0}
       >
-        Popular
+        {sortingTypeList[activeSort]}
         <svg className="places__sorting-arrow" width={7} height={4}>
           <use xlinkHref="#icon-arrow-select" />
         </svg>
@@ -39,6 +45,8 @@ export default function PlacesSortingList() {
             key={sortType}
             sortType={sortType}
             index={index}
+            activeSort={activeSort}
+            chooseSortType={chooseSortType}
           />
         ))}
       </ul>
