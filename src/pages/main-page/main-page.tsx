@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import Header from '../../components/header/header';
 import LocationsList from '../../components/locations-list/locations-list';
-import CitiesOffers from './components/cities-offers';
+import CitieOffers from './components/cities-offers';
 import CitiesNoOffers from './components/cities-no-offers';
 import CitiesMapSection from './components/cities-map-section';
 
@@ -38,7 +38,7 @@ export default function MainPage({
             'container')}
           >
             {OFFERS_COUNT ?
-              <CitiesOffers activeCityIndex={activeCityIndex} />
+              <CitieOffers activeCityIndex={activeCityIndex} />
               :
               <CitiesNoOffers />}
             <CitiesMapSection />

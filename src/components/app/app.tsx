@@ -15,7 +15,7 @@ import { AppRoute, AuthStatus, IS_LOGGED } from '../../const';
 const authStatus = IS_LOGGED ? AuthStatus.Auth : AuthStatus.NoAuth;
 
 export default function App() {
-  const [activeCityIndex, setActiveCityIndex] = useState(0);
+  const [activeCityIndex, setActiveCityIndex] = useState<number>(0);
 
   function handleClick(i: number) {
     return setActiveCityIndex(i);

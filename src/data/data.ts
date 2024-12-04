@@ -8,7 +8,7 @@ export const Cities = [
   'Amsterdam',
   'Hamburg',
   'Dusseldorf',
-];
+] as const;
 
 const offersByCities = Cities.map((city) => [...offers]
   .filter(({ city: { name } }) => city === name));

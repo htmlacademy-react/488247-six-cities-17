@@ -7,10 +7,10 @@ import OfferFeachersList from './components/offer-feachers-list';
 import OfferInside from './components/offer-inside';
 import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
-import OfferMapSection from './components/offer-map-section';
 import NearPlacesList from './components/near-places-list';
 
 import { fullOffer } from '../../mocks';
+import MapSection from '../../components/map-section/map-section';
 
 const {
   images,
@@ -70,7 +70,7 @@ export default function OfferPage() {
               <OfferReviewsList />
             </div>
           </div>
-          <OfferMapSection />
+          <MapSection prefix='offer' />
         </section>
         <div className="container">
           <NearPlacesList />
