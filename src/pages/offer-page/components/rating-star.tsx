@@ -1,9 +1,18 @@
+import { ChangeEvent } from 'react';
+
 type RatingStarProps = {
   count: number;
   title: string;
+  rating: number | null;
+  handleInputChange: (evt: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function RatingStar({ count, title }: RatingStarProps) {
+export default function RatingStar({
+  count,
+  title,
+  rating,
+  handleInputChange
+}: RatingStarProps) {
   return (
     <>
       <input
@@ -12,6 +21,8 @@ export default function RatingStar({ count, title }: RatingStarProps) {
         defaultValue={count}
         id={`${count}-stars`}
         type="radio"
+        checked={count === rating}
+        onChange={handleInputChange}
       />
       <label
         htmlFor={`${count}-stars`}

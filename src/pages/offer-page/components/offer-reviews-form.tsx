@@ -1,8 +1,21 @@
+import { ChangeEvent, useState } from 'react';
+
 import RatingStar from './rating-star';
 
 import { RATING_VALUES } from '../../../const';
 
 export default function OfferReviewsForm() {
+  const [text, setText] = useState<string>('');
+  const [rating, setRating] = useState<number | null>(null);
+
+  function handleTextAreaChange(evt: ChangeEvent<HTMLTextAreaElement>) {
+    return setText(evt.target.value);
+  }
+
+  function handleInputChange(evt: ChangeEvent<HTMLInputElement>) {
+    return setRating(+(evt.target.value));
+  }
+
   return (
     <form className="reviews__form form" action='/' method="post">
       <label className="reviews__label form__label" htmlFor="review">
@@ -10,7 +23,14 @@ export default function OfferReviewsForm() {
       </label>
       <div className="reviews__rating-form form__rating">
         {RATING_VALUES.map(
-          (value, index) => <RatingStar key={value} count={index + 1} title={value} />
+          (value, index) => (
+            <RatingStar
+              key={value}
+              count={index + 1}
+              title={value}
+              rating={rating}
+              handleInputChange={handleInputChange}
+            />)
         ).toReversed()}
       </div>
       <textarea
@@ -19,6 +39,8 @@ export default function OfferReviewsForm() {
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
         defaultValue={''}
+        value={text}
+        onChange={handleTextAreaChange}
       />
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
