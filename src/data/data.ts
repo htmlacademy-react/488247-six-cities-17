@@ -1,16 +1,9 @@
 import { offers } from '../mocks';
+
+import { CITIES } from '../const';
 import { Offers } from '../types';
 
-export const Cities = [
-  'Paris',
-  'Cologne',
-  'Brussels',
-  'Amsterdam',
-  'Hamburg',
-  'Dusseldorf',
-] as const;
-
-const offersByCities = Cities.map((city) => [...offers]
+const offersByCities = CITIES.map((city) => [...offers]
   .filter(({ city: { name } }) => city === name));
 
 const favoretesOffers = offersByCities

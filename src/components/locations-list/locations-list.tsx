@@ -1,8 +1,6 @@
-// import { useState } from 'react';
-
 import LocationItem from '../location-item/location-item';
 
-import { Cities } from '../../data/data';
+import { CITIES } from '../../const';
 
 type LocationsListProps = {
   activeCityIndex: number;
@@ -15,7 +13,7 @@ export default function LocationsList({activeCityIndex, handleClick }: Locations
     <div className="tabs">
       <section className="locations container">
         <ul className="locations__list tabs__list">
-          {Cities.map((city, index) => (
+          {CITIES.map((city, index) => (
             <LocationItem
               key={city}
               city={city}

@@ -3,8 +3,9 @@ import { nanoid } from '@reduxjs/toolkit';
 import OfferCard from '../../../components/offer-card/offer-card';
 import LocationItem from '../../../components/location-item/location-item';
 
-import { Cities, getFavorites } from '../../../data/data';
-import type { Offers } from '../../../types';
+import { getFavorites } from '../../../data/data';
+import type { CityName, Offers } from '../../../types';
+import { CITIES } from '../../../const';
 
 type FavoritePlacesListProps = {
   offers: Offers;
@@ -42,7 +43,7 @@ export default function FavoritesList({handleClick}: FavoritesListProps) {
             <div className="favorites__locations locations locations--current">
               <LocationItem
                 city={city}
-                index={Cities.indexOf(city)}
+                index={CITIES.indexOf(city as CityName)}
                 handleClick={handleClick}
               />
             </div>

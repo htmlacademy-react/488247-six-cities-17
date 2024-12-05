@@ -1,6 +1,7 @@
 import Header from '../../components/header/header';
 import LocationItem from '../../components/location-item/location-item';
-import { Cities } from '../../data/data';
+
+import { CITIES } from '../../const';
 
 
 type LoginPageProps = {
@@ -47,7 +48,7 @@ export default function LoginPage({
           </section>
           <section className="locations locations--login locations--current">
             <LocationItem
-              city={Cities[activeCityIndex]}
+              city={CITIES[activeCityIndex]}
               handleClick={handleClick}
               index={activeCityIndex}
             />

@@ -1,4 +1,8 @@
-import { AuthStatus } from './const';
+import { AuthStatus, CITIES, OFFER_TYPES } from './const';
+
+type CityName = typeof CITIES[number];
+
+type OfferType = typeof OFFER_TYPES[number];
 
 type SortType = 'Popular'
 | 'Price: low to high'
@@ -8,7 +12,7 @@ type SortType = 'Popular'
 type Offer = {
   id: string;
   title: string;
-  type: string;
+  type: OfferType;
   price: number;
   city: City;
   location: Location;
@@ -27,7 +31,7 @@ type Location = {
 }
 
 type City = {
-  name: string;
+  name: CityName;
   location: Location;
 }
 
@@ -65,6 +69,7 @@ type ModifiedRoutePpops = {
 }
 
 export type {
+  CityName,
   SortType,
   Offer,
   Offers,

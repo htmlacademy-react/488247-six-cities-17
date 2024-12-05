@@ -1,3 +1,19 @@
+const CITIES = [
+  'Paris',
+  'Cologne',
+  'Brussels',
+  'Amsterdam',
+  'Hamburg',
+  'Dusseldorf',
+] as const;
+
+const OFFER_TYPES = [
+  'room',
+  'house',
+  'apartment',
+  'hotel',
+] as const;
+
 const RATING_VALUES = [
   'terribly',
   'badly',
@@ -27,6 +43,8 @@ const NEIGHBOURHOOD_PLACES = 3;
 const GALLERY_IMAGE_COUNT = 6;
 
 export {
+  CITIES,
+  OFFER_TYPES,
   RATING_VALUES,
   AppRoute,
   AuthStatus,
