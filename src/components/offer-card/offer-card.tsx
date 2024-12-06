@@ -33,7 +33,7 @@ export default function OfferCard({
   return (
     <article
       className={`${prefix}__card place-card`}
-      onMouseMove={() => onHandleMouseOn?.(id)}
+      onMouseEnter={() => onHandleMouseOn?.(id)}
       onMouseLeave={() => onHandleMouseOut?.()}
     >
       {isPremium && <PremiumMark prefix='place-card' />}
