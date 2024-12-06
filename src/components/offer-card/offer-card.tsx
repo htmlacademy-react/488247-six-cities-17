@@ -1,12 +1,18 @@
+import { Link } from 'react-router-dom';
+
 import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 import Rating from '../rating/rating';
-import type { Offer } from '../../types';
-import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const';
+
+import { AppRoute, BlockPrefix } from '../../const';
+import type { BlockPrefixType, Offer } from '../../types';
 
 type OfferCardProps = Offer & {
-  prefix: string;
+  prefix?: BlockPrefixType;
+  width?: number;
+  height?: number;
+  onHandleMouseOn?: (id: string) => void;
+  onHandleMouseOut?: () => void;
 }
 
 export default function OfferCard({
@@ -18,11 +24,17 @@ export default function OfferCard({
   rating,
   isPremium,
   isFavorite,
-  prefix,
+  prefix = BlockPrefix.Cities,
+  width = 260,
+  height = 200,
+  onHandleMouseOn,
+  onHandleMouseOut,
 }: OfferCardProps) {
   return (
     <article
       className={`${prefix}__card place-card`}
+      onMouseEnter={() => onHandleMouseOn?.(id)}
+      onMouseLeave={() => onHandleMouseOut?.()}
     >
       {isPremium && <PremiumMark prefix='place-card' />}
       <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>
@@ -30,13 +42,13 @@ export default function OfferCard({
           <img
             className="place-card__image"
             src={previewImage}
-            width={260}
-            height={200}
+            width={width}
+            height={height}
             alt="Place image"
           />
         </Link>
       </div>
-      <div className="place-card__info">
+      <div className={`${prefix}__card-info place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">€{price}</b>

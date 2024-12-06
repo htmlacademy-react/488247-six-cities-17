@@ -1,9 +1,11 @@
-import { OFFERS_COUNT } from '../../../const';
+import MapSection from '../../../components/map-section/map-section';
+
+import { Settings } from '../../../const';
 
 export default function CitiesMapSection() {
   return (
     <div className="cities__right-section">
-      {OFFERS_COUNT && <section className="cities__map map" />}
+      {Settings.OffersCount > 0 && <MapSection />}
     </div>
   );
 }

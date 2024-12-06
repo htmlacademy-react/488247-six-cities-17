@@ -1,7 +1,14 @@
 import LocationItem from '../location-item/location-item';
-import { CITIES, ACTIVE_CITY_INDEX } from '../../const';
 
-export default function LocationsList() {
+import { CITIES } from '../../const';
+
+type LocationsListProps = {
+  activeCityIndex: number;
+  onHandleClick: (i: number) => void;
+}
+
+export default function LocationsList({activeCityIndex, onHandleClick }: LocationsListProps) {
+
   return (
     <div className="tabs">
       <section className="locations container">
@@ -10,8 +17,10 @@ export default function LocationsList() {
             <LocationItem
               key={city}
               city={city}
-              active={index === ACTIVE_CITY_INDEX}
+              index={index}
+              activeIndex={activeCityIndex}
               tabItem
+              onHandleClick={onHandleClick}
             />))}
         </ul>
       </section>

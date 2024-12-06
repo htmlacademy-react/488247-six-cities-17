@@ -1,7 +1,9 @@
-import SortingType from './components/sorting-type';
-import type { SortType } from '../../types';
-import { useState } from 'react';
 import clsx from 'clsx';
+import { useState } from 'react';
+
+import SortingType from './components/sorting-type';
+
+import type { SortType } from '../../types';
 
 
 const sortingTypeList: SortType[] = [
@@ -12,17 +14,23 @@ const sortingTypeList: SortType[] = [
 ];
 
 export default function PlacesSortingList() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [activeSort, setActiveSort] = useState<number>(0);
+
+  function changeSortType(index: number): void {
+    setActiveSort(index);
+    setOpen(((prev: boolean) => !prev));
+  }
 
   return (
     <form className="places__sorting" action='/' method="get">
-      <span className="places__sorting-caption">Sort by</span>{' '}
+      <span className="places__sorting-caption">Sort by</span>&nbsp;
       <span
         onClick={() => setOpen((prev) => !prev)}
         className="places__sorting-type"
         tabIndex={0}
       >
-        Popular
+        {sortingTypeList[activeSort]}
         <svg className="places__sorting-arrow" width={7} height={4}>
           <use xlinkHref="#icon-arrow-select" />
         </svg>
@@ -37,6 +45,8 @@ export default function PlacesSortingList() {
             key={sortType}
             sortType={sortType}
             index={index}
+            activeSort={activeSort}
+            onChangeSortType={changeSortType}
           />
         ))}
       </ul>
