@@ -2,29 +2,45 @@ import { ChangeEvent, useState } from 'react';
 
 import RatingStar from './rating-star';
 
-import { COMMENT_LENGTH, RATING_VALUES } from '../../../const';
+import { MIN_COMMENT_LENGTH, RATING_VALUES } from '../../../const';
+
+type Rating = 1 | 2 | 3 | 4 | 5 | null;
+
+type FormData = {
+  rating: Rating;
+  review: string;
+}
+
+const initialFormState: FormData = {
+  rating: null,
+  review: '',
+};
 
 export default function OfferReviewsForm() {
-  const [text, setText] = useState<string>('');
-  const [rating, setRating] = useState<number | null>(null);
+  const [{review, rating}, setFormData] = useState<FormData>(initialFormState);
 
   function handleTextAreaChange(evt: ChangeEvent<HTMLTextAreaElement>) {
-    return setText(evt.target.value);
+    return setFormData((prev) => ({
+      ...prev,
+      review: evt.target.value
+    }));
   }
 
   function handleInputChange(evt: ChangeEvent<HTMLInputElement>) {
-    return setRating(Number(evt.target.value));
+    return setFormData((prev) => ({
+      ...prev,
+      rating: Number(evt.target.value) as Rating
+    }));
   }
 
   function isDisable() {
-    return text.length < COMMENT_LENGTH || !rating;
+    return review.length < MIN_COMMENT_LENGTH || !rating;
   }
 
   function handleFormSubmit(evt: ChangeEvent<HTMLFormElement>) {
     evt.preventDefault();
     // Тут пока ничего не обрабатывается
-    setText('');
-    setRating(null);
+    setFormData(initialFormState);
   }
 
   return (
@@ -54,7 +70,7 @@ export default function OfferReviewsForm() {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        value={text}
+        value={review}
         onChange={handleTextAreaChange}
       />
       <div className="reviews__button-wrapper">
@@ -62,7 +78,7 @@ export default function OfferReviewsForm() {
           To submit review please make sure to set{' '}
           <span className="reviews__star">rating</span> and describe
           your stay with at least{' '}
-          <b className="reviews__text-amount">{COMMENT_LENGTH} characters</b>.
+          <b className="reviews__text-amount">{MIN_COMMENT_LENGTH} characters</b>.
         </p>
         <button
           className="reviews__submit form__submit button"

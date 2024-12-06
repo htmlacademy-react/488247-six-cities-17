@@ -41,7 +41,7 @@ const IS_LOGGED = true;
 const RATING_RATIO = 20;
 const NEAR_PLACES = 3;
 const GALLERY_IMAGE_COUNT = 6;
-const COMMENT_LENGTH = 50;
+const MIN_COMMENT_LENGTH = 50;
 
 export {
   CITIES,
@@ -54,5 +54,5 @@ export {
   RATING_RATIO,
   NEAR_PLACES,
   GALLERY_IMAGE_COUNT,
-  COMMENT_LENGTH,
+  MIN_COMMENT_LENGTH,
 };
