@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react';
 
 import RatingStar from './rating-star';
 
-import { RATING_VALUES } from '../../../const';
+import { COMMENT_LENGTH, RATING_VALUES } from '../../../const';
 
 export default function OfferReviewsForm() {
   const [text, setText] = useState<string>('');
@@ -13,11 +13,27 @@ export default function OfferReviewsForm() {
   }
 
   function handleInputChange(evt: ChangeEvent<HTMLInputElement>) {
-    return setRating(+(evt.target.value));
+    return setRating(Number(evt.target.value));
+  }
+
+  function isDisable() {
+    return text.length < COMMENT_LENGTH || !rating;
+  }
+
+  function handleFormSubmit(evt: ChangeEvent<HTMLFormElement>) {
+    evt.preventDefault();
+    // Тут пока ничего не обрабатывается
+    setText('');
+    setRating(null);
   }
 
   return (
-    <form className="reviews__form form" action='/' method="post">
+    <form
+      className="reviews__form form"
+      action='/'
+      method="post"
+      onSubmit={handleFormSubmit}
+    >
       <label className="reviews__label form__label" htmlFor="review">
         Your review
       </label>
@@ -46,12 +62,12 @@ export default function OfferReviewsForm() {
           To submit review please make sure to set{' '}
           <span className="reviews__star">rating</span> and describe
           your stay with at least{' '}
-          <b className="reviews__text-amount">50 characters</b>.
+          <b className="reviews__text-amount">{COMMENT_LENGTH} characters</b>.
         </p>
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled
+          disabled={isDisable()}
         >
           Submit
         </button>

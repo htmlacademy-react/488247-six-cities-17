@@ -70,6 +70,7 @@ type ModifiedRoutePpops = {
 
 export type {
   CityName,
+  OfferType,
   SortType,
   Offer,
   Offers,

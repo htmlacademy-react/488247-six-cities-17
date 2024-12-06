@@ -1,7 +1,8 @@
-import clsx from 'clsx';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { AppRoute } from '../../const';
+
+import './style.css';
 
 type LogoProps = {
   prefix?: string;
@@ -12,14 +13,12 @@ type LogoProps = {
 export default function Logo({
   prefix = 'header__logo',
   width = 81,
-  height = 41
+  height = 41,
 }: LogoProps) {
   return (
-    <Link className={clsx(
-      `${prefix}-link`,
-      `${prefix}-link--active`
-    )}
-    to={AppRoute.Main}
+    <NavLink
+      className={`${prefix}-link`}
+      to={AppRoute.Main}
     >
       <img
         className="header__logo"
@@ -28,6 +27,6 @@ export default function Logo({
         width={width}
         height={height}
       />
-    </Link>
+    </NavLink>
   );
 }

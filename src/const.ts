@@ -39,8 +39,9 @@ const AuthStatus = {
 const OFFERS_COUNT = 5;
 const IS_LOGGED = true;
 const RATING_RATIO = 20;
-const NEIGHBOURHOOD_PLACES = 3;
+const NEAR_PLACES = 3;
 const GALLERY_IMAGE_COUNT = 6;
+const COMMENT_LENGTH = 50;
 
 export {
   CITIES,
@@ -51,6 +52,7 @@ export {
   OFFERS_COUNT,
   IS_LOGGED,
   RATING_RATIO,
-  NEIGHBOURHOOD_PLACES,
+  NEAR_PLACES,
   GALLERY_IMAGE_COUNT,
+  COMMENT_LENGTH,
 };
