@@ -4,11 +4,11 @@ import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 import Rating from '../rating/rating';
 
-import { AppRoute } from '../../const';
-import type { Offer } from '../../types';
+import { AppRoute, BlockPrefix } from '../../const';
+import type { BlockPrefixType, Offer } from '../../types';
 
 type OfferCardProps = Offer & {
-  prefix?: string;
+  prefix?: BlockPrefixType;
   width?: number;
   height?: number;
   onHandleMouseOn?: (id: string) => void;
@@ -24,7 +24,7 @@ export default function OfferCard({
   rating,
   isPremium,
   isFavorite,
-  prefix = 'cities',
+  prefix = BlockPrefix.Cities,
   width = 260,
   height = 200,
   onHandleMouseOn,

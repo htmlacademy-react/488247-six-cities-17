@@ -5,7 +5,7 @@ import LocationItem from '../../../components/location-item/location-item';
 
 import { getFavorites } from '../../../data/data';
 import type { CityName, Offers } from '../../../types';
-import { CITIES } from '../../../const';
+import { BlockPrefix, CITIES } from '../../../const';
 
 type FavoritePlacesListProps = {
   offers: Offers;
@@ -21,7 +21,7 @@ function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
       <OfferCard
         key={offer.id}
         {...offer}
-        prefix='favorites'
+        prefix={BlockPrefix.Favorites}
         width={150}
         height={110}
       />)

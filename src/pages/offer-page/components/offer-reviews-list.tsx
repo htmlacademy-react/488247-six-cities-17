@@ -2,7 +2,7 @@ import OfferReviewsForm from './offer-reviews-form';
 import OfferReviewsItem from './offer-reviews-item';
 
 import { reviews } from '../../../mocks';
-import { IS_LOGGED } from '../../../const';
+import { Settings } from '../../../const';
 
 export default function OfferReviewsList() {
   return (
@@ -13,7 +13,7 @@ export default function OfferReviewsList() {
       <ul className="reviews__list">
         {reviews.map((review) => <OfferReviewsItem key={review.id} {...review} />)}
       </ul>
-      {IS_LOGGED && <OfferReviewsForm />}
+      {Settings.IsLogged && <OfferReviewsForm />}
     </section>
   );
 }

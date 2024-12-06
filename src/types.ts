@@ -1,8 +1,10 @@
-import { AuthStatus, CITIES, OFFER_TYPES } from './const';
+import { AuthStatus, BlockPrefix, CITIES, OFFER_TYPES } from './const';
 
 type CityName = typeof CITIES[number];
 
 type OfferType = typeof OFFER_TYPES[number];
+
+type BlockPrefixType = typeof BlockPrefix[keyof typeof BlockPrefix];
 
 type SortType = 'Popular'
 | 'Price: low to high'
@@ -71,6 +73,7 @@ type ModifiedRoutePpops = {
 export type {
   CityName,
   OfferType,
+  BlockPrefixType,
   SortType,
   Offer,
   Offers,

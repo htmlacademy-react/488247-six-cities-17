@@ -36,12 +36,22 @@ const AuthStatus = {
   Unknown: 'UNKNOWN',
 } as const;
 
-const OFFERS_COUNT = 5;
-const IS_LOGGED = true;
-const RATING_RATIO = 20;
-const NEAR_PLACES = 3;
-const GALLERY_IMAGE_COUNT = 6;
-const MIN_COMMENT_LENGTH = 50;
+const BlockPrefix = {
+  HeaderLogo: 'header__logo',
+  FooterLogo: 'footer__logo',
+  Cities: 'cities',
+  NearPlases: 'near-places',
+  Favorites: 'favorites',
+} as const;
+
+const Settings = {
+  OffersCount: 5,
+  RatingRatio: 20,
+  NearPlaces: 3,
+  GalleryImageCount: 6,
+  MinCommentLength: 50,
+  IsLogged: true,
+} as const;
 
 export {
   CITIES,
@@ -49,10 +59,6 @@ export {
   RATING_VALUES,
   AppRoute,
   AuthStatus,
-  OFFERS_COUNT,
-  IS_LOGGED,
-  RATING_RATIO,
-  NEAR_PLACES,
-  GALLERY_IMAGE_COUNT,
-  MIN_COMMENT_LENGTH,
+  BlockPrefix,
+  Settings,
 };

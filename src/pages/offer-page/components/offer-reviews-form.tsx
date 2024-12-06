@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react';
 
 import RatingStar from './rating-star';
 
-import { MIN_COMMENT_LENGTH, RATING_VALUES } from '../../../const';
+import { Settings, RATING_VALUES } from '../../../const';
 
 type Rating = 1 | 2 | 3 | 4 | 5 | null;
 
@@ -34,7 +34,7 @@ export default function OfferReviewsForm() {
   }
 
   function isDisable() {
-    return review.length < MIN_COMMENT_LENGTH || !rating;
+    return review.length < Settings.MinCommentLength || !rating;
   }
 
   function handleFormSubmit(evt: ChangeEvent<HTMLFormElement>) {
@@ -78,7 +78,7 @@ export default function OfferReviewsForm() {
           To submit review please make sure to set{' '}
           <span className="reviews__star">rating</span> and describe
           your stay with at least{' '}
-          <b className="reviews__text-amount">{MIN_COMMENT_LENGTH} characters</b>.
+          <b className="reviews__text-amount">{Settings.MinCommentLength} characters</b>.
         </p>
         <button
           className="reviews__submit form__submit button"

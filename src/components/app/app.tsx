@@ -10,9 +10,9 @@ import ScrollToTop from '../scroll-to-top/scroll-to-top';
 import PrivateRoute from '../private-route/private-route';
 import PublicRoute from '../public-route/public-route';
 
-import { AppRoute, AuthStatus, IS_LOGGED } from '../../const';
+import { AppRoute, AuthStatus, Settings } from '../../const';
 
-const authStatus = IS_LOGGED ? AuthStatus.Auth : AuthStatus.NoAuth;
+const authStatus = Settings.IsLogged ? AuthStatus.Auth : AuthStatus.NoAuth;
 
 export default function App() {
   const [activeCityIndex, setActiveCityIndex] = useState<number>(0);

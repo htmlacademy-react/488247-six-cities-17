@@ -4,15 +4,15 @@ import PlacesSortingList from '../../../components/places-sorting-list/places-so
 import OfferCard from '../../../components/offer-card/offer-card';
 import { getOffersByCities } from '../../../data/data';
 
-import { CITIES, OFFERS_COUNT } from '../../../const';
+import { CITIES, Settings } from '../../../const';
 
 type CitieOffersProps = {
   activeCityIndex: number;
 }
 
 export default function CitieOffers({activeCityIndex}: CitieOffersProps) {
-
   const [activeOffer, setActiveOffer] = useState<string | null>(null);
+
 
   // Бредовая функция только для того чтоб заставить линтер перестать ругаться.
   function onShutDownLinter() {
@@ -20,6 +20,7 @@ export default function CitieOffers({activeCityIndex}: CitieOffersProps) {
   }
 
   const offersByCities = getOffersByCities();
+  const offersSlice = offersByCities[CITIES[activeCityIndex]].slice(0, Settings.OffersCount);
 
   function handleMouseOn(id: string) {
     setActiveOffer(id);
@@ -35,13 +36,13 @@ export default function CitieOffers({activeCityIndex}: CitieOffersProps) {
       onMouseLeave={onShutDownLinter} // Вызов бредовой функции.
     >
       <h2 className="visually-hidden">Places</h2>
-      <b className="places__found">{OFFERS_COUNT} place{
-        OFFERS_COUNT > 1 ? 's' : ''
+      <b className="places__found">{Settings.OffersCount} place{
+        Settings.OffersCount > 1 ? 's' : ''
       } to stay in {CITIES[activeCityIndex]}
       </b>
       <PlacesSortingList />
       <div className="cities__places-list places__list tabs__content">
-        {offersByCities[CITIES[activeCityIndex]].slice(0, OFFERS_COUNT).map((offer) => (
+        {offersSlice.map((offer) => (
           <OfferCard
             key={offer.id}
             {...offer}

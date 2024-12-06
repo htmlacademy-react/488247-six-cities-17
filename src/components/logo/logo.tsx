@@ -1,17 +1,18 @@
 import { NavLink } from 'react-router-dom';
 
-import { AppRoute } from '../../const';
+import { AppRoute, BlockPrefix } from '../../const';
+import { BlockPrefixType } from '../../types';
 
 import './style.css';
 
 type LogoProps = {
-  prefix?: string;
+  prefix?: BlockPrefixType;
   width?: number;
   height?: number;
 }
 
 export default function Logo({
-  prefix = 'header__logo',
+  prefix = BlockPrefix.HeaderLogo,
   width = 81,
   height = 41,
 }: LogoProps) {

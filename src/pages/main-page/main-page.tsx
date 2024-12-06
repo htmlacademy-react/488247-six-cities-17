@@ -6,7 +6,7 @@ import CitieOffers from './components/cities-offers';
 import CitiesNoOffers from './components/cities-no-offers';
 import CitiesMapSection from './components/cities-map-section';
 
-import { OFFERS_COUNT } from '../../const';
+import { Settings } from '../../const';
 
 type MainPageProps = {
   activeCityIndex: number;
@@ -24,7 +24,7 @@ export default function MainPage({
       <main className={clsx(
         'page__main',
         'page__main--index',
-        !OFFERS_COUNT && 'page__main--index-empty')}
+        !Settings.OffersCount && 'page__main--index-empty')}
       >
         <h1 className="visually-hidden">Cities</h1>
         <LocationsList
@@ -34,10 +34,10 @@ export default function MainPage({
         <div className="cities">
           <div className={clsx(
             'cities__places-container',
-            !OFFERS_COUNT && 'cities__places-container--empty',
+            !Settings.OffersCount && 'cities__places-container--empty',
             'container')}
           >
-            {OFFERS_COUNT ?
+            {Settings.OffersCount ?
               <CitieOffers activeCityIndex={activeCityIndex} />
               :
               <CitiesNoOffers />}
