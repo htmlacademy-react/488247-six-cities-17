@@ -4,10 +4,10 @@ import { CITIES } from '../../const';
 
 type LocationsListProps = {
   activeCityIndex: number;
-  handleClick: (i: number) => void;
+  onHandleClick: (i: number) => void;
 }
 
-export default function LocationsList({activeCityIndex, handleClick }: LocationsListProps) {
+export default function LocationsList({activeCityIndex, onHandleClick }: LocationsListProps) {
 
   return (
     <div className="tabs">
@@ -20,7 +20,7 @@ export default function LocationsList({activeCityIndex, handleClick }: Locations
               index={index}
               activeIndex={activeCityIndex}
               tabItem
-              handleClick={handleClick}
+              onHandleClick={onHandleClick}
             />))}
         </ul>
       </section>

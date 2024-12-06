@@ -4,14 +4,14 @@ type RatingStarProps = {
   count: number;
   title: string;
   rating: number | null;
-  handleInputChange: (evt: ChangeEvent<HTMLInputElement>) => void;
+  onHandleInputChange: (evt: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function RatingStar({
   count,
   title,
   rating,
-  handleInputChange
+  onHandleInputChange
 }: RatingStarProps) {
   return (
     <>
@@ -22,7 +22,7 @@ export default function RatingStar({
         id={`${count}-stars`}
         type="radio"
         checked={count === rating}
-        onChange={handleInputChange}
+        onChange={onHandleInputChange}
       />
       <label
         htmlFor={`${count}-stars`}

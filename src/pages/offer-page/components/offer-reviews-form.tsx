@@ -61,7 +61,7 @@ export default function OfferReviewsForm() {
               count={index + 1}
               title={value}
               rating={rating}
-              handleInputChange={handleInputChange}
+              onHandleInputChange={handleInputChange}
             />)
         ).toReversed()}
       </div>

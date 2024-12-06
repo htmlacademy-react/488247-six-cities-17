@@ -37,8 +37,8 @@ export default function CitieOffers({activeCityIndex}: CitieOffersProps) {
           <OfferCard
             key={offer.id}
             {...offer}
-            handleMouseOn={handleMouseOn}
-            handleMouseOut={handleMouseOut}
+            onHandleMouseOn={handleMouseOn}
+            onHandleMouseOut={handleMouseOut}
           />
         ))}
       </div>

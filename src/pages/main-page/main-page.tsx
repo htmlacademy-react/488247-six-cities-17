@@ -10,12 +10,12 @@ import { OFFERS_COUNT } from '../../const';
 
 type MainPageProps = {
   activeCityIndex: number;
-  handleClick: (i: number) => void;
+  onHandleClick: (i: number) => void;
 }
 
 export default function MainPage({
   activeCityIndex,
-  handleClick,
+  onHandleClick,
 }: MainPageProps) {
 
   return (
@@ -29,7 +29,7 @@ export default function MainPage({
         <h1 className="visually-hidden">Cities</h1>
         <LocationsList
           activeCityIndex={activeCityIndex}
-          handleClick={handleClick}
+          onHandleClick={onHandleClick}
         />
         <div className="cities">
           <div className={clsx(

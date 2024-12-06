@@ -6,12 +6,12 @@ import { CITIES } from '../../const';
 
 type LoginPageProps = {
   activeCityIndex: number;
-  handleClick: (i: number) => void;
+  onHandleClick: (i: number) => void;
 }
 
 export default function LoginPage({
   activeCityIndex,
-  handleClick,
+  onHandleClick,
 }: LoginPageProps) {
   return (
     <div className="page page--gray page--login">
@@ -49,7 +49,7 @@ export default function LoginPage({
           <section className="locations locations--login locations--current">
             <LocationItem
               city={CITIES[activeCityIndex]}
-              handleClick={handleClick}
+              onHandleClick={onHandleClick}
               index={activeCityIndex}
             />
           </section>

@@ -11,8 +11,8 @@ type OfferCardProps = Offer & {
   prefix?: string;
   width?: number;
   height?: number;
-  handleMouseOn?: (id: string) => void;
-  handleMouseOut?: () => void;
+  onHandleMouseOn?: (id: string) => void;
+  onHandleMouseOut?: () => void;
 }
 
 export default function OfferCard({
@@ -27,14 +27,14 @@ export default function OfferCard({
   prefix = 'cities',
   width = 260,
   height = 200,
-  handleMouseOn,
-  handleMouseOut,
+  onHandleMouseOn,
+  onHandleMouseOut,
 }: OfferCardProps) {
   return (
     <article
       className={`${prefix}__card place-card`}
-      onMouseMove={() => handleMouseOn?.(id)}
-      onMouseLeave={() => handleMouseOut?.()}
+      onMouseMove={() => onHandleMouseOn?.(id)}
+      onMouseLeave={() => onHandleMouseOut?.()}
     >
       {isPremium && <PremiumMark prefix='place-card' />}
       <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>

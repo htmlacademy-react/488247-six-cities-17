@@ -29,7 +29,7 @@ export default function App() {
           path={AppRoute.Main} element={
             <MainPage
               activeCityIndex={activeCityIndex}
-              handleClick={handleClick}
+              onHandleClick={handleClick}
             />
           }
         />
@@ -38,7 +38,7 @@ export default function App() {
             <PublicRoute authStatus={authStatus}>
               <LoginPage
                 activeCityIndex={activeCityIndex}
-                handleClick={handleClick}
+                onHandleClick={handleClick}
               />
             </PublicRoute>
           }
@@ -47,7 +47,7 @@ export default function App() {
           path={AppRoute.Favorites} element={
             <PrivateRoute authStatus={authStatus}>
               <FavoritesPage
-                handleClick={handleClick}
+                onHandleClick={handleClick}
               />
             </PrivateRoute>
           }

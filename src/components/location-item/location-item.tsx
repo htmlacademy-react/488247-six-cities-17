@@ -6,16 +6,16 @@ import { AppRoute } from '../../const';
 type LocationItemProps = {
   city: string;
   index: number;
-  handleClick: (i: number) => void;
+  onHandleClick: (i: number) => void;
   activeIndex?: number;
   tabItem?: boolean;
 }
 
-export default function LocationItem({ city, index, activeIndex, tabItem, handleClick }: LocationItemProps) {
+export default function LocationItem({ city, index, activeIndex, tabItem, onHandleClick }: LocationItemProps) {
   return (
     tabItem ?
       <li className="locations__item"
-        onClick={() => handleClick(index)}
+        onClick={() => onHandleClick(index)}
       >
         <Link
           className={
@@ -32,7 +32,7 @@ export default function LocationItem({ city, index, activeIndex, tabItem, handle
       :
       <div
         className="locations__item"
-        onClick={() => handleClick(index)}
+        onClick={() => onHandleClick(index)}
       >
         <Link className="locations__item-link" to={AppRoute.Main}>
           <span>{city}</span>

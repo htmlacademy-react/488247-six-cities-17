@@ -4,14 +4,14 @@ type SortingTypeProps = {
   sortType: string;
   index: number;
   activeSort: number;
-  chooseSortType: (i: number) => void;
+  onChangeSortType: (i: number) => void;
 }
 
 export default function SortingType({
   sortType,
   index,
   activeSort,
-  chooseSortType
+  onChangeSortType
 }: SortingTypeProps) {
   return (
     <li
@@ -20,7 +20,7 @@ export default function SortingType({
         index === activeSort && 'places__option--active'
       )}
       tabIndex={0}
-      onClick={() => chooseSortType(index)}
+      onClick={() => onChangeSortType(index)}
     >
       {sortType}
     </li>

@@ -17,7 +17,7 @@ export default function PlacesSortingList() {
   const [open, setOpen] = useState<boolean>(false);
   const [activeSort, setActiveSort] = useState<number>(0);
 
-  function chooseSortType(index: number): void {
+  function changeSortType(index: number): void {
     setActiveSort(index);
     setOpen(((prev: boolean) => !prev));
   }
@@ -46,7 +46,7 @@ export default function PlacesSortingList() {
             sortType={sortType}
             index={index}
             activeSort={activeSort}
-            chooseSortType={chooseSortType}
+            onChangeSortType={changeSortType}
           />
         ))}
       </ul>

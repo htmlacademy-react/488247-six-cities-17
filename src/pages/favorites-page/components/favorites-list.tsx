@@ -12,7 +12,7 @@ type FavoritePlacesListProps = {
 }
 
 type FavoritesListProps = {
-  handleClick: (i: number) => void;
+  onHandleClick: (i: number) => void;
 }
 
 function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
@@ -28,7 +28,7 @@ function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
   );
 }
 
-export default function FavoritesList({handleClick}: FavoritesListProps) {
+export default function FavoritesList({onHandleClick}: FavoritesListProps) {
   const favorites = getFavorites();
 
   return (
@@ -44,7 +44,7 @@ export default function FavoritesList({handleClick}: FavoritesListProps) {
               <LocationItem
                 city={city}
                 index={CITIES.indexOf(city as CityName)}
-                handleClick={handleClick}
+                onHandleClick={onHandleClick}
               />
             </div>
             <div className="favorites__places">
