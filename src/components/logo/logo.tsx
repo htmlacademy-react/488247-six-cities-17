@@ -20,7 +20,7 @@ export default function Logo({
       className={
         ({isActive}) => clsx(
           `${prefix}-link`,
-          {[`${prefix}-link ${prefix}-link--active}`]: isActive},
+          {[`${prefix}-link--active}`]: isActive},
         )
       }
       style={
