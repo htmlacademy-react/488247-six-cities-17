@@ -17,7 +17,7 @@ export default function BookmarkButton({
     <button
       className={clsx(
         `${prefix}__bookmark-button`,
-        isFavorite && `${prefix}__bookmark-button--active`,
+        {[`${prefix}__bookmark-button--active`]: isFavorite},
         'button')}
       type="button"
     >

@@ -1,9 +1,7 @@
+import { User } from '../../../types';
+
 type OfferHostProps = {
-  host : {
-    avatarUrl: string;
-    name: string;
-    isPro: boolean;
-  };
+  host : User;
   description: string;
 }
 

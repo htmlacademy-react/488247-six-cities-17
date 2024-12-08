@@ -1,5 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit';
-import { GALLERY_IMAGE_COUNT } from '../../../const';
+
+import { Settings } from '../../../const';
 
 type OfferiImageProps = {
   image: string;
@@ -25,7 +26,7 @@ export default function OfferGallery({images}: OfferGalleryProps) {
   return (
     <div className="offer__gallery-container container">
       <div className="offer__gallery">
-        {images.slice(0, GALLERY_IMAGE_COUNT)
+        {images.slice(0, Settings.GalleryImageCount)
           .map((image) => <OfferImage key={nanoid()} image={image} />)}
       </div>
     </div>

@@ -7,9 +7,11 @@ import OfferFeachersList from './components/offer-feachers-list';
 import OfferInside from './components/offer-inside';
 import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
-import OfferMapSection from './components/offer-map-section';
 import NearPlacesList from './components/near-places-list';
-import { mockFullOffer } from '../../mock-data/mock-full-offer';
+import MapSection from '../../components/map-section/map-section';
+
+import { fullOffer } from '../../mocks';
+import { toCapitalize } from '../../utils';
 
 const {
   images,
@@ -24,7 +26,7 @@ const {
   goods,
   host,
   description,
-} = mockFullOffer;
+} = fullOffer;
 
 export default function OfferPage() {
 
@@ -51,7 +53,7 @@ export default function OfferPage() {
                 <span className="offer__rating-value rating__value">{rating}</span>
               </div>
               <OfferFeachersList
-                type={type}
+                type={toCapitalize(type)}
                 bedrooms={bedrooms}
                 maxAdults={maxAdults}
               />
@@ -69,7 +71,7 @@ export default function OfferPage() {
               <OfferReviewsList />
             </div>
           </div>
-          <OfferMapSection />
+          <MapSection prefix='offer' />
         </section>
         <div className="container">
           <NearPlacesList />

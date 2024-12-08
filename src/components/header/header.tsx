@@ -1,6 +1,8 @@
+import { useLocation } from 'react-router-dom';
+
 import Logo from '../logo/logo';
 import HeaderNav from './components/header-nav';
-import { useLocation } from 'react-router-dom';
+
 import { AppRoute } from '../../const';
 
 export default function Header() {
@@ -11,7 +13,7 @@ export default function Header() {
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <Logo prefix='header__logo' />
+            <Logo />
           </div>
           {pathname !== AppRoute.Login && <HeaderNav />}
         </div>
