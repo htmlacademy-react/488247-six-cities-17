@@ -22,7 +22,7 @@ export default function LocationItem({ city, index, activeIndex, tabItem, onHand
             clsx(
               'locations__item-link',
               'tabs__item',
-              activeIndex === index && 'tabs__item--active')
+              {['tabs__item--active']: activeIndex === index})
           }
           to={AppRoute.Main}
         >

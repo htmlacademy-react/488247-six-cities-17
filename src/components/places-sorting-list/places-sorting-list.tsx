@@ -38,7 +38,7 @@ export default function PlacesSortingList() {
       <ul className={clsx(
         'places__options',
         'places__options--custom',
-        open && 'places__options--opened')}
+        {['places__options--opened']: open})}
       >
         {sortingTypeList.map((sortType, index) => (
           <SortingType

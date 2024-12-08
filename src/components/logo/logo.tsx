@@ -1,9 +1,8 @@
 import { NavLink } from 'react-router-dom';
+import clsx from 'clsx';
 
 import { AppRoute, BlockPrefix } from '../../const';
 import { BlockPrefixType } from '../../types';
-
-import './style.css';
 
 type LogoProps = {
   prefix?: BlockPrefixType;
@@ -18,7 +17,15 @@ export default function Logo({
 }: LogoProps) {
   return (
     <NavLink
-      className={`${prefix}-link`}
+      className={
+        ({isActive}) => clsx(
+          `${prefix}-link`,
+          {[`${prefix}-link ${prefix}-link--active}`]: isActive},
+        )
+      }
+      style={
+        ({isActive}) => ({pointerEvents: isActive ? 'none' : 'auto'})
+      }
       to={AppRoute.Main}
     >
       <img

@@ -20,7 +20,7 @@ export default function FavoritesPage({onHandleClick}: FavoritesPageProps) {
       <main className={clsx(
         'page__main',
         'page__main--favorites',
-        !offersCount && 'page__main--favorites-empty')}
+        {['page__main--favorites-empty']: !offersCount})}
       >
         <div className="page__favorites-container container">
           {offersCount ?

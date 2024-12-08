@@ -17,7 +17,7 @@ export default function SortingType({
     <li
       className={clsx(
         'places__option',
-        index === activeSort && 'places__option--active'
+        {['places__option--active']: index === activeSort}
       )}
       tabIndex={0}
       onClick={() => onChangeSortType(index)}
