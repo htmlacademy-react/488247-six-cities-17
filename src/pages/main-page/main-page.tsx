@@ -2,9 +2,9 @@ import clsx from 'clsx';
 
 import Header from '../../components/header/header';
 import LocationsList from '../../components/locations-list/locations-list';
-import CitieOffers from './components/cities-offers';
-import CitiesNoOffers from './components/cities-no-offers';
-import CitiesMapSection from './components/cities-map-section';
+import CityOffers from './components/city-offers';
+import CityNoOffers from './components/city-no-offers';
+import CityMapSection from './components/city-map-section';
 
 import { Settings } from '../../const';
 
@@ -38,10 +38,10 @@ export default function MainPage({
             'container')}
           >
             {Settings.OffersCount ?
-              <CitieOffers activeCityIndex={activeCityIndex} />
+              <CityOffers activeCityIndex={activeCityIndex} />
               :
-              <CitiesNoOffers />}
-            <CitiesMapSection />
+              <CityNoOffers />}
+            <CityMapSection />
           </div>
         </div>
       </main>

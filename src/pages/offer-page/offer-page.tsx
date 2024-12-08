@@ -8,9 +8,10 @@ import OfferInside from './components/offer-inside';
 import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
 import NearPlacesList from './components/near-places-list';
+import MapSection from '../../components/map-section/map-section';
 
 import { fullOffer } from '../../mocks';
-import MapSection from '../../components/map-section/map-section';
+import { toCapitalize } from '../../utils';
 
 const {
   images,
@@ -52,7 +53,7 @@ export default function OfferPage() {
                 <span className="offer__rating-value rating__value">{rating}</span>
               </div>
               <OfferFeachersList
-                type={type}
+                type={toCapitalize(type)}
                 bedrooms={bedrooms}
                 maxAdults={maxAdults}
               />

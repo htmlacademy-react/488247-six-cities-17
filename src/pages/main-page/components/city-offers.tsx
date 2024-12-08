@@ -6,11 +6,11 @@ import { getOffersByCities } from '../../../data/data';
 
 import { CITIES, Settings } from '../../../const';
 
-type CitieOffersProps = {
+type CityOffersProps = {
   activeCityIndex: number;
 }
 
-export default function CitieOffers({activeCityIndex}: CitieOffersProps) {
+export default function CityOffers({activeCityIndex}: CityOffersProps) {
   const [activeOffer, setActiveOffer] = useState<string | null>(null);
 
 
@@ -22,11 +22,11 @@ export default function CitieOffers({activeCityIndex}: CitieOffersProps) {
   const offersByCities = getOffersByCities();
   const offersSlice = offersByCities[CITIES[activeCityIndex]].slice(0, Settings.OffersCount);
 
-  function handleMouseOn(id: string) {
+  function handleMouseEnter(id: string) {
     setActiveOffer(id);
   }
 
-  function handleMouseOut() {
+  function handleMouseLeave() {
     setActiveOffer(null);
   }
 
@@ -46,8 +46,8 @@ export default function CitieOffers({activeCityIndex}: CitieOffersProps) {
           <OfferCard
             key={offer.id}
             {...offer}
-            onHandleMouseOn={handleMouseOn}
-            onHandleMouseOut={handleMouseOut}
+            onHandleMouseEnter={handleMouseEnter}
+            onHandleMouseLeave={handleMouseLeave}
           />
         ))}
       </div>

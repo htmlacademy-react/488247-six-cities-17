@@ -5,14 +5,15 @@ import BookmarkButton from '../bookmark-button/bookmark-button';
 import Rating from '../rating/rating';
 
 import { AppRoute, BlockPrefix } from '../../const';
+import { toCapitalize } from '../../utils';
 import type { BlockPrefixType, Offer } from '../../types';
 
 type OfferCardProps = Offer & {
   prefix?: BlockPrefixType;
   width?: number;
   height?: number;
-  onHandleMouseOn?: (id: string) => void;
-  onHandleMouseOut?: () => void;
+  onHandleMouseEnter?: (id: string) => void;
+  onHandleMouseLeave?: () => void;
 }
 
 export default function OfferCard({
@@ -27,14 +28,14 @@ export default function OfferCard({
   prefix = BlockPrefix.Cities,
   width = 260,
   height = 200,
-  onHandleMouseOn,
-  onHandleMouseOut,
+  onHandleMouseEnter,
+  onHandleMouseLeave,
 }: OfferCardProps) {
   return (
     <article
       className={`${prefix}__card place-card`}
-      onMouseEnter={() => onHandleMouseOn?.(id)}
-      onMouseLeave={() => onHandleMouseOut?.()}
+      onMouseEnter={() => onHandleMouseEnter?.(id)}
+      onMouseLeave={() => onHandleMouseLeave?.()}
     >
       {isPremium && <PremiumMark prefix='place-card' />}
       <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>
@@ -63,7 +64,7 @@ export default function OfferCard({
         <h2 className="place-card__name">
           <Link to={AppRoute.Offer.replace(':id', id)}>{title}</Link>
         </h2>
-        <p className="place-card__type">{type}</p>
+        <p className="place-card__type">{toCapitalize(type)}</p>
       </div>
     </article>
   );
