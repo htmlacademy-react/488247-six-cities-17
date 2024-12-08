@@ -29,7 +29,7 @@ export default function Logo({
       to={AppRoute.Main}
     >
       <img
-        className="header__logo"
+        className={prefix}
         src="img/logo.svg"
         alt="6 cities logo"
         width={width}

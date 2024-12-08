@@ -15,7 +15,11 @@ type FavoritesPageProps = {
 
 export default function FavoritesPage({onHandleClick}: FavoritesPageProps) {
   return (
-    <div className={`page${!offersCount && ' page--favorites-empty'}`}>
+    <div className={clsx(
+      'page',
+      {['page--favorites-empty']: !offersCount}
+    )}
+    >
       <Header />
       <main className={clsx(
         'page__main',
