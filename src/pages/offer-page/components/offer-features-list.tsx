@@ -1,14 +1,14 @@
-type OfferFeachersListProps = {
+type OfferFeaturesListProps = {
   type: string;
   bedrooms: number;
   maxAdults: number;
 }
 
-export default function OfferFeachersList({
+export default function OfferFeaturesList({
   type,
   bedrooms,
   maxAdults
-}: OfferFeachersListProps) {
+}: OfferFeaturesListProps) {
   return (
     <ul className="offer__features">
       <li className="offer__feature offer__feature--entire">{type}</li>

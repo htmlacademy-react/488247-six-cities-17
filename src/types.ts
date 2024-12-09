@@ -65,7 +65,7 @@ type Response = {
   rating: number;
 }
 
-type ModifiedRoutePpops = {
+type ModifiedRouteProps = {
   authStatus: typeof AuthStatus[keyof typeof AuthStatus];
   children: JSX.Element;
 }
@@ -80,5 +80,5 @@ export type {
   User,
   FullOffer,
   Response,
-  ModifiedRoutePpops,
+  ModifiedRouteProps,
 };

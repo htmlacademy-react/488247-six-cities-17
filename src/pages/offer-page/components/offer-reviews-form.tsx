@@ -19,6 +19,10 @@ const initialFormState: FormData = {
 export default function OfferReviewsForm() {
   const [{review, rating}, setFormData] = useState<FormData>(initialFormState);
 
+  const isDisable = review.length < Settings.MinCommentLength
+    || review.length > Settings.MaxCommentLength
+    || !rating;
+
   function handleTextAreaChange(evt: ChangeEvent<HTMLTextAreaElement>) {
     return setFormData((prev) => ({
       ...prev,
@@ -31,10 +35,6 @@ export default function OfferReviewsForm() {
       ...prev,
       rating: Number(evt.target.value) as Rating
     }));
-  }
-
-  function isDisable() {
-    return review.length < Settings.MinCommentLength || !rating;
   }
 
   function handleFormSubmit(evt: ChangeEvent<HTMLFormElement>) {
@@ -83,7 +83,7 @@ export default function OfferReviewsForm() {
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled={isDisable()}
+          disabled={isDisable}
         >
           Submit
         </button>

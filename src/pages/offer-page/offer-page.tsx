@@ -3,7 +3,7 @@ import OfferGallery from './components/offer-gallery';
 import PremiumMark from '../../components/premium-mark/premium-mark';
 import BookmarkButton from '../../components/bookmark-button/bookmark-button';
 import Rating from '../../components/rating/rating';
-import OfferFeachersList from './components/offer-feachers-list';
+import OfferFeaturesList from './components/offer-features-list';
 import OfferInside from './components/offer-inside';
 import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
@@ -52,7 +52,7 @@ export default function OfferPage() {
                 <Rating prefix='offer' rating={rating} />
                 <span className="offer__rating-value rating__value">{rating}</span>
               </div>
-              <OfferFeachersList
+              <OfferFeaturesList
                 type={toCapitalize(type)}
                 bedrooms={bedrooms}
                 maxAdults={maxAdults}

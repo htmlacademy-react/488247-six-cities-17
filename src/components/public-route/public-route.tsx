@@ -1,9 +1,9 @@
 import { Navigate } from 'react-router-dom';
 
 import { AppRoute, AuthStatus } from '../../const';
-import type { ModifiedRoutePpops } from '../../types';
+import type { ModifiedRouteProps } from '../../types';
 
-export default function PublicRoute({authStatus, children}: ModifiedRoutePpops) {
+export default function PublicRoute({authStatus, children}: ModifiedRouteProps) {
   return (
     authStatus === AuthStatus.Auth
       ? <Navigate to={AppRoute.Main} />

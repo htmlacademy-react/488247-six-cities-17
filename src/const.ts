@@ -40,7 +40,7 @@ const BlockPrefix = {
   HeaderLogo: 'header__logo',
   FooterLogo: 'footer__logo',
   Cities: 'cities',
-  NearPlases: 'near-places',
+  NearPlaces: 'near-places',
   Favorites: 'favorites',
 } as const;
 
@@ -50,6 +50,7 @@ const Settings = {
   NearPlaces: 3,
   GalleryImageCount: 6,
   MinCommentLength: 50,
+  MaxCommentLength: 300,
   IsLogged: true,
 } as const;
 
