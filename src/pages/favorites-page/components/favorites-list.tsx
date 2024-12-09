@@ -1,22 +1,34 @@
-import OfferCard from '../../../components/offer-card/offer-card';
-import { getFavorites } from '../../../data/data';
-import type { Offer } from '../../../types';
 import { nanoid } from '@reduxjs/toolkit';
+
+import OfferCard from '../../../components/offer-card/offer-card';
 import LocationItem from '../../../components/location-item/location-item';
 
+import { getFavorites } from '../../../data/data';
+import { BlockPrefix, CITIES } from '../../../const';
+import type { CityName, Offers } from '../../../types';
+
 type FavoritePlacesListProps = {
-  offers: Offer[];
+  offers: Offers;
+}
+
+type FavoritesListProps = {
+  onHandleClick: (i: number) => void;
 }
 
 function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
-  return (
-    offers.map(
-      (offer) => <OfferCard key={offer.id} {...offer} prefix='favorites' />
-    )
+  return offers.map(
+    (offer) => (
+      <OfferCard
+        key={offer.id}
+        {...offer}
+        prefix={BlockPrefix.Favorites}
+        width={150}
+        height={110}
+      />)
   );
 }
 
-export default function FavoritesList() {
+export default function FavoritesList({onHandleClick}: FavoritesListProps) {
   const favorites = getFavorites();
 
   return (
@@ -29,7 +41,11 @@ export default function FavoritesList() {
             className="favorites__locations-items"
           >
             <div className="favorites__locations locations locations--current">
-              <LocationItem city={city} />
+              <LocationItem
+                city={city}
+                index={CITIES.indexOf(city as CityName)}
+                onHandleClick={onHandleClick}
+              />
             </div>
             <div className="favorites__places">
               <FavoritePlacesList offers={favorites[city]} />

@@ -1,5 +1,7 @@
+import type { BlockPrefixType } from '../../types';
+
 type PremiumMarkProps = {
-  prefix: string;
+  prefix: BlockPrefixType;
 }
 
 export default function PremiumMark({prefix}: PremiumMarkProps) {

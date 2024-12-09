@@ -1,16 +1,68 @@
+import { ChangeEvent, useState } from 'react';
+
 import RatingStar from './rating-star';
-import { nanoid } from '@reduxjs/toolkit';
-import { RATING_VALUES } from '../../../const';
+
+import { Settings, RATING_VALUES } from '../../../const';
+
+type Rating = 1 | 2 | 3 | 4 | 5 | null;
+
+type FormData = {
+  rating: Rating;
+  review: string;
+}
+
+const initialFormState: FormData = {
+  rating: null,
+  review: '',
+};
 
 export default function OfferReviewsForm() {
+  const [{review, rating}, setFormData] = useState<FormData>(initialFormState);
+
+  const isDisable = review.length < Settings.MinCommentLength
+    || review.length > Settings.MaxCommentLength
+    || !rating;
+
+  function handleTextAreaChange(evt: ChangeEvent<HTMLTextAreaElement>) {
+    return setFormData((prev) => ({
+      ...prev,
+      review: evt.target.value
+    }));
+  }
+
+  function handleInputChange(evt: ChangeEvent<HTMLInputElement>) {
+    return setFormData((prev) => ({
+      ...prev,
+      rating: Number(evt.target.value) as Rating
+    }));
+  }
+
+  function handleFormSubmit(evt: ChangeEvent<HTMLFormElement>) {
+    evt.preventDefault();
+    // Тут пока ничего не обрабатывается
+    setFormData(initialFormState);
+  }
+
   return (
-    <form className="reviews__form form" action='/' method="post">
+    <form
+      className="reviews__form form"
+      action='/'
+      method="post"
+      onSubmit={handleFormSubmit}
+    >
       <label className="reviews__label form__label" htmlFor="review">
         Your review
       </label>
       <div className="reviews__rating-form form__rating">
         {RATING_VALUES.map(
-          (value, index) => <RatingStar key={nanoid()} count={index + 1} title={value} />
+          (value, index) => (
+            <RatingStar
+              key={value}
+              count={index + 1}
+              title={value}
+              rating={rating}
+              onHandleInputChange={handleInputChange}
+            />)
         ).toReversed()}
       </div>
       <textarea
@@ -18,19 +70,20 @@ export default function OfferReviewsForm() {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        defaultValue={''}
+        value={review}
+        onChange={handleTextAreaChange}
       />
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set{' '}
           <span className="reviews__star">rating</span> and describe
           your stay with at least{' '}
-          <b className="reviews__text-amount">50 characters</b>.
+          <b className="reviews__text-amount">{Settings.MinCommentLength} characters</b>.
         </p>
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled
+          disabled={isDisable}
         >
           Submit
         </button>

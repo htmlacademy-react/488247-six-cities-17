@@ -1,26 +1,40 @@
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const';
+
+import { AppRoute, BlockPrefix } from '../../const';
+import type { BlockPrefixType } from '../../types';
 
 type LogoProps = {
-  prefix: string;
+  prefix?: BlockPrefixType;
+  width?: number;
+  height?: number;
 }
 
-export default function Logo({ prefix }: LogoProps) {
+export default function Logo({
+  prefix = BlockPrefix.HeaderLogo,
+  width = 81,
+  height = 41,
+}: LogoProps) {
   return (
-    <Link className={clsx(
-      `${prefix}-link`,
-      `${prefix}-link--active`
-    )}
-    to={AppRoute.Main}
+    <NavLink
+      className={
+        ({isActive}) => clsx(
+          `${prefix}-link`,
+          {[`${prefix}-link--active}`]: isActive},
+        )
+      }
+      style={
+        ({isActive}) => ({pointerEvents: isActive ? 'none' : 'auto'})
+      }
+      to={AppRoute.Main}
     >
       <img
-        className="header__logo"
+        className={prefix}
         src="img/logo.svg"
         alt="6 cities logo"
-        width={prefix === 'header__logo' ? 81 : 64}
-        height={prefix === 'header__logo' ? 41 : 33}
+        width={width}
+        height={height}
       />
-    </Link>
+    </NavLink>
   );
 }

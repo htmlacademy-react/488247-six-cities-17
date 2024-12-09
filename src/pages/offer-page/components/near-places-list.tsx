@@ -1,18 +1,21 @@
 import OfferCard from '../../../components/offer-card/offer-card';
-import { mockNearPlacesList } from '../../../mock-data/mock-near-places-list';
-import { NEIGHBOURHOOD_PLACES } from '../../../const';
+
+import { nearPlaces } from '../../../mocks';
+import { BlockPrefix, Settings } from '../../../const';
+import type { Offer } from '../../../types';
+
+const nearPlacesSlice = nearPlaces.slice(0, Settings.NearPlaces);
 
 export default function NearPlacesList() {
   return (
     <section className="near-places places">
       <h2 className="near-places__title">
-        Other places in the neighbourhood
+        Other places in the neighborhood
       </h2>
       <div className="near-places__list places__list">
-        {mockNearPlacesList.slice(0, NEIGHBOURHOOD_PLACES)
-          .map((offer) => (
-            <OfferCard key={offer.id} {...offer} prefix='near-places' />
-          ))}
+        {nearPlacesSlice.map((offer) => (
+          <OfferCard key={offer.id} {...offer as Offer} prefix={BlockPrefix.NearPlaces} />
+        ))}
       </div>
     </section>
   );
