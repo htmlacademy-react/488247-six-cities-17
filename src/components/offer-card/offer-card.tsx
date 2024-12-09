@@ -37,7 +37,7 @@ export default function OfferCard({
       onMouseEnter={() => onHandleMouseEnter?.(id)}
       onMouseLeave={() => onHandleMouseLeave?.()}
     >
-      {isPremium && <PremiumMark prefix='place-card' />}
+      {isPremium && <PremiumMark prefix={BlockPrefix.PlaceCard} />}
       <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>
         <Link to={AppRoute.Offer.replace(':id', id)}>
           <img

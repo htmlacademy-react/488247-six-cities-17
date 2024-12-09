@@ -1,5 +1,8 @@
+import { toCapitalize } from '../../../utils';
+import type { OfferType } from '../../../types';
+
 type OfferFeaturesListProps = {
-  type: string;
+  type: OfferType;
   bedrooms: number;
   maxAdults: number;
 }
@@ -11,7 +14,7 @@ export default function OfferFeaturesList({
 }: OfferFeaturesListProps) {
   return (
     <ul className="offer__features">
-      <li className="offer__feature offer__feature--entire">{type}</li>
+      <li className="offer__feature offer__feature--entire">{toCapitalize(type)}</li>
       <li className="offer__feature offer__feature--bedrooms">
         {bedrooms} {bedrooms > 1 ? 'Bedrooms' : 'Bedroom'}
       </li>

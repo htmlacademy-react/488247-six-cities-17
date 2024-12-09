@@ -4,8 +4,8 @@ import OfferCard from '../../../components/offer-card/offer-card';
 import LocationItem from '../../../components/location-item/location-item';
 
 import { getFavorites } from '../../../data/data';
-import type { CityName, Offers } from '../../../types';
 import { BlockPrefix, CITIES } from '../../../const';
+import type { CityName, Offers } from '../../../types';
 
 type FavoritePlacesListProps = {
   offers: Offers;

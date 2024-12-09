@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 
+import type { SortType } from '../../../types';
+
 type SortingTypeProps = {
-  sortType: string;
+  sortType: SortType;
   index: number;
   activeSort: number;
   onChangeSortType: (i: number) => void;

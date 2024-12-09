@@ -40,8 +40,11 @@ const BlockPrefix = {
   HeaderLogo: 'header__logo',
   FooterLogo: 'footer__logo',
   Cities: 'cities',
+  Offer: 'offer',
+  PlaceCard: 'place-card',
   NearPlaces: 'near-places',
   Favorites: 'favorites',
+  Reviews: 'reviews',
 } as const;
 
 const Settings = {

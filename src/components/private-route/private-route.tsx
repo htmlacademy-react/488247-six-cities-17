@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 
 import { AppRoute, AuthStatus } from '../../const';
-import { ModifiedRouteProps } from '../../types';
+import type { ModifiedRouteProps } from '../../types';
 
 export default function PrivateRoute({authStatus, children}: ModifiedRouteProps) {
   return (

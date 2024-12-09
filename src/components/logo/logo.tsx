@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { AppRoute, BlockPrefix } from '../../const';
-import { BlockPrefixType } from '../../types';
+import type { BlockPrefixType } from '../../types';
 
 type LogoProps = {
   prefix?: BlockPrefixType;

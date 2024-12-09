@@ -1,7 +1,8 @@
 import { Settings } from '../../const';
+import { BlockPrefixType } from '../../types';
 
 type RatingProps = {
-  prefix: string;
+  prefix: BlockPrefixType;
   rating: number;
 }
 

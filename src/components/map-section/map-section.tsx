@@ -1,7 +1,8 @@
 import { BlockPrefix } from '../../const';
+import type { BlockPrefixType } from '../../types';
 
 type MapSectionProps = {
-  prefix?: string;
+  prefix?: BlockPrefixType;
 }
 
 export default function MapSection({prefix = BlockPrefix.Cities}: MapSectionProps) {

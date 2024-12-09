@@ -2,7 +2,7 @@ import OfferCard from '../../../components/offer-card/offer-card';
 
 import { nearPlaces } from '../../../mocks';
 import { BlockPrefix, Settings } from '../../../const';
-import { Offer } from '../../../types';
+import type { Offer } from '../../../types';
 
 const nearPlacesSlice = nearPlaces.slice(0, Settings.NearPlaces);
 

@@ -11,7 +11,8 @@ import NearPlacesList from './components/near-places-list';
 import MapSection from '../../components/map-section/map-section';
 
 import { fullOffer } from '../../mocks';
-import { toCapitalize } from '../../utils';
+import { BlockPrefix } from '../../const';
+import type { FullOffer } from '../../types';
 
 const {
   images,
@@ -26,7 +27,7 @@ const {
   goods,
   host,
   description,
-} = fullOffer;
+} = fullOffer as FullOffer;
 
 export default function OfferPage() {
 
@@ -38,7 +39,7 @@ export default function OfferPage() {
           <OfferGallery images={images} />
           <div className="offer__container container">
             <div className="offer__wrapper">
-              {isPremium && <PremiumMark prefix='offer' />}
+              {isPremium && <PremiumMark prefix={BlockPrefix.Offer} />}
               <div className="offer__name-wrapper">
                 <h1 className="offer__name">{title}</h1>
                 <BookmarkButton
@@ -53,7 +54,7 @@ export default function OfferPage() {
                 <span className="offer__rating-value rating__value">{rating}</span>
               </div>
               <OfferFeaturesList
-                type={toCapitalize(type)}
+                type={type}
                 bedrooms={bedrooms}
                 maxAdults={maxAdults}
               />
