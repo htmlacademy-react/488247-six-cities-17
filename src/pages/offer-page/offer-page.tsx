@@ -44,13 +44,13 @@ export default function OfferPage() {
                 <h1 className="offer__name">{title}</h1>
                 <BookmarkButton
                   isFavorite={isFavorite}
-                  prefix='offer'
+                  prefix={BlockPrefix.Offer}
                   width={31}
                   height={33}
                 />
               </div>
               <div className="offer__rating rating">
-                <Rating prefix='offer' rating={rating} />
+                <Rating prefix={BlockPrefix.Offer} rating={rating} />
                 <span className="offer__rating-value rating__value">{rating}</span>
               </div>
               <OfferFeaturesList
@@ -72,7 +72,7 @@ export default function OfferPage() {
               <OfferReviewsList />
             </div>
           </div>
-          <MapSection prefix='offer' />
+          <MapSection prefix={BlockPrefix.Offer} />
         </section>
         <div className="container">
           <NearPlacesList />

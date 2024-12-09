@@ -56,11 +56,11 @@ export default function OfferCard({
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <BookmarkButton
-            prefix='place-card'
+            prefix={BlockPrefix.PlaceCard}
             isFavorite={isFavorite}
           />
         </div>
-        <Rating prefix='place-card' rating={rating} />
+        <Rating prefix={BlockPrefix.PlaceCard} rating={rating} />
         <h2 className="place-card__name">
           <Link to={AppRoute.Offer.replace(':id', id)}>{title}</Link>
         </h2>
