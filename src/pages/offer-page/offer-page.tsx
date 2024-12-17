@@ -3,13 +3,16 @@ import OfferGallery from './components/offer-gallery';
 import PremiumMark from '../../components/premium-mark/premium-mark';
 import BookmarkButton from '../../components/bookmark-button/bookmark-button';
 import Rating from '../../components/rating/rating';
-import OfferFeachersList from './components/offer-feachers-list';
+import OfferFeaturesList from './components/offer-features-list';
 import OfferInside from './components/offer-inside';
 import OfferHost from './components/offer-host';
 import OfferReviewsList from './components/offer-reviews-list';
-import OfferMapSection from './components/offer-map-section';
 import NearPlacesList from './components/near-places-list';
-import { mockFullOffer } from '../../mock-data/mock-full-offer';
+import MapSection from '../../components/map-section/map-section';
+
+import { fullOffer } from '../../mocks';
+import { BlockPrefix } from '../../const';
+import type { FullOffer } from '../../types';
 
 const {
   images,
@@ -24,7 +27,7 @@ const {
   goods,
   host,
   description,
-} = mockFullOffer;
+} = fullOffer as FullOffer;
 
 export default function OfferPage() {
 
@@ -36,21 +39,21 @@ export default function OfferPage() {
           <OfferGallery images={images} />
           <div className="offer__container container">
             <div className="offer__wrapper">
-              {isPremium && <PremiumMark prefix='offer' />}
+              {isPremium && <PremiumMark prefix={BlockPrefix.Offer} />}
               <div className="offer__name-wrapper">
                 <h1 className="offer__name">{title}</h1>
                 <BookmarkButton
                   isFavorite={isFavorite}
-                  prefix='offer'
+                  prefix={BlockPrefix.Offer}
                   width={31}
                   height={33}
                 />
               </div>
               <div className="offer__rating rating">
-                <Rating prefix='offer' rating={rating} />
+                <Rating prefix={BlockPrefix.Offer} rating={rating} />
                 <span className="offer__rating-value rating__value">{rating}</span>
               </div>
-              <OfferFeachersList
+              <OfferFeaturesList
                 type={type}
                 bedrooms={bedrooms}
                 maxAdults={maxAdults}
@@ -69,7 +72,7 @@ export default function OfferPage() {
               <OfferReviewsList />
             </div>
           </div>
-          <OfferMapSection />
+          <MapSection prefix={BlockPrefix.Offer} />
         </section>
         <div className="container">
           <NearPlacesList />

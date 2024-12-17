@@ -1,3 +1,11 @@
+import { AuthStatus, BlockPrefix, CITIES, OFFER_TYPES } from './const';
+
+type CityName = typeof CITIES[number];
+
+type OfferType = typeof OFFER_TYPES[number];
+
+type BlockPrefixType = typeof BlockPrefix[keyof typeof BlockPrefix];
+
 type SortType = 'Popular'
 | 'Price: low to high'
 | 'Price: high to low'
@@ -6,7 +14,7 @@ type SortType = 'Popular'
 type Offer = {
   id: string;
   title: string;
-  type: string;
+  type: OfferType;
   price: number;
   city: City;
   location: Location;
@@ -16,6 +24,8 @@ type Offer = {
   previewImage: string;
 }
 
+type Offers = Offer[];
+
 type Location = {
   latitude: number;
   longitude: number;
@@ -23,7 +33,7 @@ type Location = {
 }
 
 type City = {
-  name: string;
+  name: CityName;
   location: Location;
 }
 
@@ -55,9 +65,20 @@ type Response = {
   rating: number;
 }
 
-type ModifiedRoutePpops = {
-  authStatus: 'AUTH' | 'NO_AUTH' | 'UNKNOWN';
+type ModifiedRouteProps = {
+  authStatus: typeof AuthStatus[keyof typeof AuthStatus];
   children: JSX.Element;
 }
 
-export type { SortType, Offer, FullOffer, Response, ModifiedRoutePpops };
+export type {
+  CityName,
+  OfferType,
+  BlockPrefixType,
+  SortType,
+  Offer,
+  Offers,
+  User,
+  FullOffer,
+  Response,
+  ModifiedRouteProps,
+};

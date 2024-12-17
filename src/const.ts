@@ -7,6 +7,13 @@ const CITIES = [
   'Dusseldorf',
 ] as const;
 
+const OFFER_TYPES = [
+  'room',
+  'house',
+  'apartment',
+  'hotel',
+] as const;
+
 const RATING_VALUES = [
   'terribly',
   'badly',
@@ -29,22 +36,33 @@ const AuthStatus = {
   Unknown: 'UNKNOWN',
 } as const;
 
-const OFFERS_COUNT = 5;
-const IS_LOGGED = true;
-const RATING_RATIO = 20;
-const ACTIVE_CITY_INDEX = 0;
-const NEIGHBOURHOOD_PLACES = 3;
-const GALLERY_IMAGE_COUNT = 6;
+const BlockPrefix = {
+  HeaderLogo: 'header__logo',
+  FooterLogo: 'footer__logo',
+  Cities: 'cities',
+  Offer: 'offer',
+  PlaceCard: 'place-card',
+  NearPlaces: 'near-places',
+  Favorites: 'favorites',
+  Reviews: 'reviews',
+} as const;
+
+const Settings = {
+  OffersCount: 5,
+  RatingRatio: 20,
+  NearPlaces: 3,
+  GalleryImageCount: 6,
+  MinCommentLength: 50,
+  MaxCommentLength: 300,
+  IsLogged: true,
+} as const;
 
 export {
   CITIES,
+  OFFER_TYPES,
   RATING_VALUES,
   AppRoute,
   AuthStatus,
-  OFFERS_COUNT,
-  IS_LOGGED,
-  RATING_RATIO,
-  ACTIVE_CITY_INDEX,
-  NEIGHBOURHOOD_PLACES,
-  GALLERY_IMAGE_COUNT,
+  BlockPrefix,
+  Settings,
 };

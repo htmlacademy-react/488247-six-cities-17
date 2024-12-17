@@ -1,7 +1,9 @@
-import Header from '../../components/header/header';
 import { Link } from 'react-router-dom';
-import styles from './style.module.css';
+
+import Header from '../../components/header/header';
+
 import { AppRoute } from '../../const';
+import styles from './style.module.css';
 
 export default function NotFoundPage() {
   return (

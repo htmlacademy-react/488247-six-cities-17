@@ -1,4 +1,4 @@
-export const mockReviewsList = [
+export const reviews = [
   {
     'id': '059338a2-7ae3-4d54-8953-270af21c5372',
     'comment': 'The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.',

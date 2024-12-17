@@ -1,30 +1,47 @@
+import clsx from 'clsx';
+
 import Header from '../../components/header/header';
 import LocationsList from '../../components/locations-list/locations-list';
-import CitiesOffers from './components/cities-offers';
-import CitiesNoOffers from './components/cities-no-offers';
-import CitiesMapSection from './components/cities-map-section';
-import clsx from 'clsx';
-import { OFFERS_COUNT } from '../../const';
+import CityOffers from './components/city-offers';
+import CityNoOffers from './components/city-no-offers';
+import CityMapSection from './components/city-map-section';
 
-export default function MainPage() {
+import { Settings } from '../../const';
+
+type MainPageProps = {
+  activeCityIndex: number;
+  onHandleClick: (i: number) => void;
+}
+
+export default function MainPage({
+  activeCityIndex,
+  onHandleClick,
+}: MainPageProps) {
+
   return (
     <div className="page page--gray page--main">
       <Header />
       <main className={clsx(
         'page__main',
         'page__main--index',
-        !OFFERS_COUNT && 'page__main--index-empty')}
+        {['page__main--index-empty']: !Settings.OffersCount})}
       >
         <h1 className="visually-hidden">Cities</h1>
-        <LocationsList />
+        <LocationsList
+          activeCityIndex={activeCityIndex}
+          onHandleClick={onHandleClick}
+        />
         <div className="cities">
           <div className={clsx(
             'cities__places-container',
-            !OFFERS_COUNT && 'cities__places-container--empty',
+            {['cities__places-container--empty']: !Settings.OffersCount},
             'container')}
           >
-            {OFFERS_COUNT ? <CitiesOffers /> : <CitiesNoOffers />}
-            <CitiesMapSection />
+            {Settings.OffersCount ?
+              <CityOffers activeCityIndex={activeCityIndex} />
+              :
+              <CityNoOffers />}
+            <CityMapSection />
           </div>
         </div>
       </main>

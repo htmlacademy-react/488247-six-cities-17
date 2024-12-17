@@ -1,4 +1,4 @@
-export default function CitiesNoOffers() {
+export default function CityNoOffers() {
   return (
     <section className="cities__no-places">
       <div className="cities__status-wrapper tabs__content">
