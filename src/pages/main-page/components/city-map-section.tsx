@@ -1,11 +1,13 @@
 import MapSection from '../../../components/map-section/map-section';
 
-import { Settings } from '../../../const';
+type CityMapSectionProps = {
+  offersCount: number;
+}
 
-export default function CityMapSection() {
+export default function CityMapSection({offersCount}: CityMapSectionProps) {
   return (
     <div className="cities__right-section">
-      {Settings.OffersCount > 0 && <MapSection />}
+      {offersCount && <MapSection />}
     </div>
   );
 }

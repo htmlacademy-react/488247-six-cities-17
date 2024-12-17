@@ -48,7 +48,6 @@ const BlockPrefix = {
 } as const;
 
 const Settings = {
-  OffersCount: 5,
   RatingRatio: 20,
   NearPlaces: 3,
   GalleryImageCount: 6,
