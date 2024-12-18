@@ -6,7 +6,7 @@ import LocationsList from '../../components/locations-list/locations-list';
 import CityOffers from './components/city-offers';
 import CityNoOffers from './components/city-no-offers';
 import CityMapSection from './components/city-map-section';
-import { getOffersByCities } from '../../data/data';
+import { getOffersByCities, getPoints } from '../../data/data';
 
 import { CITIES } from '../../const';
 
@@ -19,35 +19,30 @@ export default function MainPage({
   activeCityIndex,
   onHandleClick,
 }: MainPageProps) {
-  const [activeOffer, setActiveOffer] = useState<string | null>(null);
+  const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
 
-  const currentOffers = getOffersByCities()[CITIES[activeCityIndex]];
   const activeCity = CITIES[activeCityIndex];
+  const currentOffers = getOffersByCities()[activeCity];
   const cityLocation = currentOffers[0].city.location;
-
-  // Бредовая функция только для того чтоб заставить линтер перестать ругаться.
-  function onShutDownLinter() {
-    return [activeOffer, cityLocation];
-  }
+  const points = getPoints(currentOffers);
 
   function handleMouseEnter(id: string) {
-    setActiveOffer(id);
+    setActiveOfferId(id);
   }
 
   function handleMouseLeave() {
-    setActiveOffer(null);
+    setActiveOfferId(null);
   }
 
   return (
     <div
       className="page page--gray page--main"
-      onMouseLeave={onShutDownLinter} // Вызов бредовой функции.
     >
       <Header />
       <main className={clsx(
         'page__main',
         'page__main--index',
-        {['page__main--index-empty']: currentOffers.length})}
+        {['page__main--index-empty']: !currentOffers.length})}
       >
         <h1 className="visually-hidden">Cities</h1>
         <LocationsList
@@ -57,7 +52,7 @@ export default function MainPage({
         <div className="cities">
           <div className={clsx(
             'cities__places-container',
-            {['cities__places-container--empty']: currentOffers.length},
+            {['cities__places-container--empty']: !currentOffers.length},
             'container')}
           >
             {currentOffers.length ?
@@ -69,7 +64,12 @@ export default function MainPage({
               />
               :
               <CityNoOffers />}
-            <CityMapSection offersCount={currentOffers.length} />
+            <CityMapSection
+              offersCount={currentOffers.length}
+              cityLocation={cityLocation}
+              points={points}
+              activeOfferId={activeOfferId}
+            />
           </div>
         </div>
       </main>

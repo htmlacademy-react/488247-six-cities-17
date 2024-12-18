@@ -56,6 +56,13 @@ const Settings = {
   IsLogged: true,
 } as const;
 
+const MapSettings = {
+  MarkerDefaultUrl: '/img/pin.svg',
+  MarkerActiveUrl: '/img/pin-active.svg',
+  Layer: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+  Copiright: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+};
+
 export {
   CITIES,
   OFFER_TYPES,
@@ -64,4 +71,5 @@ export {
   AuthStatus,
   BlockPrefix,
   Settings,
+  MapSettings,
 };
