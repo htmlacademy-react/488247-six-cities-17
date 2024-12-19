@@ -1,5 +1,3 @@
-import { nanoid } from '@reduxjs/toolkit';
-
 import OfferCard from '../../../components/offer-card/offer-card';
 import LocationItem from '../../../components/location-item/location-item';
 
@@ -37,7 +35,7 @@ export default function FavoritesList({onHandleClick}: FavoritesListProps) {
       <ul className="favorites__list">
         {Object.keys(favorites).map((city) => (
           <li
-            key={nanoid()}
+            key={city}
             className="favorites__locations-items"
           >
             <div className="favorites__locations locations locations--current">

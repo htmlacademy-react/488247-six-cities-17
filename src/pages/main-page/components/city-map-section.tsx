@@ -1,11 +1,29 @@
 import MapSection from '../../../components/map-section/map-section';
 
-import { Settings } from '../../../const';
+import { Location, Point } from '../../../types';
 
-export default function CityMapSection() {
+type CityMapSectionProps = {
+  offersCount: number;
+  cityLocation: Location;
+  points: Point[];
+  activeOfferId: string | null;
+}
+
+export default function CityMapSection({
+  offersCount,
+  cityLocation,
+  points,
+  activeOfferId,
+}: CityMapSectionProps) {
   return (
     <div className="cities__right-section">
-      {Settings.OffersCount > 0 && <MapSection />}
+      {offersCount &&
+        <MapSection
+          cityLocation={cityLocation}
+          points={points}
+          activeOfferId={activeOfferId}
+          scalable
+        />}
     </div>
   );
 }
