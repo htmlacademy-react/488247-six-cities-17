@@ -29,11 +29,9 @@ export function getFavorites() {
 }
 
 export function getPoints(offers: Offers) {
-  return offers.map((offer) => ({
-    id: offer.id,
-    latitude: offer.location.latitude,
-    longitude: offer.location.longitude,
-  }));
+  return offers.map(({id, location: {latitude, longitude}}) => (
+    {id, latitude, longitude}
+  ));
 }
 
 export function getNearPlacesSlice() {

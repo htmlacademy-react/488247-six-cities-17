@@ -22,6 +22,7 @@ export default function CityMapSection({
           cityLocation={cityLocation}
           points={points}
           activeOfferId={activeOfferId}
+          scalable
         />}
     </div>
   );

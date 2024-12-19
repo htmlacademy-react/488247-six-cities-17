@@ -1,5 +1,5 @@
 import {useRef, useEffect} from 'react';
-import {Icon, Marker, layerGroup} from 'leaflet';
+import {Icon, Marker, Zoom, layerGroup} from 'leaflet';
 
 import useMap from '../../hooks/use-map';
 
@@ -12,6 +12,7 @@ type MapSectionProps = {
   cityLocation: Location;
   points: Point[];
   activeOfferId: string | null;
+  scalable?: Zoom;
 };
 
 const defaultCustomIcon = new Icon({
@@ -31,9 +32,10 @@ export default function MapSection({
   cityLocation,
   points,
   activeOfferId,
+  scalable,
 }: MapSectionProps) {
   const mapRef = useRef(null);
-  const map = useMap(mapRef, cityLocation);
+  const map = useMap(mapRef, cityLocation, scalable);
 
   useEffect(() => {
     if (map) {
