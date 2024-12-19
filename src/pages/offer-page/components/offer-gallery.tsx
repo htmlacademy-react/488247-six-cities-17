@@ -26,7 +26,7 @@ export default function OfferGallery({images}: OfferGalleryProps) {
   return (
     <div className="offer__gallery-container container">
       <div className="offer__gallery">
-        {images.slice(0, Settings.GalleryImageCount)
+        {images.slice(0, Settings.MaxImageCount)
           .map((image) => <OfferImage key={nanoid()} image={image} />)}
       </div>
     </div>

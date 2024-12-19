@@ -27,7 +27,7 @@ export default function OfferReviewsItem({
       <div className="reviews__info">
         <Rating prefix={BlockPrefix.Reviews} rating={rating} />
         <p className="reviews__text">{comment}</p>
-        <time className="reviews__time" dateTime="2019-04-24">
+        <time className="reviews__time" dateTime={`${dayjs(date).format('YYYY-MM-DD')}`}>
           {`${dayjs(date).format('MMMM YYYY')}`}
         </time>
       </div>
