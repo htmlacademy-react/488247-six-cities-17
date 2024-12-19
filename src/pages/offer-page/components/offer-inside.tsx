@@ -1,5 +1,3 @@
-import { nanoid } from '@reduxjs/toolkit';
-
 type OfferInsideItemProps = {
   item: string;
 }
@@ -17,7 +15,7 @@ export default function OfferInside({goods}: OfferInsideProps) {
     <div className="offer__inside">
       <h2 className="offer__inside-title">What&apos;s inside</h2>
       <ul className="offer__inside-list">
-        {goods.map((item) => <OfferInsideItem key={nanoid()} item={item} />)}
+        {goods.map((item) => <OfferInsideItem key={item} item={item} />)}
       </ul>
     </div>
   );

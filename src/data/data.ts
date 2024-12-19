@@ -1,9 +1,9 @@
-import { offers } from '../mocks';
+import { offers as mockOffers, nearPlaces } from '../mocks';
 
-import { CITIES } from '../const';
+import { CITIES, Settings } from '../const';
 import type { Offers } from '../types';
 
-const offersByCities = CITIES.map((city) => [...offers as Offers]
+const offersByCities = CITIES.map((city) => [...mockOffers as Offers]
   .filter(({ city: { name } }) => city === name));
 
 const favoritesOffers = offersByCities
@@ -26,4 +26,16 @@ export function getOffersByCities() {
 
 export function getFavorites() {
   return arrayToObject(favoritesOffers);
+}
+
+export function getPoints(offers: Offers) {
+  return offers.map((offer) => ({
+    id: offer.id,
+    latitude: offer.location.latitude,
+    longitude: offer.location.longitude,
+  }));
+}
+
+export function getNearPlacesSlice() {
+  return nearPlaces.slice(0, Settings.NearPlaces) as Offers;
 }
