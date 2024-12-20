@@ -1,6 +1,6 @@
 import { offers as mockOffers, nearPlaces } from '../mocks';
 
-import { CITIES, Settings } from '../const';
+import { CITIES, Setting } from '../const';
 import type { Offers } from '../types';
 
 const offersByCities = CITIES.map((city) => [...mockOffers as Offers]
@@ -35,5 +35,5 @@ export function getPoints(offers: Offers) {
 }
 
 export function getNearPlacesSlice() {
-  return nearPlaces.slice(0, Settings.NearPlaces) as Offers;
+  return nearPlaces.slice(0, Setting.NearPlaces) as Offers;
 }

@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react';
 
 import RatingStar from './rating-star';
 
-import { Settings, RATING_VALUES } from '../../../const';
+import { Setting, RATING_VALUES } from '../../../const';
 
 type Rating = 1 | 2 | 3 | 4 | 5 | null;
 
@@ -19,8 +19,8 @@ const initialFormState: FormData = {
 export default function OfferReviewsForm() {
   const [{review, rating}, setFormData] = useState<FormData>(initialFormState);
 
-  const isDisable = review.length < Settings.MinCommentLength
-    || review.length > Settings.MaxCommentLength
+  const isDisable = review.length < Setting.MinCommentLength
+    || review.length > Setting.MaxCommentLength
     || !rating;
 
   function handleTextAreaChange(evt: ChangeEvent<HTMLTextAreaElement>) {
@@ -78,7 +78,7 @@ export default function OfferReviewsForm() {
           To submit review please make sure to set{' '}
           <span className="reviews__star">rating</span> and describe
           your stay with at least{' '}
-          <b className="reviews__text-amount">{Settings.MinCommentLength} characters</b>.
+          <b className="reviews__text-amount">{Setting.MinCommentLength} characters</b>.
         </p>
         <button
           className="reviews__submit form__submit button"
