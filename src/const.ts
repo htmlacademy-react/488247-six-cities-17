@@ -53,6 +53,7 @@ const Settings = {
   MaxImageCount: 6,
   MinCommentLength: 50,
   MaxCommentLength: 300,
+  MaxReviewsCount: 10,
   IsLogged: true,
 } as const;
 

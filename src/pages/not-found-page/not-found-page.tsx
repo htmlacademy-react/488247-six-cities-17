@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import Header from '../../components/header/header';
-
 import { AppRoute } from '../../const';
 import styles from './style.module.css';
 
 export default function NotFoundPage() {
   return (
     <div className="page page--gray page--main">
-      <Header />
       <main className="page__main--index page__main--index-empty">
         <div className="cities">
           <div className="cities__places-container container">
