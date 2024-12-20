@@ -44,9 +44,6 @@ type User = {
 }
 
 type FullOffer = Omit<Offer,
-'id'
-| 'city'
-| 'location'
 | 'previewImage'
  > & {
   description: string;
@@ -70,6 +67,12 @@ type ModifiedRouteProps = {
   children: JSX.Element;
 }
 
+type Point = {
+  id: string;
+  latitude: number;
+  longitude: number;
+}
+
 export type {
   CityName,
   OfferType,
@@ -77,8 +80,11 @@ export type {
   SortType,
   Offer,
   Offers,
+  Location,
+  City,
   User,
   FullOffer,
   Response,
   ModifiedRouteProps,
+  Point,
 };

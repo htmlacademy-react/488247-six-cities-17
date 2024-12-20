@@ -11,12 +11,15 @@ import NearPlacesList from './components/near-places-list';
 import MapSection from '../../components/map-section/map-section';
 
 import { fullOffer } from '../../mocks';
+import { getNearPlacesSlice, getPoints } from '../../data/data';
 import { BlockPrefix } from '../../const';
 import type { FullOffer } from '../../types';
 
 const {
+  id,
   images,
   isPremium,
+  location: {latitude, longitude},
   title,
   isFavorite,
   rating,
@@ -24,12 +27,16 @@ const {
   bedrooms,
   maxAdults,
   price,
+  city,
   goods,
   host,
   description,
 } = fullOffer as FullOffer;
 
 export default function OfferPage() {
+  const cityLocation = city.location;
+  const currentPoint = {id, latitude, longitude};
+  const points = [...getPoints(getNearPlacesSlice()), currentPoint];
 
   return (
     <div className="page">
@@ -72,7 +79,12 @@ export default function OfferPage() {
               <OfferReviewsList />
             </div>
           </div>
-          <MapSection prefix={BlockPrefix.Offer} />
+          <MapSection
+            prefix={BlockPrefix.Offer}
+            cityLocation={cityLocation}
+            points={points}
+            activeOfferId={currentPoint.id}
+          />
         </section>
         <div className="container">
           <NearPlacesList />
