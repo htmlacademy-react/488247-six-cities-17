@@ -1,4 +1,4 @@
-import { Settings } from '../../const';
+import { Setting } from '../../const';
 import { BlockPrefixType } from '../../types';
 
 type RatingProps = {
@@ -10,7 +10,7 @@ export default function Rating({ prefix, rating }: RatingProps) {
   return (
     <div className={`${prefix}__rating rating`}>
       <div className={`${prefix}__stars rating__stars`}>
-        <span style={{ width: `${Math.round(rating) * Settings.RatingRatio}%` }} />
+        <span style={{ width: `${Math.round(rating) * Setting.RatingRatio}%` }} />
         <span className="visually-hidden">Rating</span>
       </div>
     </div>

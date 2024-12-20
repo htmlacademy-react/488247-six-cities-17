@@ -3,7 +3,7 @@ import {Icon, Marker, Zoom, layerGroup} from 'leaflet';
 
 import useMap from '../../hooks/use-map';
 
-import { BlockPrefix, MapSettings } from '../../const';
+import { BlockPrefix, MapSetting } from '../../const';
 import type { BlockPrefixType, Location, Point } from '../../types';
 import 'leaflet/dist/leaflet.css';
 
@@ -16,15 +16,15 @@ type MapSectionProps = {
 };
 
 const defaultCustomIcon = new Icon({
-  iconUrl: MapSettings.MarkerDefaultUrl,
-  iconSize: [27, 39],
-  iconAnchor: [15, 39]
+  iconUrl: MapSetting.MarkerDefaultUrl,
+  iconSize: MapSetting.MarkerSize,
+  iconAnchor: MapSetting.MarkerAncor,
 });
 
 const currentCustomIcon = new Icon({
-  iconUrl: MapSettings.MarkerActiveUrl,
-  iconSize: [27, 39],
-  iconAnchor: [15, 39]
+  iconUrl: MapSetting.MarkerActiveUrl,
+  iconSize: MapSetting.MarkerSize,
+  iconAnchor: MapSetting.MarkerAncor,
 });
 
 export default function MapSection({

@@ -1,7 +1,7 @@
 import {useEffect, useState, MutableRefObject, useRef} from 'react';
 import {Map, TileLayer, Zoom} from 'leaflet';
 
-import { MapSettings } from '../const';
+import { MapSetting } from '../const';
 import {Location} from '../types';
 
 export default function useMap(
@@ -16,7 +16,7 @@ export default function useMap(
     if (map) {
       map.panTo({
         lat: location.latitude,
-        lng: location.longitude
+        lng: location.longitude,
       });
     }
   }, [location, map]);
@@ -33,7 +33,7 @@ export default function useMap(
       });
 
       const layer = new TileLayer(
-        MapSettings.Layer, { attribution: MapSettings.Copiright }
+        MapSetting.Layer, { attribution: MapSetting.Copiright }
       );
 
       instance.addLayer(layer);
