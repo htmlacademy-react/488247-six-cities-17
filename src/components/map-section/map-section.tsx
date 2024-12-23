@@ -39,6 +39,16 @@ export default function MapSection({
 
   useEffect(() => {
     if (map) {
+      map.setView([
+        location.latitude,
+        location.longitude
+      ],
+      location.zoom);
+    }
+  }, [map, location]);
+
+  useEffect(() => {
+    if (map) {
       const markerLayer = layerGroup().addTo(map);
       points.forEach(({id, latitude, longitude}) => {
         const marker = new Marker({
