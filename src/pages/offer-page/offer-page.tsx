@@ -12,7 +12,7 @@ import MapSection from '../../components/map-section/map-section';
 
 import { fullOffer } from '../../mocks';
 import { getNearPlacesSlice, getPoints } from '../../data/data';
-import { BlockPrefix } from '../../const';
+import { Prefix } from '../../const';
 import type { FullOffer } from '../../types';
 
 const {
@@ -46,18 +46,18 @@ export default function OfferPage() {
           <OfferGallery images={images} />
           <div className="offer__container container">
             <div className="offer__wrapper">
-              {isPremium && <PremiumMark prefix={BlockPrefix.Offer} />}
+              {isPremium && <PremiumMark prefix={Prefix.Offer} />}
               <div className="offer__name-wrapper">
                 <h1 className="offer__name">{title}</h1>
                 <BookmarkButton
                   isFavorite={isFavorite}
-                  prefix={BlockPrefix.Offer}
+                  prefix={Prefix.Offer}
                   width={31}
                   height={33}
                 />
               </div>
               <div className="offer__rating rating">
-                <Rating prefix={BlockPrefix.Offer} rating={rating} />
+                <Rating prefix={Prefix.Offer} rating={rating} />
                 <span className="offer__rating-value rating__value">{rating}</span>
               </div>
               <OfferFeaturesList
@@ -80,8 +80,8 @@ export default function OfferPage() {
             </div>
           </div>
           <MapSection
-            prefix={BlockPrefix.Offer}
-            cityLocation={cityLocation}
+            prefix={Prefix.Offer}
+            location={cityLocation}
             points={points}
             activeOfferId={currentPoint.id}
           />

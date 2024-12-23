@@ -6,7 +6,7 @@ import type { Offers } from '../types';
 const offersByCities = CITIES.map((city) => [...mockOffers as Offers]
   .filter(({ city: { name } }) => city === name));
 
-const favoritesOffers = offersByCities
+const favoriteOffers = offersByCities
   .map((city) => city.filter(({ isFavorite }) => isFavorite))
   .filter((city) => city.length);
 
@@ -16,21 +16,21 @@ function arrayToObject(array: Offers[]): { [city: string]: Offers } {
   );
 }
 
-export function getFavoritesOfferCount() {
-  return favoritesOffers.reduce((sum, cityOffers) => sum + cityOffers.length, 0);
+export function getFavoriteOffersCount() {
+  return favoriteOffers.reduce((sum, cityOffers) => sum + cityOffers.length, 0);
 }
 
 export function getOffersByCities() {
   return arrayToObject(offersByCities);
 }
 
-export function getFavorites() {
-  return arrayToObject(favoritesOffers);
+export function getFavoriteOffers() {
+  return arrayToObject(favoriteOffers);
 }
 
 export function getPoints(offers: Offers) {
-  return offers.map(({id, location: {latitude, longitude}}) => (
-    {id, latitude, longitude}
+  return offers.map(({ id, location: { latitude, longitude } }) => (
+    { id, latitude, longitude }
   ));
 }
 

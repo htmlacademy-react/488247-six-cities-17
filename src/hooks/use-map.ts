@@ -7,7 +7,7 @@ import {Location} from '../types';
 export default function useMap(
   mapRef: MutableRefObject<HTMLElement | null>,
   location: Location,
-  scalable?: Zoom,
+  weelScalable?: Zoom,
 ): Map | null {
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
@@ -29,7 +29,7 @@ export default function useMap(
           lng: location.longitude,
         },
         zoom: location.zoom,
-        scrollWheelZoom: scalable,
+        scrollWheelZoom: weelScalable,
       });
 
       const layer = new TileLayer(
@@ -41,7 +41,7 @@ export default function useMap(
       setMap(instance);
       isRenderedRef.current = true;
     }
-  }, [mapRef, location, scalable]);
+  }, [mapRef, location, weelScalable]);
 
   return map;
 }

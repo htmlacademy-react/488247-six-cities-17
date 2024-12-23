@@ -38,7 +38,7 @@ const AuthStatus = {
   Unknown: 'UNKNOWN',
 } as const;
 
-const BlockPrefix = {
+const Prefix = {
   HeaderLogo: 'header__logo',
   FooterLogo: 'footer__logo',
   Cities: 'cities',
@@ -74,7 +74,7 @@ export {
   RATING_VALUES,
   AppRoute,
   AuthStatus,
-  BlockPrefix,
+  Prefix,
   Setting,
   MapSetting,
 };

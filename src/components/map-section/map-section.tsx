@@ -3,16 +3,16 @@ import {Icon, Marker, Zoom, layerGroup} from 'leaflet';
 
 import useMap from '../../hooks/use-map';
 
-import { BlockPrefix, MapSetting } from '../../const';
-import type { BlockPrefixType, Location, Point } from '../../types';
+import { Prefix, MapSetting } from '../../const';
+import type { PrefixType, Location, Point } from '../../types';
 import 'leaflet/dist/leaflet.css';
 
 type MapSectionProps = {
-  prefix?: BlockPrefixType;
-  cityLocation: Location;
+  prefix?: PrefixType;
+  location: Location;
   points: Point[];
   activeOfferId: string | null;
-  scalable?: Zoom;
+  weelScalable?: Zoom;
 };
 
 const defaultCustomIcon = new Icon({
@@ -28,26 +28,26 @@ const currentCustomIcon = new Icon({
 });
 
 export default function MapSection({
-  prefix = BlockPrefix.Cities,
-  cityLocation,
+  prefix = Prefix.Cities,
+  location,
   points,
   activeOfferId,
-  scalable,
+  weelScalable,
 }: MapSectionProps) {
   const mapRef = useRef(null);
-  const map = useMap(mapRef, cityLocation, scalable);
+  const map = useMap(mapRef, location, weelScalable);
 
   useEffect(() => {
     if (map) {
       const markerLayer = layerGroup().addTo(map);
-      points.forEach((point) => {
+      points.forEach(({id, latitude, longitude}) => {
         const marker = new Marker({
-          lat: point.latitude,
-          lng: point.longitude,
+          lat: latitude,
+          lng: longitude,
         });
 
         marker.setIcon(
-          activeOfferId !== null && point.id === activeOfferId
+          activeOfferId !== null && id === activeOfferId
             ? currentCustomIcon
             : defaultCustomIcon
         ).addTo(markerLayer);

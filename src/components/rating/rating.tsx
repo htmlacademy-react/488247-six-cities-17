@@ -1,8 +1,8 @@
 import { Setting } from '../../const';
-import { BlockPrefixType } from '../../types';
+import { PrefixType } from '../../types';
 
 type RatingProps = {
-  prefix: BlockPrefixType;
+  prefix: PrefixType;
   rating: number;
 }
 
