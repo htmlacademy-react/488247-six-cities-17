@@ -23,7 +23,7 @@ export default function MainPage({
 
   const activeCity = CITIES[activeCityIndex];
   const currentOffers = getOffersByCities()[activeCity];
-  const cityLocation = currentOffers[0].city.location;
+  const cityLocation = currentOffers[0]?.city.location;
   const points = getPoints(currentOffers);
 
   function handleMouseEnter(id: string) {
@@ -63,7 +63,7 @@ export default function MainPage({
                 onHandleMouseLeave={handleMouseLeave}
               />
               :
-              <CityNoOffers />}
+              <CityNoOffers city={activeCity} />}
             <CityMapSection
               offersCount={currentOffers.length}
               location={cityLocation}
