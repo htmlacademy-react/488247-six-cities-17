@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { generatePath, Link } from 'react-router-dom';
 
 import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
@@ -39,7 +39,7 @@ export default function OfferCard({
     >
       {isPremium && <PremiumMark prefix={Prefix.PlaceCard} />}
       <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>
-        <Link to={AppRoute.Offer.replace(':id', id)}>
+        <Link to={generatePath(AppRoute.Offer, {id})}>
           <img
             className="place-card__image"
             src={previewImage}

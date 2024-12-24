@@ -7,12 +7,12 @@ const offersByCities = CITIES.map((city) => [...mockOffers as Offers]
   .filter(({ city: { name } }) => city === name));
 
 const favoriteOffers = offersByCities
-  .map((city) => city.filter(({ isFavorite }) => isFavorite))
-  .filter((city) => city.length);
+  .map((cityOffers) => cityOffers.filter(({ isFavorite }) => isFavorite))
+  .filter((cityOffers) => cityOffers.length);
 
 function arrayToObject(array: Offers[]): { [city: string]: Offers } {
   return Object.fromEntries(
-    array.map((city) => [city[0].city.name, city])
+    array.map((cityOffers) => [cityOffers[0].city.name, cityOffers])
   );
 }
 
