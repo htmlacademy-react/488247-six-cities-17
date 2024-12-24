@@ -1,8 +1,14 @@
+import dayjs from 'dayjs';
+
 import OfferReviewsForm from './offer-reviews-form';
 import OfferReviewsItem from './offer-reviews-item';
 
 import { reviews } from '../../../mocks';
-import { Settings } from '../../../const';
+import { Setting } from '../../../const';
+
+const reviewsSlice = reviews.toSorted(
+  (reviewA, reviewB) => dayjs(reviewB.date).diff(dayjs(reviewA.date))
+).slice(0, Setting.MaxReviewsCount);
 
 export default function OfferReviewsList() {
   return (
@@ -11,9 +17,9 @@ export default function OfferReviewsList() {
         Reviews · <span className="reviews__amount">{reviews.length}</span>
       </h2>
       <ul className="reviews__list">
-        {reviews.map((review) => <OfferReviewsItem key={review.id} {...review} />)}
+        {reviewsSlice.map((review) => <OfferReviewsItem key={review.id} {...review} />)}
       </ul>
-      {Settings.IsLogged && <OfferReviewsForm />}
+      {Setting.IsLogged && <OfferReviewsForm />}
     </section>
   );
 }

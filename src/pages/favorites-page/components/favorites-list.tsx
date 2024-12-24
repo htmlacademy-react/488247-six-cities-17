@@ -1,8 +1,8 @@
 import OfferCard from '../../../components/offer-card/offer-card';
 import LocationItem from '../../../components/location-item/location-item';
 
-import { getFavorites } from '../../../data/data';
-import { BlockPrefix, CITIES } from '../../../const';
+import { getFavoriteOffers } from '../../../data/data';
+import { Prefix, CITIES } from '../../../const';
 import type { CityName, Offers } from '../../../types';
 
 type FavoritePlacesListProps = {
@@ -19,15 +19,15 @@ function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
       <OfferCard
         key={offer.id}
         {...offer}
-        prefix={BlockPrefix.Favorites}
+        prefix={Prefix.Favorites}
         width={150}
         height={110}
       />)
   );
 }
 
-export default function FavoritesList({onHandleClick}: FavoritesListProps) {
-  const favorites = getFavorites();
+export default function FavoritesList({ onHandleClick }: FavoritesListProps) {
+  const favorites = getFavoriteOffers();
 
   return (
     <section className="favorites">

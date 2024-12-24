@@ -1,7 +1,7 @@
 import OfferCard from '../../../components/offer-card/offer-card';
 
 import { getNearPlacesSlice } from '../../../data/data';
-import { BlockPrefix } from '../../../const';
+import { Prefix } from '../../../const';
 
 export default function NearPlacesList() {
   return (
@@ -11,7 +11,7 @@ export default function NearPlacesList() {
       </h2>
       <div className="near-places__list places__list">
         {getNearPlacesSlice().map((offer) => (
-          <OfferCard key={offer.id} {...offer} prefix={BlockPrefix.NearPlaces} />
+          <OfferCard key={offer.id} {...offer} prefix={Prefix.NearPlaces} />
         ))}
       </div>
     </section>

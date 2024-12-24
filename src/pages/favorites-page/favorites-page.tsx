@@ -5,26 +5,26 @@ import FavoritesList from './components/favorites-list';
 import FavoritesListEmpty from './components/favorites-list-empty';
 import Footer from '../../components/footer/footer';
 
-import { getFavoritesOfferCount } from '../../data/data';
+import { getFavoriteOffersCount } from '../../data/data';
 
-const offersCount = getFavoritesOfferCount();
+const offersCount = getFavoriteOffersCount();
 
 type FavoritesPageProps = {
   onHandleClick: (i: number) => void;
 }
 
-export default function FavoritesPage({onHandleClick}: FavoritesPageProps) {
+export default function FavoritesPage({ onHandleClick }: FavoritesPageProps) {
   return (
     <div className={clsx(
       'page',
-      {['page--favorites-empty']: !offersCount}
+      { ['page--favorites-empty']: !offersCount }
     )}
     >
       <Header />
       <main className={clsx(
         'page__main',
         'page__main--favorites',
-        {['page__main--favorites-empty']: !offersCount})}
+        { ['page__main--favorites-empty']: !offersCount })}
       >
         <div className="page__favorites-container container">
           {offersCount ?

@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
+import { generatePath, Link } from 'react-router-dom';
 
 import PremiumMark from '../premium-mark/premium-mark';
 import BookmarkButton from '../bookmark-button/bookmark-button';
 import Rating from '../rating/rating';
 
-import { AppRoute, BlockPrefix } from '../../const';
+import { AppRoute, Prefix } from '../../const';
 import { toCapitalize } from '../../utils';
-import type { BlockPrefixType, Offer } from '../../types';
+import type { PrefixType, Offer } from '../../types';
 
 type OfferCardProps = Offer & {
-  prefix?: BlockPrefixType;
+  prefix?: PrefixType;
   width?: number;
   height?: number;
   onHandleMouseEnter?: (id: string) => void;
@@ -25,7 +25,7 @@ export default function OfferCard({
   rating,
   isPremium,
   isFavorite,
-  prefix = BlockPrefix.Cities,
+  prefix = Prefix.Cities,
   width = 260,
   height = 200,
   onHandleMouseEnter,
@@ -37,9 +37,9 @@ export default function OfferCard({
       onMouseEnter={() => onHandleMouseEnter?.(id)}
       onMouseLeave={() => onHandleMouseLeave?.()}
     >
-      {isPremium && <PremiumMark prefix={BlockPrefix.PlaceCard} />}
+      {isPremium && <PremiumMark prefix={Prefix.PlaceCard} />}
       <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>
-        <Link to={AppRoute.Offer.replace(':id', id)}>
+        <Link to={generatePath(AppRoute.Offer, {id})}>
           <img
             className="place-card__image"
             src={previewImage}
@@ -56,11 +56,11 @@ export default function OfferCard({
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <BookmarkButton
-            prefix={BlockPrefix.PlaceCard}
+            prefix={Prefix.PlaceCard}
             isFavorite={isFavorite}
           />
         </div>
-        <Rating prefix={BlockPrefix.PlaceCard} rating={rating} />
+        <Rating prefix={Prefix.PlaceCard} rating={rating} />
         <h2 className="place-card__name">
           <Link to={AppRoute.Offer.replace(':id', id)}>{title}</Link>
         </h2>

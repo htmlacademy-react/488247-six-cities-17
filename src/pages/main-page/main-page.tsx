@@ -66,7 +66,7 @@ export default function MainPage({
               <CityNoOffers />}
             <CityMapSection
               offersCount={currentOffers.length}
-              cityLocation={cityLocation}
+              location={cityLocation}
               points={points}
               activeOfferId={activeOfferId}
             />

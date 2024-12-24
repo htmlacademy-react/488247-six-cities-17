@@ -4,14 +4,14 @@ import { Location, Point } from '../../../types';
 
 type CityMapSectionProps = {
   offersCount: number;
-  cityLocation: Location;
+  location: Location;
   points: Point[];
   activeOfferId: string | null;
 }
 
 export default function CityMapSection({
   offersCount,
-  cityLocation,
+  location,
   points,
   activeOfferId,
 }: CityMapSectionProps) {
@@ -19,10 +19,10 @@ export default function CityMapSection({
     <div className="cities__right-section">
       {offersCount &&
         <MapSection
-          cityLocation={cityLocation}
+          location={location}
           points={points}
           activeOfferId={activeOfferId}
-          scalable
+          weelScalable
         />}
     </div>
   );

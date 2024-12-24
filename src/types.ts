@@ -1,10 +1,10 @@
-import { AuthStatus, BlockPrefix, CITIES, OFFER_TYPES } from './const';
+import { AuthStatus, Prefix, CITIES, OFFER_TYPES } from './const';
 
 type CityName = typeof CITIES[number];
 
 type OfferType = typeof OFFER_TYPES[number];
 
-type BlockPrefixType = typeof BlockPrefix[keyof typeof BlockPrefix];
+type PrefixType = typeof Prefix[keyof typeof Prefix];
 
 type SortType = 'Popular'
 | 'Price: low to high'
@@ -43,9 +43,7 @@ type User = {
   avatarUrl: string;
 }
 
-type FullOffer = Omit<Offer,
-| 'previewImage'
- > & {
+type FullOffer = Omit<Offer, 'previewImage'> & {
   description: string;
   images: string[];
   goods: string[];
@@ -76,7 +74,7 @@ type Point = {
 export type {
   CityName,
   OfferType,
-  BlockPrefixType,
+  PrefixType,
   SortType,
   Offer,
   Offers,

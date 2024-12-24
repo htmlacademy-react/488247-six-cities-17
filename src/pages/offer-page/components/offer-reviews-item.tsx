@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 import Rating from '../../../components/rating/rating';
 
-import { BlockPrefix } from '../../../const';
+import { Prefix } from '../../../const';
 import type { Response } from '../../../types';
 
 export default function OfferReviewsItem({
@@ -25,7 +25,7 @@ export default function OfferReviewsItem({
         <span className="reviews__user-name">{name}</span>
       </div>
       <div className="reviews__info">
-        <Rating prefix={BlockPrefix.Reviews} rating={rating} />
+        <Rating prefix={Prefix.Reviews} rating={rating} />
         <p className="reviews__text">{comment}</p>
         <time className="reviews__time" dateTime={`${dayjs(date).format('YYYY-MM-DD')}`}>
           {`${dayjs(date).format('MMMM YYYY')}`}
