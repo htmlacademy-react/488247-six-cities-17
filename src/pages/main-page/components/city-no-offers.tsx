@@ -1,10 +1,8 @@
-import { CityName } from '../../../types';
+import { selectCity } from '../../../features/cities/citiesSlice';
+import { useAppSelector } from '../../../store/hooks';
 
-type CityNoOffersProps = {
-  city: CityName;
-}
-
-export default function CityNoOffers({city}: CityNoOffersProps) {
+export default function CityNoOffers() {
+  const city = useAppSelector(selectCity);
   return (
     <section className="cities__no-places">
       <div className="cities__status-wrapper tabs__content">

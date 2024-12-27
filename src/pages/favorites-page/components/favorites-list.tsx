@@ -2,15 +2,11 @@ import OfferCard from '../../../components/offer-card/offer-card';
 import LocationItem from '../../../components/location-item/location-item';
 
 import { getFavoriteOffers } from '../../../data/data';
-import { Prefix, CITIES } from '../../../const';
+import { Prefix } from '../../../const';
 import type { CityName, Offers } from '../../../types';
 
 type FavoritePlacesListProps = {
   offers: Offers;
-}
-
-type FavoritesListProps = {
-  onHandleClick: (i: number) => void;
 }
 
 function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
@@ -26,7 +22,7 @@ function FavoritePlacesList({ offers }: FavoritePlacesListProps) {
   );
 }
 
-export default function FavoritesList({ onHandleClick }: FavoritesListProps) {
+export default function FavoritesList() {
   const favorites = getFavoriteOffers();
 
   return (
@@ -39,11 +35,7 @@ export default function FavoritesList({ onHandleClick }: FavoritesListProps) {
             className="favorites__locations-items"
           >
             <div className="favorites__locations locations locations--current">
-              <LocationItem
-                city={city}
-                index={CITIES.indexOf(city as CityName)}
-                onHandleClick={onHandleClick}
-              />
+              <LocationItem city={city as CityName} />
             </div>
             <div className="favorites__places">
               <FavoritePlacesList offers={favorites[city]} />

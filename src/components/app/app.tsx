@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
 
 import MainPage from '../../pages/main-page/main-page';
 import LoginPage from '../../pages/login-page/login-page';
@@ -15,40 +14,25 @@ import { AppRoute, AuthStatus, Setting } from '../../const';
 const authStatus = Setting.IsLogged ? AuthStatus.Auth : AuthStatus.NoAuth;
 
 export default function App() {
-  const [activeCityIndex, setActiveCityIndex] = useState<number>(0);
-
-  function handleClick(i: number) {
-    return setActiveCityIndex(i);
-  }
 
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route
-          path={AppRoute.Main} element={
-            <MainPage
-              activeCityIndex={activeCityIndex}
-              onHandleClick={handleClick}
-            />
-          }
+          path={AppRoute.Main} element={<MainPage />}
         />
         <Route
           path={AppRoute.Login} element={
             <PublicRoute authStatus={authStatus}>
-              <LoginPage
-                activeCityIndex={activeCityIndex}
-                onHandleClick={handleClick}
-              />
+              <LoginPage />
             </PublicRoute>
           }
         />
         <Route
           path={AppRoute.Favorites} element={
             <PrivateRoute authStatus={authStatus}>
-              <FavoritesPage
-                onHandleClick={handleClick}
-              />
+              <FavoritesPage />
             </PrivateRoute>
           }
         />

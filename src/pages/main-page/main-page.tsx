@@ -6,25 +6,17 @@ import LocationsList from '../../components/locations-list/locations-list';
 import CityOffers from './components/city-offers';
 import CityNoOffers from './components/city-no-offers';
 import CityMapSection from './components/city-map-section';
-import { getOffersByCities, getPoints } from '../../data/data';
 
-import { CITIES } from '../../const';
+import { getPoints } from '../../data/data';
+import { useAppSelector } from '../../store/hooks';
+import { selectOffers } from '../../features/cities/citiesSlice';
 
-type MainPageProps = {
-  activeCityIndex: number;
-  onHandleClick: (i: number) => void;
-}
-
-export default function MainPage({
-  activeCityIndex,
-  onHandleClick,
-}: MainPageProps) {
+export default function MainPage() {
   const [activeOfferId, setActiveOfferId] = useState<string | null>(null);
+  const offers = useAppSelector(selectOffers);
 
-  const activeCity = CITIES[activeCityIndex];
-  const currentOffers = getOffersByCities()[activeCity];
-  const cityLocation = currentOffers[0]?.city.location;
-  const points = getPoints(currentOffers);
+  const cityLocation = offers[0]?.city.location;
+  const points = getPoints(offers);
 
   function handleMouseEnter(id: string) {
     setActiveOfferId(id);
@@ -42,30 +34,24 @@ export default function MainPage({
       <main className={clsx(
         'page__main',
         'page__main--index',
-        {['page__main--index-empty']: !currentOffers.length})}
+        {['page__main--index-empty']: !offers.length})}
       >
         <h1 className="visually-hidden">Cities</h1>
-        <LocationsList
-          activeCityIndex={activeCityIndex}
-          onHandleClick={onHandleClick}
-        />
+        <LocationsList />
         <div className="cities">
           <div className={clsx(
             'cities__places-container',
-            {['cities__places-container--empty']: !currentOffers.length},
+            {['cities__places-container--empty']: !offers.length},
             'container')}
           >
-            {currentOffers.length ?
+            {offers.length ?
               <CityOffers
-                activeCity={activeCity}
-                offers={currentOffers}
                 onHandleMouseEnter={handleMouseEnter}
                 onHandleMouseLeave={handleMouseLeave}
               />
               :
-              <CityNoOffers city={activeCity} />}
+              <CityNoOffers />}
             <CityMapSection
-              offersCount={currentOffers.length}
               location={cityLocation}
               points={points}
               activeOfferId={activeOfferId}

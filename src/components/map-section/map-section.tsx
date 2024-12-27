@@ -12,19 +12,19 @@ type MapSectionProps = {
   location: Location;
   points: Point[];
   activeOfferId: string | null;
-  weelScalable?: Zoom;
+  scalableWithWheel?: Zoom;
 };
 
 const defaultCustomIcon = new Icon({
   iconUrl: MapSetting.MarkerDefaultUrl,
   iconSize: MapSetting.MarkerSize,
-  iconAnchor: MapSetting.MarkerAncor,
+  iconAnchor: MapSetting.MarkerAnchor,
 });
 
 const currentCustomIcon = new Icon({
   iconUrl: MapSetting.MarkerActiveUrl,
   iconSize: MapSetting.MarkerSize,
-  iconAnchor: MapSetting.MarkerAncor,
+  iconAnchor: MapSetting.MarkerAnchor,
 });
 
 export default function MapSection({
@@ -32,10 +32,10 @@ export default function MapSection({
   location,
   points,
   activeOfferId,
-  weelScalable,
+  scalableWithWheel,
 }: MapSectionProps) {
   const mapRef = useRef(null);
-  const map = useMap(mapRef, location, weelScalable);
+  const map = useMap(mapRef, location, scalableWithWheel);
 
   useEffect(() => {
     if (map) {
