@@ -1,21 +1,14 @@
 import MapSection from '../../../components/map-section/map-section';
 import { selectOffers } from '../../../features/cities/citiesSlice';
+import { selectActiveOfferId, selectLocation, selectPoints } from '../../../features/maps/mapsSlice';
 import { useAppSelector } from '../../../store/hooks';
 
-import { Location, Point } from '../../../types';
-
-type CityMapSectionProps = {
-  location: Location;
-  points: Point[];
-  activeOfferId: string | null;
-}
-
-export default function CityMapSection({
-  location,
-  points,
-  activeOfferId,
-}: CityMapSectionProps) {
+export default function CityMapSection() {
   const offersCount = useAppSelector(selectOffers).length;
+  const location = useAppSelector(selectLocation);
+  const points = useAppSelector(selectPoints);
+  const activeOfferId = useAppSelector(selectActiveOfferId);
+
   return (
     <div className="cities__right-section">
       {offersCount &&

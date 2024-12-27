@@ -1,20 +1,20 @@
+import { useEffect } from 'react';
+
 import PlacesSortingList from '../../../components/places-sorting-list/places-sorting-list';
 import OfferCard from '../../../components/offer-card/offer-card';
 
-import { useAppSelector } from '../../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { selectCity, selectOffers } from '../../../features/cities/citiesSlice';
+import { setActiveOfferId } from '../../../features/maps/mapsSlice';
 
-type CityOffersProps = {
-  onHandleMouseEnter: (id: string) => void;
-  onHandleMouseLeave: () => void;
-}
-
-export default function CityOffers({
-  onHandleMouseEnter,
-  onHandleMouseLeave,
-}: CityOffersProps) {
+export default function CityOffers() {
+  const dispatch = useAppDispatch();
   const city = useAppSelector(selectCity);
   const offers = useAppSelector(selectOffers);
+
+  useEffect(() => {
+    dispatch(setActiveOfferId(null));
+  }, [dispatch]);
 
   return (
     <section
@@ -28,12 +28,7 @@ export default function CityOffers({
       <PlacesSortingList />
       <div className="cities__places-list places__list tabs__content">
         {offers.map((offer) => (
-          <OfferCard
-            key={offer.id}
-            {...offer}
-            onHandleMouseEnter={onHandleMouseEnter}
-            onHandleMouseLeave={onHandleMouseLeave}
-          />
+          <OfferCard key={offer.id} {...offer} activePoint />
         ))}
       </div>
     </section>
