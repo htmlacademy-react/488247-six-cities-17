@@ -2,19 +2,21 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import type { RootState } from '../../store/store';
 import { getOffersByCities } from '../../data/data';
-import { CITIES } from '../../const';
-import type { CityName, Offers } from '../../types';
+import { CITIES, Sorting } from '../../const';
+import type { CityName, Offers, SortingType } from '../../types';
 
 const offersByCities = getOffersByCities();
 
 type CitiesState = {
-  currentCity: CityName;
-  currentOffers: Offers;
+  city: CityName;
+  offers: Offers;
+  sorting: SortingType;
 }
 
 const initialState: CitiesState = {
-  currentCity: CITIES[0],
-  currentOffers: offersByCities[CITIES[0]],
+  city: CITIES[0],
+  offers: offersByCities[CITIES[0]],
+  sorting: Sorting.Popular,
 };
 
 export const citiesSlice = createSlice({
@@ -22,17 +24,21 @@ export const citiesSlice = createSlice({
   initialState,
   reducers: {
     setCity: (state, action: PayloadAction<CityName>) => {
-      state.currentCity = action.payload;
+      state.city = action.payload;
     },
     setOffers: (state, action: PayloadAction<Offers>) => {
-      state.currentOffers = action.payload;
-    }
+      state.offers = action.payload;
+    },
+    setSorting: (state, action: PayloadAction<SortingType>) => {
+      state.sorting = action.payload;
+    },
   }
 });
 
-export const { setCity, setOffers } = citiesSlice.actions;
+export const { setCity, setOffers, setSorting } = citiesSlice.actions;
 
-export const selectCity = (state: RootState) => state.city.currentCity;
-export const selectOffers = (state: RootState) => state.city.currentOffers;
+export const selectCity = (state: RootState) => state.city.city;
+export const selectOffers = (state: RootState) => state.city.offers;
+export const selectSorting = (state: RootState) => state.city.sorting;
 
 export default citiesSlice.reducer;

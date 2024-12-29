@@ -4,13 +4,17 @@ import PlacesSortingList from '../../../components/places-sorting-list/places-so
 import OfferCard from '../../../components/offer-card/offer-card';
 
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { selectCity, selectOffers } from '../../../features/cities/citiesSlice';
+import { selectCity, selectOffers, selectSorting } from '../../../features/cities/citiesSlice';
 import { setActiveOfferId } from '../../../features/maps/mapsSlice';
+import { getSortedOffers } from '../../../data/data';
 
 export default function CityOffers() {
   const dispatch = useAppDispatch();
   const city = useAppSelector(selectCity);
   const offers = useAppSelector(selectOffers);
+  const currentSorting = useAppSelector(selectSorting);
+
+  const sortedOffers = getSortedOffers(currentSorting, offers);
 
   useEffect(() => {
     dispatch(setActiveOfferId(null));
@@ -27,7 +31,7 @@ export default function CityOffers() {
       </b>
       <PlacesSortingList />
       <div className="cities__places-list places__list tabs__content">
-        {offers.map((offer) => (
+        {sortedOffers.map((offer) => (
           <OfferCard key={offer.id} {...offer} activePoint />
         ))}
       </div>

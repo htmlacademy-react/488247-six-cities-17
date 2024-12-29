@@ -1,36 +1,48 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import SortingType from './components/sorting-type';
+import SortingItem from './components/sorting-item';
+import { Sorting } from '../../const';
+import { useAppSelector } from '../../store/hooks';
+import { selectSorting } from '../../features/cities/citiesSlice';
 
-import type { SortType } from '../../types';
-
-
-const sortingTypeList: SortType[] = [
-  'Popular',
-  'Price: low to high',
-  'Price: high to low',
-  'Top rated first',
+const sortingList = [
+  Sorting.Popular,
+  Sorting.PriceFromLow,
+  Sorting.PriceFromHight,
+  Sorting.TopRated,
 ];
 
 export default function PlacesSortingList() {
+  const sortSpanRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState<boolean>(false);
-  const [activeSort, setActiveSort] = useState<number>(0);
+  const activeSorting = useAppSelector(selectSorting);
 
-  function changeSortType(index: number): void {
-    setActiveSort(index);
-    setOpen(((prev: boolean) => !prev));
-  }
+  useEffect(() => {
+    const hideSortingList = (evt: MouseEvent) => {
+      if (evt.target instanceof HTMLElement
+        && sortSpanRef.current
+        && !sortSpanRef.current.contains(evt.target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener('click', hideSortingList);
+
+    return () => document.removeEventListener('click', hideSortingList);
+  }, []);
 
   return (
     <form className="places__sorting" action='/' method="get">
       <span className="places__sorting-caption">Sort by</span>&nbsp;
       <span
-        onClick={() => setOpen((prev) => !prev)}
+        ref={sortSpanRef}
         className="places__sorting-type"
         tabIndex={0}
+        onClick={() => setOpen((prev) => !prev)}
       >
-        {sortingTypeList[activeSort]}
+        {activeSorting}
         <svg className="places__sorting-arrow" width={7} height={4}>
           <use xlinkHref="#icon-arrow-select" />
         </svg>
@@ -38,16 +50,10 @@ export default function PlacesSortingList() {
       <ul className={clsx(
         'places__options',
         'places__options--custom',
-        {'places__options--opened': open})}
+        { 'places__options--opened': open })}
       >
-        {sortingTypeList.map((sorting, index) => (
-          <SortingType
-            key={sorting}
-            sorting={sorting}
-            index={index}
-            activeSort={activeSort}
-            onChangeSortType={changeSortType}
-          />
+        {sortingList.map((sorting) => (
+          <SortingItem key={sorting} sorting={sorting} />
         ))}
       </ul>
     </form>
