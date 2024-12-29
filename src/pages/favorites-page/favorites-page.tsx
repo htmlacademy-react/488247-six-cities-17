@@ -13,14 +13,14 @@ export default function FavoritesPage() {
   return (
     <div className={clsx(
       'page',
-      { ['page--favorites-empty']: !offersCount }
+      { 'page--favorites-empty': !offersCount }
     )}
     >
       <Header />
       <main className={clsx(
         'page__main',
         'page__main--favorites',
-        { ['page__main--favorites-empty']: !offersCount })}
+        { 'page__main--favorites-empty': !offersCount })}
       >
         <div className="page__favorites-container container">
           {offersCount ? <FavoritesList /> : <FavoritesListEmpty />}

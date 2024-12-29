@@ -3,14 +3,14 @@ import clsx from 'clsx';
 import type { SortType } from '../../../types';
 
 type SortingTypeProps = {
-  sortType: SortType;
+  sorting: SortType;
   index: number;
   activeSort: number;
   onChangeSortType: (i: number) => void;
 }
 
 export default function SortingType({
-  sortType,
+  sorting,
   index,
   activeSort,
   onChangeSortType
@@ -19,12 +19,12 @@ export default function SortingType({
     <li
       className={clsx(
         'places__option',
-        {['places__option--active']: index === activeSort}
+        {'places__option--active': index === activeSort}
       )}
       tabIndex={0}
       onClick={() => onChangeSortType(index)}
     >
-      {sortType}
+      {sorting}
     </li>
   );
 }

@@ -1,16 +1,22 @@
+import clsx from 'clsx';
 import type { User } from '../../../types';
 
 type OfferHostProps = {
-  host : User;
+  host: User;
   description: string;
 }
 
-export default function OfferHost({host: {avatarUrl, name, isPro}, description}: OfferHostProps) {
+export default function OfferHost({ host: { avatarUrl, name, isPro }, description }: OfferHostProps) {
   return (
     <div className="offer__host">
       <h2 className="offer__host-title">Meet the host</h2>
       <div className="offer__host-user user">
-        <div className="offer__avatar-wrapper offer__avatar-wrapper--pro user__avatar-wrapper">
+        <div className={clsx(
+          'offer__avatar-wrapper',
+          { 'offer__avatar-wrapper--pro': isPro },
+          'user__avatar-wrapper',
+        )}
+        >
           <img
             className="offer__avatar user__avatar"
             src={avatarUrl}

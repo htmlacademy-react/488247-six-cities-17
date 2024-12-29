@@ -32,6 +32,6 @@ export function getPoints(offers: Offers) {
   ));
 }
 
-export function getNearPlacesSlice() {
+export function getSlicedNearPlaces() {
   return nearPlaces.slice(0, Setting.NearPlaces) as Offers;
 }

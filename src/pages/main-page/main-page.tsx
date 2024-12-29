@@ -20,14 +20,14 @@ export default function MainPage() {
       <main className={clsx(
         'page__main',
         'page__main--index',
-        {['page__main--index-empty']: !offersCount})}
+        { 'page__main--index-empty': !offersCount })}
       >
         <h1 className="visually-hidden">Cities</h1>
         <LocationsList />
         <div className="cities">
           <div className={clsx(
             'cities__places-container',
-            {['cities__places-container--empty']: !offersCount},
+            { 'cities__places-container--empty': !offersCount },
             'container')}
           >
             {offersCount ? <CityOffers /> : <CityNoOffers />}

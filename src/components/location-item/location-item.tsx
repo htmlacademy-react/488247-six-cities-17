@@ -25,7 +25,7 @@ export default function LocationItem({ city, tabItem }: LocationItemProps) {
     if (currentCity !== city) {
       dispatch(setCity(city));
       dispatch(setOffers(offersByCities[city]));
-      dispatch(setLocation(offers[0].city.location));
+      dispatch(setLocation(offers[0]?.city.location));
       dispatch(setPoints(getPoints(offers)));
     }
   }
@@ -38,7 +38,7 @@ export default function LocationItem({ city, tabItem }: LocationItemProps) {
             clsx(
               'locations__item-link',
               'tabs__item',
-              { ['tabs__item--active']: city === currentCity })
+              { 'tabs__item--active': city === currentCity })
           }
           to={AppRoute.Main}
         >
