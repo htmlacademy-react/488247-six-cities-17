@@ -68,6 +68,13 @@ const MapSetting = {
   Copyright: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 } as const;
 
+const Sorting = {
+  Popular: 'Popular',
+  PriceFromLow: 'Price: low to high',
+  PriceFromHight: 'Price: high to low',
+  TopRated: 'Top rated first',
+} as const;
+
 export {
   CITIES,
   OFFER_TYPES,
@@ -77,4 +84,5 @@ export {
   Prefix,
   Setting,
   MapSetting,
+  Sorting,
 };

@@ -1,4 +1,4 @@
-import { AuthStatus, Prefix, CITIES, OFFER_TYPES } from './const';
+import { AuthStatus, Prefix, CITIES, OFFER_TYPES, Sorting } from './const';
 
 type CityName = typeof CITIES[number];
 
@@ -6,10 +6,7 @@ type OfferType = typeof OFFER_TYPES[number];
 
 type PrefixType = typeof Prefix[keyof typeof Prefix];
 
-type SortType = 'Popular'
-| 'Price: low to high'
-| 'Price: high to low'
-| 'Top rated first';
+type SortingType = typeof Sorting[keyof typeof Sorting];
 
 type Offer = {
   id: string;
@@ -77,7 +74,7 @@ export type {
   CityName,
   OfferType,
   PrefixType,
-  SortType,
+  SortingType,
   Offer,
   Offers,
   Location,

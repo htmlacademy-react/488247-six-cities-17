@@ -1,7 +1,20 @@
 import { offers as mockOffers, nearPlaces } from '../mocks';
 
-import { CITIES, Setting } from '../const';
-import type { Offers } from '../types';
+import { CITIES, Setting, Sorting } from '../const';
+import type { Offers, SortingType } from '../types';
+
+const sortBy = {
+  [Sorting.Popular]: (offers: Offers) => offers,
+  [Sorting.PriceFromLow]: (offers: Offers) => offers.toSorted(
+    (firstOffer, secondOffer) => firstOffer.price - secondOffer.price
+  ),
+  [Sorting.PriceFromHight]: (offers: Offers) => offers.toSorted(
+    (firstOffer, secondOffer) => secondOffer.price - firstOffer.price
+  ),
+  [Sorting.TopRated]: (offers: Offers) => offers.toSorted(
+    (firstOffer, secondOffer) => secondOffer.rating - firstOffer.rating
+  ),
+};
 
 const offersByCities = CITIES.map((city) => [...mockOffers as Offers]
   .filter(({ city: { name } }) => city === name));
@@ -34,4 +47,8 @@ export function getPoints(offers: Offers) {
 
 export function getSlicedNearPlaces() {
   return nearPlaces.slice(0, Setting.NearPlaces) as Offers;
+}
+
+export function getSortedOffers(sorting: SortingType, offers: Offers) {
+  return sortBy[sorting](offers);
 }
