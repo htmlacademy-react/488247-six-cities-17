@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 
-import { getOffersByCities, getPoints } from '../../data/data';
+import { getOffersByCities } from '../../data/data';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { selectCity, setCity, setOffers } from '../../features/cities/citiesSlice';
-import { setLocation, setPoints } from '../../features/maps/mapsSlice';
 import { AppRoute } from '../../const';
 import { CityName } from '../../types';
 
@@ -19,14 +18,10 @@ export default function LocationItem({ city, tabItem }: LocationItemProps) {
   const currentCity = useAppSelector(selectCity);
   const dispatch = useAppDispatch();
 
-  const offers = offersByCities[city];
-
   function handleCityChange() {
     if (currentCity !== city) {
       dispatch(setCity(city));
       dispatch(setOffers(offersByCities[city]));
-      dispatch(setLocation(offers[0]?.city.location));
-      dispatch(setPoints(getPoints(offers)));
     }
   }
 
