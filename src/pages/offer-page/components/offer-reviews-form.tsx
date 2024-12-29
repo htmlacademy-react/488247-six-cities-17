@@ -3,8 +3,7 @@ import { ChangeEvent, useState } from 'react';
 import RatingStar from './rating-star';
 
 import { Setting, RATING_VALUES } from '../../../const';
-
-type Rating = 1 | 2 | 3 | 4 | 5 | null;
+import type { Rating } from '../../../types';
 
 type FormData = {
   rating: Rating;

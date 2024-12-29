@@ -1,18 +1,12 @@
 import Header from '../../components/header/header';
 import LocationItem from '../../components/location-item/location-item';
 
-import { CITIES } from '../../const';
+import { selectCity } from '../../features/cities/citiesSlice';
+import { useAppSelector } from '../../store/hooks';
 
+export default function LoginPage() {
+  const city = useAppSelector(selectCity);
 
-type LoginPageProps = {
-  activeCityIndex: number;
-  onHandleClick: (i: number) => void;
-}
-
-export default function LoginPage({
-  activeCityIndex,
-  onHandleClick,
-}: LoginPageProps) {
   return (
     <div className="page page--gray page--login">
       <Header />
@@ -47,11 +41,7 @@ export default function LoginPage({
             </form>
           </section>
           <section className="locations locations--login locations--current">
-            <LocationItem
-              city={CITIES[activeCityIndex]}
-              onHandleClick={onHandleClick}
-              index={activeCityIndex}
-            />
+            <LocationItem city={city} />
           </section>
         </div>
       </main>

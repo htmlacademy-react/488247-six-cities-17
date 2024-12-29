@@ -1,9 +1,10 @@
 import { ChangeEvent } from 'react';
+import type { Rating } from '../../../types';
 
 type RatingStarProps = {
   count: number;
   title: string;
-  rating: number | null;
+  rating: Rating;
   onHandleInputChange: (evt: ChangeEvent<HTMLInputElement>) => void;
 }
 

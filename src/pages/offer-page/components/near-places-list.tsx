@@ -1,6 +1,6 @@
 import OfferCard from '../../../components/offer-card/offer-card';
 
-import { getNearPlacesSlice } from '../../../data/data';
+import { getSlicedNearPlaces } from '../../../data/data';
 import { Prefix } from '../../../const';
 
 export default function NearPlacesList() {
@@ -10,7 +10,7 @@ export default function NearPlacesList() {
         Other places in the neighborhood
       </h2>
       <div className="near-places__list places__list">
-        {getNearPlacesSlice().map((offer) => (
+        {getSlicedNearPlaces().map((offer) => (
           <OfferCard key={offer.id} {...offer} prefix={Prefix.NearPlaces} />
         ))}
       </div>

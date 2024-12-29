@@ -7,13 +7,14 @@ import Rating from '../rating/rating';
 import { AppRoute, Prefix } from '../../const';
 import { toCapitalize } from '../../utils';
 import type { PrefixType, Offer } from '../../types';
+import { useAppDispatch } from '../../store/hooks';
+import { setActiveOfferId } from '../../features/maps/mapsSlice';
 
 type OfferCardProps = Offer & {
   prefix?: PrefixType;
   width?: number;
   height?: number;
-  onHandleMouseEnter?: (id: string) => void;
-  onHandleMouseLeave?: () => void;
+  activePoint?: boolean;
 }
 
 export default function OfferCard({
@@ -28,14 +29,23 @@ export default function OfferCard({
   prefix = Prefix.Cities,
   width = 260,
   height = 200,
-  onHandleMouseEnter,
-  onHandleMouseLeave,
+  activePoint,
 }: OfferCardProps) {
+  const dispatch = useAppDispatch();
+
+  function handleMouseEnter() {
+    dispatch(setActiveOfferId(id));
+  }
+
+  function handleMouseLeave() {
+    dispatch(setActiveOfferId(null));
+  }
+
   return (
     <article
       className={`${prefix}__card place-card`}
-      onMouseEnter={() => onHandleMouseEnter?.(id)}
-      onMouseLeave={() => onHandleMouseLeave?.()}
+      onMouseEnter={() => activePoint && handleMouseEnter()}
+      onMouseLeave={() => activePoint && handleMouseLeave()}
     >
       {isPremium && <PremiumMark prefix={Prefix.PlaceCard} />}
       <div className={`${prefix}__image-wrapper place-card__image-wrapper`}>

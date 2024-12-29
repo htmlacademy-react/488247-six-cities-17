@@ -63,9 +63,9 @@ const MapSetting = {
   MarkerDefaultUrl: '/img/pin.svg',
   MarkerActiveUrl: '/img/pin-active.svg',
   MarkerSize: [27, 39] as PointExpression,
-  MarkerAncor: [14, 39] as PointExpression,
+  MarkerAnchor: [14, 39] as PointExpression,
   Layer: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-  Copiright: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  Copyright: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
 } as const;
 
 export {

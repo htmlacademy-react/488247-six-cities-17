@@ -2,7 +2,7 @@ import { nanoid } from '@reduxjs/toolkit';
 
 import { Setting } from '../../../const';
 
-type OfferiImageProps = {
+type OfferImageProps = {
   image: string;
 }
 
@@ -10,7 +10,7 @@ type OfferGalleryProps = {
   images: string[];
 }
 
-function OfferImage({image}: OfferiImageProps) {
+function OfferImage({image}: OfferImageProps) {
   return (
     <div className="offer__image-wrapper">
       <img

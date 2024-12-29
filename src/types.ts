@@ -52,6 +52,8 @@ type FullOffer = Omit<Offer, 'previewImage'> & {
   maxAdults: number;
 }
 
+type Rating = 1 | 2 | 3 | 4 | 5 | null;
+
 type Response = {
   id: string;
   date: string;
@@ -82,6 +84,7 @@ export type {
   City,
   User,
   FullOffer,
+  Rating,
   Response,
   ModifiedRouteProps,
   Point,

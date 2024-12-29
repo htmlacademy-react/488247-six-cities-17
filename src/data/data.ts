@@ -10,22 +10,20 @@ const favoriteOffers = offersByCities
   .map((cityOffers) => cityOffers.filter(({ isFavorite }) => isFavorite))
   .filter((cityOffers) => cityOffers.length);
 
-function arrayToObject(array: Offers[]): { [city: string]: Offers } {
-  return Object.fromEntries(
-    array.map((cityOffers) => [cityOffers[0].city.name, cityOffers])
-  );
-}
-
 export function getFavoriteOffersCount() {
   return favoriteOffers.reduce((sum, cityOffers) => sum + cityOffers.length, 0);
 }
 
 export function getOffersByCities() {
-  return arrayToObject(offersByCities);
+  return Object.fromEntries(
+    CITIES.map((city, index) => [city, offersByCities[index]])
+  );
 }
 
 export function getFavoriteOffers() {
-  return arrayToObject(favoriteOffers);
+  return Object.fromEntries(
+    favoriteOffers.map((cityOffers) => [cityOffers[0].city.name, cityOffers])
+  );
 }
 
 export function getPoints(offers: Offers) {
@@ -34,6 +32,6 @@ export function getPoints(offers: Offers) {
   ));
 }
 
-export function getNearPlacesSlice() {
+export function getSlicedNearPlaces() {
   return nearPlaces.slice(0, Setting.NearPlaces) as Offers;
 }

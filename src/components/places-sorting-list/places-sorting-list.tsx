@@ -38,12 +38,12 @@ export default function PlacesSortingList() {
       <ul className={clsx(
         'places__options',
         'places__options--custom',
-        {['places__options--opened']: open})}
+        {'places__options--opened': open})}
       >
-        {sortingTypeList.map((sortType, index) => (
+        {sortingTypeList.map((sorting, index) => (
           <SortingType
-            key={sortType}
-            sortType={sortType}
+            key={sorting}
+            sorting={sorting}
             index={index}
             activeSort={activeSort}
             onChangeSortType={changeSortType}

@@ -11,7 +11,7 @@ import NearPlacesList from './components/near-places-list';
 import MapSection from '../../components/map-section/map-section';
 
 import { fullOffer } from '../../mocks';
-import { getNearPlacesSlice, getPoints } from '../../data/data';
+import { getSlicedNearPlaces, getPoints } from '../../data/data';
 import { Prefix } from '../../const';
 import type { FullOffer } from '../../types';
 
@@ -36,7 +36,7 @@ const {
 export default function OfferPage() {
   const cityLocation = city.location;
   const currentPoint = {id, latitude, longitude};
-  const points = [...getPoints(getNearPlacesSlice()), currentPoint];
+  const points = [...getPoints(getSlicedNearPlaces()), currentPoint];
 
   return (
     <div className="page">

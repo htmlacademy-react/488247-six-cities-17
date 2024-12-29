@@ -7,7 +7,7 @@ import {Location} from '../types';
 export default function useMap(
   mapRef: MutableRefObject<HTMLElement | null>,
   location: Location,
-  weelScalable?: Zoom,
+  scalableWithWheel?: Zoom,
 ): Map | null {
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
@@ -20,11 +20,11 @@ export default function useMap(
           lng: location.longitude,
         },
         zoom: location.zoom,
-        scrollWheelZoom: weelScalable,
+        scrollWheelZoom: scalableWithWheel,
       });
 
       const layer = new TileLayer(
-        MapSetting.Layer, { attribution: MapSetting.Copiright }
+        MapSetting.Layer, { attribution: MapSetting.Copyright }
       );
 
       instance.addLayer(layer);
@@ -32,7 +32,7 @@ export default function useMap(
       setMap(instance);
       isRenderedRef.current = true;
     }
-  }, [mapRef, location, weelScalable]);
+  }, [mapRef, location, scalableWithWheel]);
 
   return map;
 }
